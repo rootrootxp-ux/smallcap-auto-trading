@@ -1,0 +1,54 @@
+{
+  "baseline_commit": "1a488e3083d446baebaa07e5e700e10be66ea1fc",
+  "baseline_run": 40209137371,
+  "baseline_start": "2026-09-08",
+  "baseline_end_exclusive": "2026-10-24",
+  "candidate_start": "2026-08-28",
+  "candidate_end_exclusive": "2026-09-08",
+  "interval": "5m",
+  "initial_cash": 1000000,
+  "max_order_yen": 300000,
+  "lot": 100,
+  "strategies": [
+    "MAのみ",
+    "VWAP+出来高",
+    "高値ブレイク+出来高"
+  ],
+  "slippage_yen": [
+    1.0,
+    2.0
+  ],
+  "costs": [
+    {
+      "name": "費用ゼロ",
+      "fee_yen": 0,
+      "fee_bps": 0,
+      "annual_interest_pct": 0
+    },
+    {
+      "name": "仮定費用込み",
+      "fee_yen": 100,
+      "fee_bps": 0,
+      "annual_interest_pct": 3
+    }
+  ],
+  "min_days": 8,
+  "min_bars_day": 40,
+  "ma_window": 3,
+  "volume_window": 5,
+  "volume_multiple": 1.5,
+  "breakout_window": 6,
+  "max_trade_loss": 2000,
+  "daily_loss_limit": 5000,
+  "hashes": {
+    "requirements.txt": "19c0b22a6475da81d84ace0d2ec9a7a5e9c16b21df4d444bfa9a436bf0c475e5",
+    "watchlist.csv": "0d3a162c74e1dd96eb125a1765caff3cacbe27ec83e726645ce3bd6a3c33abfb",
+    "engine_1a488e3.py": "8211d00f56faea5c5c5a1af53653e8d0ad30b80b84d5a1ebc33c986b68c90293",
+    "baseline_inputs.zip": "7bc4de4d8f64d5e0172fa81e6453242e2e74942f2b4d1eb383d904f9e81aad82",
+    "candidate_inputs.zip": "a85eefc6d7a51d5f63150d0b6adb69136a5a738648130ba59947ef2f89c5af6d"
+  },
+  "selection_bias": "noteは既存期間の結果を見て注目された銘柄。別期間も完全に未選択の銘柄評価ではない。全20銘柄・全条件を維持。",
+  "period_choice": "8/27以前は実取得で60日制限エラー。8/28〜9/7を取得可能性だけで選択。損益による期間変更なし。",
+  "baseline_artifact_id": 12605107920,
+  "candidate_snapshot": "candidate_inputs.zip; この調査で取得した公開APIの生応答・時刻・取得条件・エラーを保存。利益を見た後に期間を変更しない。"
+}

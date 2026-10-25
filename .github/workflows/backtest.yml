@@ -2,6 +2,13 @@ name: Backtest v3
 on:
   workflow_dispatch:
     inputs:
+      validation_mode:
+        description: 'standard＝通常実行、fixed_conditions＝固定条件・別期間・新旧品質処理の比較'
+        type: choice
+        default: standard
+        options:
+          - standard
+          - fixed_conditions
       fee_yen:
         description: '仮定費用の片道固定手数料（円、実料金ではありません）'
         default: '100'
@@ -35,7 +42,14 @@ jobs:
         run: python -m pip install -r requirements.txt
       - name: Automated tests (synthetic data)
         run: python -m unittest discover -s tests -v
+      - name: Fixed conditions, separate period, and causal quality comparison
+        if: inputs.validation_mode == 'fixed_conditions'
+        run: python -u -m research.run_fixed
+      - name: Validate frozen experiment artifacts
+        if: inputs.validation_mode == 'fixed_conditions'
+        run: python -m research.check_artifact
       - name: Backtest with Yahoo Finance data
+        if: inputs.validation_mode == 'standard'
         env:
           FEE_YEN: ${{ inputs.fee_yen }}
           FEE_BPS: ${{ inputs.fee_bps }}
@@ -46,12 +60,13 @@ jobs:
           --fee-bps "$FEE_BPS"
           --annual-interest-pct "$ANNUAL_INTEREST_PCT"
       - name: Validate backtest outputs
+        if: inputs.validation_mode == 'standard'
         run: python scripts/check_results.py
       - name: Downloadable reports and CSV
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: backtest-results-${{ github.run_id }}-${{ github.run_attempt }}
-          path: results/
+          path: ${{ inputs.validation_mode == 'fixed_conditions' && 'results/fixed_validation/' || 'results/' }}
           if-no-files-found: warn
           retention-days: 14
