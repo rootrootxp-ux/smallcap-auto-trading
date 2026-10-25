@@ -1,6 +1,22 @@
 name: Backtest v3
 on:
   workflow_dispatch:
+    inputs:
+      fee_yen:
+        description: '仮定費用の片道固定手数料（円、実料金ではありません）'
+        default: '100'
+        required: true
+        type: string
+      fee_bps:
+        description: '仮定費用の片道従量手数料（bps）'
+        default: '0'
+        required: true
+        type: string
+      annual_interest_pct:
+        description: '仮定年利（%、同日も最低1日/365）'
+        default: '3'
+        required: true
+        type: string
 permissions:
   contents: read
 jobs:
@@ -20,7 +36,15 @@ jobs:
       - name: Automated tests (synthetic data)
         run: python -m unittest discover -s tests -v
       - name: Backtest with Yahoo Finance data
-        run: python -u smallcap_auto_v3.py
+        env:
+          FEE_YEN: ${{ inputs.fee_yen }}
+          FEE_BPS: ${{ inputs.fee_bps }}
+          ANNUAL_INTEREST_PCT: ${{ inputs.annual_interest_pct }}
+        run: >-
+          python -u smallcap_auto_v3.py
+          --fee-yen "$FEE_YEN"
+          --fee-bps "$FEE_BPS"
+          --annual-interest-pct "$ANNUAL_INTEREST_PCT"
       - name: Validate backtest outputs
         run: python scripts/check_results.py
       - name: Downloadable reports and CSV

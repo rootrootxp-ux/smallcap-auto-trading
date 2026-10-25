@@ -18,8 +18,8 @@ def validate(root=Path('results')):
                          f'{details or "no status rows"}; inspect run_status.csv')
     with (root / 'backtest_summary.csv').open(encoding='utf-8-sig', newline='') as f:
         summaries = list(csv.DictReader(f))
-    if len(summaries) != 6 * len(rows):
-        raise ValueError('Expected six strategy/slippage summaries per symbol')
+    if len(summaries) != 12 * len(rows):
+        raise ValueError('Expected twelve strategy/slippage/cost summaries per symbol')
     print(f'Validated {len(rows)} symbols and {len(summaries)} summaries')
 
 
