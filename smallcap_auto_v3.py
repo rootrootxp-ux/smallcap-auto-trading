@@ -190,19 +190,18 @@ def simulate(intraday, strategy, slip, code, name, costs=None):
                 close_trade(now, '当日終端・最終足始値仮決済', '事前設定')
                 pending = None
             elif pending:
-                action, reason, signal_time = pending
+                action, reason, signal_time, requested_qty = pending
                 pending = None
                 if action == 'sell':
                     close_trade(now, reason, signal_time)
                 else:
                     buy_candidate = float(now.Open) + slip
-                    cap_qty = int(MAX_ORDER_YEN // (buy_candidate * SHARES_LOT)) * SHARES_LOT
-                    cash_qty = int(max(0, capital-costs.fee_yen) //
-                                   (buy_candidate * SHARES_LOT * (1+costs.fee_bps/10000))) * SHARES_LOT
-                    q = min(cap_qty, cash_qty)
-                    if cap_qty < SHARES_LOT:
+                    q = requested_qty
+                    if not np.isfinite(buy_candidate) or buy_candidate <= 0:
+                        raise ValueError('不正な約定候補価格')
+                    if buy_candidate*q > MAX_ORDER_YEN:
                         cap_rejected += 1
-                    elif q < SHARES_LOT:
+                    elif buy_candidate*q+costs.fee(buy_candidate*q) > capital:
                         cash_rejected += 1
                     else:
                         entry_fee = costs.fee(buy_candidate*q)
@@ -228,12 +227,25 @@ def simulate(intraday, strategy, slip, code, name, costs=None):
                 unrealized -= costs.fee(max(0.01,float(now.Close)-slip)*qty)
                 unrealized -= costs.interest(buy*qty, entry_when, now.name)
                 if unrealized <= -MAX_TRADE_LOSS_YEN:
-                    pending = ('sell', '損切り判定', now.name)
+                    pending = ('sell', '損切り判定', now.name, 0)
                 elif ma_down:
-                    pending = ('sell', 'MA下抜け', now.name)
+                    pending = ('sell', 'MA下抜け', now.name, 0)
             elif signal and not halted:
                 signals += 1
-                pending = ('buy', '', now.name)
+                # Quantity is fixed using only signal-close information.
+                reference = float(now.Close)+slip
+                if not np.isfinite(reference) or reference <= 0:
+                    raise ValueError('不正なシグナル価格')
+                cap_qty = int(MAX_ORDER_YEN // (reference*SHARES_LOT))*SHARES_LOT
+                cash_qty = int(max(0,capital-costs.fee_yen) //
+                               (reference*SHARES_LOT*(1+costs.fee_bps/10000)))*SHARES_LOT
+                requested_qty = min(cap_qty,cash_qty)
+                if cap_qty < SHARES_LOT:
+                    cap_rejected += 1
+                elif requested_qty < SHARES_LOT:
+                    cash_rejected += 1
+                else:
+                    pending = ('buy', '', now.name, requested_qty)
         if halted:
             halt_days += 1
         max_intraday_dd = max(max_intraday_dd, max_drawdown(day_equity))
@@ -286,7 +298,7 @@ def html_report(stamp, screen_rows, summary_rows, status_rows):
 <h1>小型株 自動分析レポート</h1><p>作成: {html.escape(stamp)}</p>
 <p class="note">研究用・実際の注文なし。銘柄ごとに資金100万円で独立検証、1取引の建玉上限30万円、100株単位。以前の固定100株の検証結果とは金額を直接比較できません。時価総額・信用取引可否は未確認。費用ゼロと仮定費用込みを独立再計算（取引数も変わり得ます）。各行の片道スリッページは費用ゼロでも適用。損切り2,000円と日次停止5,000円は保証された損失上限ではありません。最終足始値での決済は約定を保証しません。取引可能時間、データ欠損、実際の板やスプレッドは完全に再現していません。将来の利益を保証しません。</p>
 <h2>計算・費用の定義</h2>
-<p>全時刻は日本時間。5分足の時刻は足の開始ラベルで、シグナルはその足の終値観測後、次足始値で約定。買値＝次足始値＋スリッページ、売値＝次足始値−スリッページ（下限0.01円）。最終足始値の決済は事前設定の仮定です。足内の価格順序・実際の約定可能性は未検証です。</p>
+<p>全時刻は日本時間。5分足の時刻は足の開始ラベルで、シグナルはその足の終値観測後、次足始値で約定。買値＝次足始値＋スリッページ、売値＝次足始値−スリッページ（下限0.01円）。株数はシグナル終値＋スリッページで事前決定し、次足価格で建玉上限・資金を超える場合は全注文を見送る価格ガードを仮定（次足価格による株数再計算なし）。最終足始値の決済は事前設定の仮定です。足内の価格順序・実際の約定可能性は未検証です。</p>
 <p>費用ゼロ＝手数料・金利ゼロ。仮定費用込み＝片道固定手数料＋約定代金×bps/10000を売買両側に適用し、買い建玉代金×仮定年利/100×暦日数/365を決済時に控除（同日も最低1日）。全建玉代金に仮の信用金利を課す比較で、現物取引や実口座の再現ではありません。実在の証券会社の料金ではなく、税金・貸株料・その他費用は未反映です。損切りは費用見積り込み、日次停止は費用控除後実現損益で判定します。</p>
 <div class="scroll">{table(list({r['費用シナリオ']:r for r in summary_rows}.values()), ['費用シナリオ','片道固定手数料(円)','片道手数料(bps)','仮定年利(%)'])}</div>
 <p>DDは正の円額（ピークからの下落額）。日内最大DDは各日の開始資金を含め、各足始値・終値の推定清算価値で測った最大下落のうち最大値。期間最大DDは同じ系列のピークを日をまたいで保持。日末残高系列最大DDは各日決済後残高のみ（旧「日次最大DD」）。推定清算価値は現金＋保有株の評価額から売却スリッページ・売却手数料・金利を控除します。足の高値・安値を用いた連続時間DDではありません。損益とDDの一致だけでは不具合を意味しません。</p>

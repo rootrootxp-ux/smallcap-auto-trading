@@ -100,6 +100,14 @@ class BacktestTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             app.Costs('bad', annual_interest_pct=float('nan'))
 
+    def test_gap_rejects_order_without_future_price_resizing(self):
+        day=self.deterministic_day()
+        day.iloc[8,day.columns.get_loc('Open')]=2000.
+        summary,trades=app.simulate(day,'MAのみ',1.,'TEST','合成')
+        # Signal requests 200 shares; filling 100 instead using next-open price is forbidden.
+        self.assertFalse(trades)
+        self.assertEqual(summary['建玉上限で見送り'],1)
+
     def test_final_liquidation_ignores_final_close(self):
         day = self.deterministic_day()
         day.iloc[8:, day.columns.get_loc('Close')] = 1010.
