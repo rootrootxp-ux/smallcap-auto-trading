@@ -17,6 +17,7 @@ from requests.exceptions import RequestException
 from run_outcome import summarize, MIN_QUALIFIED_DAYS
 from symbol_notes import SYMBOL_NOTES
 from universe_analysis import write_analysis
+from rank_sensitivity import write_rank_sensitivity
 import numpy as np
 import pandas as pd
 import yfinance as yf
@@ -490,6 +491,12 @@ def main(costs=None, watchlist=None):
     write_csv(OUT/'run_status.csv',status_rows,status_cols)
     # Selection metadata is immutable during a backtest, never re-ranked from returns.
     analysis_fragment = write_analysis(OUT, run_id, items, daily_frames, status_rows, summary_rows)
+    if any(item.get('selected_at') for item in items):
+        starts = [pd.Timestamp(row['取得開始']) for row in status_rows if row.get('取得開始')]
+        if starts:
+            analysis_fragment += write_rank_sensitivity(OUT, run_id, str(min(starts).date()))
+        else:
+            analysis_fragment += '<p>順位感度点検は未検証：5分足取得範囲がありません。</p>'
     snapshot_dir = OUT/'selection_snapshot'
     snapshot_dir.mkdir(exist_ok=True)
     shutil.copyfile(input_path, snapshot_dir/'watchlist.csv')

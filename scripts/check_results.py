@@ -59,6 +59,13 @@ def validate(root=Path('results')):
             raise ValueError('Universe audit symbol coverage mismatch')
         if any(r['実行ID']!=current_id for r in records):
             raise ValueError('Stale universe audit')
+    selected_audit=read(root/'universe_audit.csv')
+    if any(r.get('selected_at') for r in selected_audit) and any(r.get('取得開始') for r in statuses):
+        rank_rows=read(root/'selection_rank_audit.csv')
+        if not rank_rows or any(r['実行ID']!=current_id or r['現在順位再現検査']!='一致' or r['入力ハッシュ検査']!='一致' for r in rank_rows):
+            raise ValueError('Ranking audit mismatch')
+        if {r['コード'] for r in rank_rows if r['現在規則の上位採用']=='True'}!=set(by_code):
+            raise ValueError('Ranking audit selected universe mismatch')
     if any(r['実行ID']!=current_id for r in read(root/'cohort_comparison.csv')):
         raise ValueError('Stale cohort comparison')
     attempts=int(overview['株価取得呼出回数'])
