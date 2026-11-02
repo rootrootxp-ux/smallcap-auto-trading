@@ -1,0 +1,2 @@
+# CSV byte hashes are provenance: preserve source line endings across platforms.
+*.csv -text whitespace=cr-at-eol
