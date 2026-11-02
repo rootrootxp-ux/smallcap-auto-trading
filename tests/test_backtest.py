@@ -192,7 +192,7 @@ class BacktestTests(unittest.TestCase):
             with patch.object(app, 'OUT', out), patch.object(app, 'INPUT', watch), \
                  patch.object(app.time, 'sleep'), patch.object(app, 'fetch', return_value=pd.DataFrame()):
                 app.main()
-                with self.assertRaisesRegex(ValueError, 'incomplete'):
+                with self.assertRaisesRegex(ValueError, '失敗'):
                     validate(out)
 
 

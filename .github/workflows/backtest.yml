@@ -60,7 +60,7 @@ jobs:
           --fee-bps "$FEE_BPS"
           --annual-interest-pct "$ANNUAL_INTEREST_PCT"
       - name: Validate backtest outputs
-        if: inputs.validation_mode == 'standard'
+        if: ${{ !cancelled() && inputs.validation_mode == 'standard' }}
         run: python scripts/check_results.py
       - name: Downloadable reports and CSV
         if: always()

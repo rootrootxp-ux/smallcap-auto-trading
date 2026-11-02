@@ -7,6 +7,14 @@ from dataclasses import dataclass
 import html
 import time
 import traceback
+import sys
+import hashlib
+from uuid import uuid4
+from zoneinfo import ZoneInfo
+from curl_cffi.requests import RequestsError
+from requests.exceptions import RequestException
+from run_outcome import summarize, MIN_QUALIFIED_DAYS
+from symbol_notes import SYMBOL_NOTES
 import numpy as np
 import pandas as pd
 import yfinance as yf
@@ -21,7 +29,7 @@ SHARES_LOT = 100
 MIN_AVG_VALUE_OKU = 1.0
 MIN_RANGE_PCT = 2.0
 COST_PER_SHARE = (1.0, 2.0)
-MIN_DAYS = 8
+MIN_DAYS = MIN_QUALIFIED_DAYS
 MAX_TRADE_LOSS_YEN = 2_000  # target only, not guaranteed
 DAILY_LOSS_LIMIT_YEN = 5_000 # halts new entries after realized loss threshold
 MIN_BARS_DAY = 40
@@ -34,10 +42,26 @@ def write_csv(path, rows, columns):
         w.writerows(rows)
 
 
+class DataRetrievalError(Exception):
+    """Expected upstream transport, missing-ticker, or no-data failure."""
+
+
+class InsufficientDataError(Exception):
+    """Data was returned but is insufficient for the unchanged quality policy."""
+
+
 def fetch(ticker, interval, period):
-    frame = yf.download(ticker, interval=interval, period=period,
-                        auto_adjust=False, progress=False, threads=False,
-                        prepost=False)
+    # Preserve provider errors using the pinned yfinance configuration API.
+    previous_hide = yf.config.debug.hide_exceptions
+    try:
+        yf.config.debug.hide_exceptions = False
+        frame = yf.Ticker(ticker).history(interval=interval, period=period,
+                    auto_adjust=False, prepost=False, actions=False)
+    except (yf.exceptions.YFTickerMissingError, yf.exceptions.YFRateLimitError,
+            yf.exceptions.YFDataException, RequestsError, RequestException) as exc:
+        raise DataRetrievalError(f'{ticker} {interval}/{period}: {type(exc).__name__}: {exc}') from exc
+    finally:
+        yf.config.debug.hide_exceptions = previous_hide
     if isinstance(frame.columns, pd.MultiIndex):
         frame.columns = frame.columns.get_level_values(0)
     if frame.empty:
@@ -282,7 +306,8 @@ def simulate(intraday, strategy, slip, code, name, costs=None):
         '注意':'実注文なし／日数不足の結果は参考値／全日品質判定は事後的／損失上限は保証されない'}, trades
 
 
-def html_report(stamp, screen_rows, summary_rows, status_rows):
+def html_report(stamp, screen_rows, summary_rows, status_rows, outcome=None):
+    outcome = outcome or summarize(status_rows)
     # Static HTML can be opened locally without network; intended for quick reading on PC.
     def table(rows, columns):
         if not rows:
@@ -292,10 +317,13 @@ def html_report(stamp, screen_rows, summary_rows, status_rows):
         return '<table><thead><tr>'+th+'</tr></thead><tbody>'+trs+'</tbody></table>'
     screen_cols = ['コード','候補名','最新終値(円)','平均日中値幅(%)','平均売買代金(億円)','分類']
     sum_cols = ['コード','戦略','費用シナリオ','片道スリッページ(円/株)','検証状態','足種','開始','終了','データ日数','利用日数','スキップ日数','取引数','勝率(%)','費用控除前損益(円)','手数料合計(円)','信用金利合計(円)','損益(円)','日内最大DD(円)','期間最大DD(円)','日末残高系列最大DD(円)','建玉上限で見送り','資金不足で見送り','取引0回の理由']
-    status_cols = ['コード','候補名','状態','日足本数','日足開始','日足終了','5分足本数','取得開始','取得終了','足種','検証開始','検証終了','取得日数','利用日数','除外日数','日足参照欠落日数','欠落日','除外理由','詳細']
+    status_cols = ['コード','候補名','状態','日足本数','日足開始','日足終了','5分足本数','取得開始','取得終了','足種','検証開始','検証終了','取得日数','利用日数','除外日数','日足参照欠落日数','欠落日','除外理由','取得段階','問題種別','銘柄情報','後継コード候補','参考URL','詳細','実行ID','全体結果']
     doc = f'''<!doctype html><html lang="ja"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>小型株研究レポート</title><style>body{{font-family:system-ui,sans-serif;max-width:1050px;margin:24px auto;padding:0 12px;background:#f8fafc;color:#172033}}h1{{font-size:1.6rem}}h2{{margin-top:28px}}.note{{padding:12px;background:#fff4da;border-radius:10px}}.scroll{{overflow-x:auto}}table{{border-collapse:collapse;background:white;width:100%;font-size:13px}}th,td{{border-bottom:1px solid #ddd;padding:9px;text-align:right;white-space:nowrap}}th:first-child,td:first-child{{text-align:left}}th{{background:#e8eef5}}</style>
-<h1>小型株 自動分析レポート</h1><p>作成: {html.escape(stamp)}</p>
+<h1>小型株 自動分析レポート</h1><p>作成: {html.escape(stamp)}（日本時間）</p>
+<h2>全体結果: {html.escape(outcome['全体結果'])}</h2>
+<div class="scroll">{table([outcome],list(outcome))}</div>
+<p>部分的な取得失敗・データ不足でも検証可能銘柄の結果は保存します。重大不具合が1件でもある場合、または検証可能銘柄が最低必要数に届かない場合はActionsを失敗にします。データ不足銘柄の計算は参考値で、検証可能銘柄数には含めません。後継コードは情報のみで自動置換しません。</p>
 <p class="note">研究用・実際の注文なし。銘柄ごとに資金100万円で独立検証、1取引の建玉上限30万円、100株単位。以前の固定100株の検証結果とは金額を直接比較できません。時価総額・信用取引可否は未確認。費用ゼロと仮定費用込みを独立再計算（取引数も変わり得ます）。各行の片道スリッページは費用ゼロでも適用。損切り2,000円と日次停止5,000円は保証された損失上限ではありません。最終足始値での決済は約定を保証しません。取引可能時間、データ欠損、実際の板やスプレッドは完全に再現していません。将来の利益を保証しません。</p>
 <h2>計算・費用の定義</h2>
 <p>全時刻は日本時間。5分足の時刻は足の開始ラベルで、シグナルはその足の終値観測後、次足始値で約定。買値＝次足始値＋スリッページ、売値＝次足始値−スリッページ（下限0.01円）。株数はシグナル終値＋スリッページで事前決定し、次足価格で建玉上限・資金を超える場合は全注文を見送る価格ガードを仮定（次足価格による株数再計算なし）。最終足始値の決済は事前設定の仮定です。足内の価格順序・実際の約定可能性は未検証です。</p>
@@ -312,9 +340,17 @@ def html_report(stamp, screen_rows, summary_rows, status_rows):
 
 def main(costs=None):
     scenarios = [Costs(), costs or Costs('仮定費用込み', 100.0, 0.0, 3.0)]
-    stamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    stamp = datetime.now(ZoneInfo('Asia/Tokyo')).strftime('%Y-%m-%d %H:%M:%S')
+    run_id = uuid4().hex
+    OUT.mkdir(parents=True, exist_ok=True)
     with INPUT.open(encoding='utf-8-sig', newline='') as f:
-        items = list(csv.DictReader(f))
+        reader = csv.DictReader(f)
+        if not reader.fieldnames or 'コード' not in reader.fieldnames:
+            raise ValueError('watchlist.csvにコード列がありません')
+        items = list(reader)
+    codes = [r['コード'].strip() for r in items if r['コード'].strip()]
+    if not codes or len(codes) != len(set(codes)):
+        raise ValueError('対象銘柄が空、または銘柄コードが重複しています')
     screen_rows, summary_rows, trade_rows, status_rows = [], [], [], []
     for count, item in enumerate(items,1):
         code = item['コード'].strip()
@@ -323,20 +359,28 @@ def main(costs=None):
             continue
         print(f'[{count}/{len(items)}] {name} ({code}) ...',flush=True)
         row={k:'' for k in ['コード', '候補名', '状態', '日足本数', '日足開始', '日足終了', '5分足本数', '取得開始', '取得終了', '足種', '検証開始', '検証終了', '取得日数', '利用日数', '除外日数', '日足参照欠落日数', '欠落日', '除外理由', '詳細']}
-        row.update({'コード':code,'候補名':name,'日足本数':0,'5分足本数':0,'足種':'5分足（Asia/Tokyo）'})
+        row.update({'コード':code,'候補名':name,'日足本数':0,'5分足本数':0,'足種':'5分足（Asia/Tokyo）','実行ID':run_id})
+        row.update(SYMBOL_NOTES.get(code, {}))
+        stage = '日足取得'
+        symbol_summaries, symbol_trades = [], []
         try:
             daily = fetch(code,'1d','3mo')
             row['日足本数']=len(daily)
             if not daily.empty:
                 row['日足開始']=str(daily.index.min())
                 row['日足終了']=str(daily.index.max())
+            if daily.empty:
+                raise DataRetrievalError('日足データなし（提供元が空データを返却）')
             if len(daily)<10:
-                raise ValueError('日足が10本未満')
-            screen_rows.append(screen(code,name,daily))
+                raise InsufficientDataError('日足が10本未満')
+            stage = '日足分類'
+            screen_rows.append(dict(screen(code,name,daily),実行ID=run_id))
+            stage = '5分足取得'
             five = fetch(code,'5m','30d')
             row['5分足本数']=len(five)
             if five.empty:
-                raise ValueError('5分足データなし')
+                raise DataRetrievalError('5分足データなし（提供元が空データを返却）')
+            stage = '品質検査'
             good, excluded = [], []
             for date, frame in five.groupby(five.index.date):
                 problem = quality_check(frame)
@@ -353,37 +397,57 @@ def main(costs=None):
                         '取得日数':len(observed),'利用日数':len(good),'除外日数':len(excluded),
                         '日足参照欠落日数':len(missing),'欠落日':'; '.join(map(str,missing)),
                         '除外理由':'; '.join(excluded)})
+            stage = 'バックテスト'
             for strategy in ['MAのみ','VWAP+出来高','高値ブレイク+出来高']:
                 for slip in COST_PER_SHARE:
                     for scenario in scenarios:
                         result, history = simulate(five,strategy,slip,code,name,scenario)
                         result['日足参照欠落日数']=len(missing)
-                        summary_rows.append(result)
-                        trade_rows.extend(history)
-            row['状態']='成功' if len(good) >= MIN_DAYS else '利用日数不足'
+                        symbol_summaries.append(result)
+                        symbol_trades.extend(history)
+            row['状態']='検証可能' if len(good) >= MIN_DAYS else 'データ不足'
+            row['問題種別']='なし' if len(good) >= MIN_DAYS else '品質合格日数不足'
             if len(good) < MIN_DAYS:
                 row['詳細']=f'品質検査後{len(good)}日、最低{MIN_DAYS}日未満。結果は参考値'
-            # Save intraday only if wanted for troubleshooting; 20 files can be large.
-            (OUT/'prices').mkdir(exist_ok=True)
-            five.to_csv(OUT/'prices'/f'{code.replace(".","_")}_5m.csv',encoding='utf-8-sig')
-        except Exception as e:
-            row['状態']='確認必要'
-            row['詳細']=str(e)
-            print('  注意:',e,flush=True)
+            stage = '価格保存'
+            price_dir = OUT/'prices'/run_id
+            price_dir.mkdir(parents=True, exist_ok=True)
+            five.to_csv(price_dir/f'{code.replace(".","_")}_5m.csv',encoding='utf-8-sig')
+            # Commit complete symbol results only; unexpected errors never masquerade as data loss.
+            for result in symbol_summaries + symbol_trades:
+                result['実行ID'] = run_id
+            summary_rows.extend(symbol_summaries)
+            trade_rows.extend(symbol_trades)
+        except InsufficientDataError as exc:
+            row.update(状態='データ不足',問題種別=type(exc).__name__,詳細=str(exc))
+        except DataRetrievalError as exc:
+            row.update(状態='取得失敗',問題種別=type(exc).__name__,詳細=str(exc))
+        except Exception as exc:
+            row.update(状態='重大不具合',問題種別=type(exc).__name__,詳細=str(exc))
+            traceback.print_exc()
+            with (OUT/f'errors_{run_id}.log').open('a',encoding='utf-8') as f:
+                f.write(f'{code} {stage}\n{traceback.format_exc()}\n')
+        row['取得段階'] = stage
         status_rows.append(row)
         time.sleep(1)  # Gentle throttle; no guarantee against provider rate limits.
-    screening_cols = ['コード','候補名','最新終値(円)','日足本数','平均日中値幅(%)','平均売買代金(億円)','分類','時価総額確認','信用取引可否','注意']
+    outcome = dict(summarize(status_rows), 実行ID=run_id, 作成日時=stamp,
+                   対象銘柄コード=';'.join(codes), 銘柄リストSHA256=hashlib.sha256(INPUT.read_bytes()).hexdigest())
+    for row in status_rows:
+        row['全体結果'] = outcome['全体結果']
+    screening_cols = ['コード','候補名','最新終値(円)','日足本数','平均日中値幅(%)','平均売買代金(億円)','分類','時価総額確認','信用取引可否','注意','実行ID']
     summary_cols = list(summary_rows[0]) if summary_rows else ['コード','費用シナリオ','損益(円)']
     trade_cols = list(trade_rows[0]) if trade_rows else ['コード','費用シナリオ','損益(円)']
-    status_cols = ['コード','候補名','状態','日足本数','日足開始','日足終了','5分足本数','取得開始','取得終了','足種','検証開始','検証終了','取得日数','利用日数','除外日数','日足参照欠落日数','欠落日','除外理由','詳細']
+    status_cols = ['コード','候補名','状態','日足本数','日足開始','日足終了','5分足本数','取得開始','取得終了','足種','検証開始','検証終了','取得日数','利用日数','除外日数','日足参照欠落日数','欠落日','除外理由','取得段階','問題種別','銘柄情報','後継コード候補','参考URL','詳細','実行ID','全体結果']
     screen_rows.sort(key=lambda x:x['平均売買代金(億円)'],reverse=True)
     summary_rows.sort(key=lambda x:(x['コード'],x['戦略'],x['片道スリッページ(円/株)'],x['費用シナリオ']))
     write_csv(OUT/'screening.csv',screen_rows,screening_cols)
     write_csv(OUT/'backtest_summary.csv',summary_rows,summary_cols)
     write_csv(OUT/'trade_history.csv',trade_rows,trade_cols)
     write_csv(OUT/'run_status.csv',status_rows,status_cols)
-    html_report(stamp,screen_rows,summary_rows,status_rows)
-    print(f'\n完了: 成功 {sum(r["状態"]=="成功" for r in status_rows)}/{len(status_rows)}銘柄。results/report.html を開いてください。',flush=True)
+    write_csv(OUT/'run_summary.csv',[outcome],list(outcome))
+    html_report(stamp,screen_rows,summary_rows,status_rows,outcome)
+    print(f"\n完了: {outcome['全体結果']}、検証可能 {outcome['検証可能銘柄数']}/{outcome['対象銘柄数']}銘柄。results/report.html を開いてください。",flush=True)
+    return outcome
 
 if __name__=='__main__':
     try:
@@ -392,7 +456,8 @@ if __name__=='__main__':
         parser.add_argument('--fee-bps', type=float, default=0.0, help='仮定費用込みの片道手数料bps')
         parser.add_argument('--annual-interest-pct', type=float, default=3.0, help='仮定年利%%、最低1暦日/365')
         args = parser.parse_args()
-        main(Costs('仮定費用込み', args.fee_yen, args.fee_bps, args.annual_interest_pct))
+        outcome = main(Costs('仮定費用込み', args.fee_yen, args.fee_bps, args.annual_interest_pct))
+        sys.exit(1 if outcome['全体結果'] == '失敗' else 0)
     except Exception:
         traceback.print_exc()
         raise
