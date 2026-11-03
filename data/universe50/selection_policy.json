@@ -1,0 +1,18 @@
+{
+  "min_market_cap_yen": 5000000000.0,
+  "max_market_cap_yen": 1000000000000.0,
+  "daily_window": 20,
+  "min_avg_value_yen": 100000000.0,
+  "min_avg_range_pct": 2.0,
+  "size": 50,
+  "ranking": "avg_value_yen descending, ticker ascending; no PnL/intraday quality selection",
+  "pool": "Manually specified broad research pool, not all Japanese equities; selection/survivorship bias remains",
+  "selected_at": "2026-11-03T07:58:49.326031+09:00",
+  "pool_size": 140,
+  "qualified_size": 90,
+  "pool_sha256": "ddec1af5f8d4f63b5f9c7352479850ad7285c6b281ddd8d551c1d309c611daa4",
+  "listing_sha256": "a26fdf4420cb6a152a1811ce0c6e293e642c8a99f1cc2ad9c47a5d55f2722c82",
+  "selected_sha256": "5a1798e053e9a07496ae6092d5fe1e79920c15f35456f3de83c3c5543c27d12b",
+  "selection_inputs_sha256": "eadcd099cf28db1cb25faaaee807efe630dab9e23a7a8d1d7e54bd22e3445bef",
+  "manual_pool_bias": "140社は手動プール。JPX20260930存続情報と現況時価総額による選択・生存者バイアスを残す。"
+}

@@ -1,0 +1,9 @@
+{
+  "run_id": 41539585377,
+  "head_sha": "7c97298426ea426ab81cf80f3f07129adc09fff8",
+  "source": "https://github.com/rootrootxp-ux/smallcap-auto-trading/actions/runs/41539585377",
+  "hashes": {
+    "baseline20_summary.csv": "d886ae92d0f31478b5a03806413ceca6b3a44a42d7655db14ee76275e414b5af",
+    "baseline20_status.csv": "744a20d53b3cdfe587074d8c36d2388ce630b288a5067657ab8c7826d212d407"
+  }
+}

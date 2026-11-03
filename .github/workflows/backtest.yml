@@ -2,6 +2,13 @@ name: Backtest v3
 on:
   workflow_dispatch:
     inputs:
+      universe:
+        description: '研究候補50銘柄、または比較用の旧20銘柄（後者は廃止コードを含む歴史的対照）'
+        type: choice
+        default: research50
+        options:
+          - research50
+          - legacy20
       validation_mode:
         description: 'standard＝通常実行、fixed_conditions＝固定条件・別期間・新旧品質処理の比較'
         type: choice
@@ -29,7 +36,7 @@ permissions:
 jobs:
   backtest:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 30
     env:
       TZ: Asia/Tokyo
     steps:
@@ -51,11 +58,13 @@ jobs:
       - name: Backtest with Yahoo Finance data
         if: inputs.validation_mode == 'standard'
         env:
+          WATCHLIST: ${{ inputs.universe == 'legacy20' && 'data/legacy_watchlist20.csv' || 'watchlist.csv' }}
           FEE_YEN: ${{ inputs.fee_yen }}
           FEE_BPS: ${{ inputs.fee_bps }}
           ANNUAL_INTEREST_PCT: ${{ inputs.annual_interest_pct }}
         run: >-
           python -u smallcap_auto_v3.py
+          --watchlist "$WATCHLIST"
           --fee-yen "$FEE_YEN"
           --fee-bps "$FEE_BPS"
           --annual-interest-pct "$ANNUAL_INTEREST_PCT"

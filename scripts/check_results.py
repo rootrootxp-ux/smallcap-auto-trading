@@ -23,10 +23,13 @@ def close(a, b):
 
 def validate(root=Path('results')):
     for name in ('report.html','screening.csv','backtest_summary.csv',
-                 'trade_history.csv','run_status.csv','run_summary.csv'):
+                 'trade_history.csv','run_status.csv','run_summary.csv',
+                 'universe_audit.csv','bias_audit.csv','cohort_comparison.csv'):
         if not (root/name).is_file() or (root/name).stat().st_size == 0:
             raise ValueError(f'Missing or empty output: {name}')
     statuses = read(root/'run_status.csv')
+    if not statuses:
+        raise ValueError('No symbol results')
     overview = read(root/'run_summary.csv')
     if len(overview)!=1:
         raise ValueError('Expected one current run summary')
@@ -50,6 +53,32 @@ def validate(root=Path('results')):
     for r in statuses:
         if r['状態']=='データ不足' and int(r['5分足本数'])>0 and int(r['利用日数'])>=MIN_QUALIFIED_DAYS:
             raise ValueError('Qualified data mislabeled as insufficient')
+    for filename in ('universe_audit.csv','bias_audit.csv'):
+        records=read(root/filename)
+        if len(records)!=len(statuses) or {r['コード'] for r in records}!=set(by_code):
+            raise ValueError('Universe audit symbol coverage mismatch')
+        if any(r['実行ID']!=current_id for r in records):
+            raise ValueError('Stale universe audit')
+    selected_audit=read(root/'universe_audit.csv')
+    if any(r.get('selected_at') for r in selected_audit) and any(r.get('取得開始') for r in statuses):
+        rank_rows=read(root/'selection_rank_audit.csv')
+        if not rank_rows or any(r['実行ID']!=current_id or r['現在順位再現検査']!='一致' or r['入力ハッシュ検査']!='一致' for r in rank_rows):
+            raise ValueError('Ranking audit mismatch')
+        if {r['コード'] for r in rank_rows if r['現在規則の上位採用']=='True'}!=set(by_code):
+            raise ValueError('Ranking audit selected universe mismatch')
+    if any(r['実行ID']!=current_id for r in read(root/'cohort_comparison.csv')):
+        raise ValueError('Stale cohort comparison')
+    attempts=int(overview['株価取得呼出回数'])
+    failures=int(overview['株価取得失敗回数'])
+    if not (0<=failures<=attempts<=2*len(statuses)):
+        raise ValueError('Invalid acquisition counters')
+    expected_rate=100*failures/attempts if attempts else 0.
+    if not close(float(overview['取得呼出失敗率(%)']),expected_rate):
+        raise ValueError('Acquisition failure rate mismatch')
+    if not close(float(overview['銘柄取得失敗率(%)']),100*int(overview['取得失敗銘柄数'])/len(statuses)):
+        raise ValueError('Symbol acquisition failure rate mismatch')
+    if any(not math.isfinite(float(overview[c])) or float(overview[c])<0 for c in ('実行秒数','取得秒数','計算秒数')):
+        raise ValueError('Invalid runtime measurements')
     summaries=read(root/'backtest_summary.csv')
     trades=read(root/'trade_history.csv')
     summary_groups=defaultdict(list)
