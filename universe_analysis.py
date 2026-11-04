@@ -157,6 +157,9 @@ def _cohort_rows(label, requested, rows, statuses, run_id, current_codes, note):
             '検証済み独立条件損益合算(円)':sum(pnls) if pnls else None,
             '検証済み取引数':sum(int(row.get('取引数',0)) for row in valid),
             '単一銘柄期間DD最大(円)':max(dd) if dd else None,
+            '片道固定手数料(円)':';'.join(sorted({str(row.get('片道固定手数料(円)','未記録')) for row in group})),
+            '片道手数料(bps)':';'.join(sorted({str(row.get('片道手数料(bps)','未記録')) for row in group})),
+            '仮定年利(%)':';'.join(sorted({str(row.get('仮定年利(%)','未記録')) for row in group})),
             '取得開始':start, '取得終了':end, '品質後検証開始':evaluation_start, '品質後検証終了':evaluation_end,
             '比較制約':note, '資金配分の注意':ACCOUNT_CAVEAT})
     return output
@@ -257,6 +260,9 @@ def write_analysis(out, run_id, watchlist_items, daily_frames, status_rows, summ
         both_eligible = both and _eligible(current,status) and _eligible(prior,baseline_status)
         current_pnl = _number(current.get('損益(円)')) if current else None
         prior_pnl = _number(prior.get('損益(円)')) if prior else None
+        fee_keys=('片道固定手数料(円)','片道手数料(bps)','仮定年利(%)')
+        fee_known=both and all(current.get(field) not in (None,'') and prior.get(field) not in (None,'') for field in fee_keys)
+        same_fees=all(float(current[field])==float(prior[field]) for field in fee_keys) if fee_known else None
         comparison.append({'record_type':'paired_symbol', '実行ID':run_id, '比較群':'COMMON_PAIRED_41539585377_VS_CURRENT',
             'コード':code, '戦略':strategy, '片道スリッページ(円/株)':slip, '費用シナリオ':cost,
             '今回結果行あり':current is not None, '旧run結果行あり':prior is not None,
@@ -266,9 +272,11 @@ def write_analysis(out, run_id, watchlist_items, daily_frames, status_rows, summ
             '旧run取得開始':prior.get('取得開始','') if prior else '', '旧run取得終了':prior.get('取得終了','') if prior else '',
             '取得期間一致':same_acquisition, '品質後期間一致':same_evaluation,
             '比較期間一致':same_acquisition and same_evaluation, '双方検証済み':both_eligible,
+            '費用条件一致':same_fees,'今回仮定年利(%)':current.get('仮定年利(%)','') if current else '',
+            '旧run仮定年利(%)':prior.get('仮定年利(%)','') if prior else '',
             '今回損益(円)':current_pnl, '旧run損益(円)':prior_pnl,
             '今回引く旧run損益差(円)':current_pnl-prior_pnl if both and current_pnl is not None and prior_pnl is not None else None,
-            '比較制約':('両期間一致の記述比較。入力価格の同一性は未確認。' if same_acquisition and same_evaluation else
+            '比較制約':('費用条件も不一致または未記録。' if same_fees is not True else '')+('両期間一致の記述比較。入力価格の同一性は未確認。' if same_acquisition and same_evaluation else
                      '期間差または結果行欠落を含む記述比較。成績改善と解釈しない。'),
             '資金配分の注意':ACCOUNT_CAVEAT})
     _write(out/'cohort_comparison.csv',comparison)
@@ -281,7 +289,7 @@ def analysis_html(out):
     out = Path(out)
     rows = [row for row in _read(out/'cohort_comparison.csv') if row.get('record_type') == 'cohort_summary']
     columns = ['比較群','戦略','片道スリッページ(円/株)','費用シナリオ','対象銘柄数','検証済み行数',
-               '参考値行数','結果行なし銘柄数','取引なし銘柄数','検証済み平均損益(円)',
+               '片道固定手数料(円)','片道手数料(bps)','仮定年利(%)','参考値行数','結果行なし銘柄数','取引なし銘柄数','検証済み平均損益(円)',
                '検証済み中央値損益(円)','単一銘柄期間DD最大(円)','取得開始','取得終了']
     heads = ''.join('<th>'+html.escape(column)+'</th>' for column in columns)
     body = ''.join('<tr>'+''.join('<td>'+html.escape(str(row.get(column,'')))+'</td>' for column in columns)+'</tr>' for row in rows)
