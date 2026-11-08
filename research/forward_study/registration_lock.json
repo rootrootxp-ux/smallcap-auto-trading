@@ -6,7 +6,7 @@
     "calendar.json": "f54fc68dc0a3591fd6d1d5a0d0123d7faba590c814d7599130a3f15601d23429",
     "calendar_sources/jpx-calendar.html": "cda2f71c21cec168b8a30db5873e5542bac53575f392a2bcd7c4aab7409523d0",
     "calendar_sources/jpx-tse-hours.html": "5b9ad3c96c4755b1c031e19bdde6c2c9edfe12bcb439e75215335db37949d201",
-    "collector.py": "983fc80ffeea82c8199bc7b817d8953e8694260d6aa980a25ce91eaaf0f8a82f",
+    "collector.py": "ed0bebacbc9ecd31a33ed6826a50013959c558c72d14aa41507c266dd2fe3569",
     "evaluate.py": "5d5212b9524ffaabfddab8c0165e06077551f76db1c43e1f2542af4a86ce43ac",
     "frozen/__init__.py": "9a7fa4bba1d141c5d8be51b3ba93878ebfd00a34c28e24e3931c87d34cd7c191",
     "frozen/config.json": "9a41b28eab027fde689c70fb0504dd75243ab5f8a48647346f01007fdd4cbb00",
@@ -19,7 +19,7 @@
     "store.py": "9515bf01ddeabac2617dfd74b0a712cb2fa3b9d22f1121bce7d3af7b0a1c6bc3"
   },
   "policy": "Frozen before the first prospective session; production checkout is pinned by workflow to the immutable implementation commit.",
-  "registered_at": "2026-11-08T09:57:30.722812+00:00",
+  "registered_at": "2026-11-08T10:08:20.107938+00:00",
   "schema_version": 1,
   "source_main_commit": "19f6334fc5d83622ff303c58eaf72674c2183e39"
 }

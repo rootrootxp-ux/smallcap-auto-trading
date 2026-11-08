@@ -123,6 +123,8 @@ def _normalize(body, symbol, session_date, zone):
     meta = result.get('meta')
     if not isinstance(meta, dict) or meta.get('symbol') != symbol:
         raise _MalformedResponse('response_symbol_mismatch')
+    if meta.get('dataGranularity') != '5m':
+        raise _MalformedResponse('response_interval_mismatch')
     timestamps = result.get('timestamp')
     indicators = result.get('indicators')
     quotes = indicators.get('quote') if isinstance(indicators, dict) else None

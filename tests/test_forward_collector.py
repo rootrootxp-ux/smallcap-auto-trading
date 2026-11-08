@@ -222,6 +222,20 @@ class ForwardCollectorTests(unittest.TestCase):
             self.collect(fetch)
         self.assertEqual(len(fetch.calls), 1)
 
+    def test_wrong_or_unconfirmed_bar_interval_never_becomes_the_saved_price_input(self):
+        for interval in ('1d', '1m', None):
+            with self.subTest(interval=interval):
+                document = json.loads(chart_body())
+                document['chart']['result'][0]['meta']['dataGranularity'] = interval
+                wrong = response(json.dumps(document).encode())
+                fetch = FakeFetcher(wrong, response())
+                result = self.collect(fetch, capture_id=f'interval-{interval}')
+                row = self.only_record(result)
+                self.assertEqual(len(fetch.calls), 2)
+                self.assertEqual(row['attempts'][0]['reason'], 'response_interval_mismatch')
+                self.assertEqual(row['attempts'][1]['status'], 'captured')
+                self.assertEqual(row['rows'], 2)
+
     def test_http_wrapper_uses_timeout_and_preserves_response_bytes(self):
         raw = b"synthetic raw response\x00\xff\n"
         original = SimpleNamespace(status_code=201, headers={"Content-Type": "application/json"},
