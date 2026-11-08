@@ -1,0 +1,51 @@
+﻿symbol,name,status,reason,member,raw_rows,inside_requested_window,outside_requested_window,empty_placeholders_removed,partial_rows_preserved,observations,raw_sha256,csv_sha256,retrieved_at,declared_start,declared_end_exclusive,actual_start,actual_end,duplicates_preserved
+3905.T,データセクション,missing,no_saved_response_for_current_symbol,raw_candidate/3905_T.json,0,0,0,0,0,0,,,,,,,,
+4493.T,サイバーセキュリティクラウド,loaded,,raw_candidate/4493_T.json,546,545,1,100,0,445,c47f108141489738895bc768883e38e7ec9389223493f1c2e4c128d8413c04df,2837bf07e72b5587bb72326f290f0e6892a62d2a86b2a01cf42787a1bf81bef5,2026-10-25T16:09:14.489367+00:00,2026-08-28,2026-09-08,2026-08-28 09:05:00+09:00,2026-09-07 15:20:00+09:00,0
+6871.T,日本マイクロニクス,missing,no_saved_response_for_current_symbol,raw_candidate/6871_T.json,0,0,0,0,0,0,,,,,,,,
+6323.T,ローツェ,missing,no_saved_response_for_current_symbol,raw_candidate/6323_T.json,0,0,0,0,0,0,,,,,,,,
+6890.T,フェローテック,missing,no_saved_response_for_current_symbol,raw_candidate/6890_T.json,0,0,0,0,0,0,,,,,,,,
+6526.T,ソシオネクスト,missing,no_saved_response_for_current_symbol,raw_candidate/6526_T.json,0,0,0,0,0,0,,,,,,,,
+3692.T,ＦＦＲＩセキュリティ,missing,no_saved_response_for_current_symbol,raw_candidate/3692_T.json,0,0,0,0,0,0,,,,,,,,
+278A.T,Ｔｅｒｒａ　Ｄｒｏｎｅ,missing,no_saved_response_for_current_symbol,raw_candidate/278A_T.json,0,0,0,0,0,0,,,,,,,,
+4506.T,住友ファーマ,missing,no_saved_response_for_current_symbol,raw_candidate/4506_T.json,0,0,0,0,0,0,,,,,,,,
+3697.T,ＳＨＩＦＴ,missing,no_saved_response_for_current_symbol,raw_candidate/3697_T.json,0,0,0,0,0,0,,,,,,,,
+4385.T,メルカリ,loaded,,raw_candidate/4385_T.json,546,545,1,88,0,457,54f76fc7f18af95111c7f77da658c98c68bf69b1e06aafb24c210b88c04c8235,eef9ab8c5e39cbe5328f8d6382aa615e72b7576a68f69508f36db9448a054661,2026-10-25T16:09:21.900799+00:00,2026-08-28,2026-09-08,2026-08-28 09:05:00+09:00,2026-09-07 15:20:00+09:00,0
+5246.T,ＥＬＥＭＥＮＴＳ,missing,no_saved_response_for_current_symbol,raw_candidate/5246_T.json,0,0,0,0,0,0,,,,,,,,
+4382.T,ＨＥＲＯＺ,missing,no_saved_response_for_current_symbol,raw_candidate/4382_T.json,0,0,0,0,0,0,,,,,,,,
+3350.T,メタプラネット,missing,no_saved_response_for_current_symbol,raw_candidate/3350_T.json,0,0,0,0,0,0,,,,,,,,
+6613.T,ＱＤレーザ,missing,no_saved_response_for_current_symbol,raw_candidate/6613_T.json,0,0,0,0,0,0,,,,,,,,
+3994.T,マネーフォワード,loaded,,raw_candidate/3994_T.json,546,545,1,88,0,457,f73e08b422d1cb5813f541183c1d086206decf496fe3e6048b00d97dfd4aa35a,f8654a2a78dfb0e020e55333fe65e167150a4f21bbc7da6ff51bff9817988f8f,2026-10-25T16:09:23.123749+00:00,2026-08-28,2026-09-08,2026-08-28 09:05:00+09:00,2026-09-07 15:20:00+09:00,0
+4475.T,ＨＥＮＮＧＥ,loaded,,raw_candidate/4475_T.json,546,545,1,86,0,459,b31cc9f47b51c50ae5ba27bc1bd3687a6ac3a638c7f382ebc10e4dc84a8cd088,20764439910eaa8191cc6b8e988874b643cd2eb726b7588a44384b8d1d5747fe,2026-10-25T16:09:09.528300+00:00,2026-08-28,2026-09-08,2026-08-28 09:05:00+09:00,2026-09-07 15:20:00+09:00,0
+6855.T,日本電子材料,missing,no_saved_response_for_current_symbol,raw_candidate/6855_T.json,0,0,0,0,0,0,,,,,,,,
+186A.T,アストロスケールホールディングス,missing,no_saved_response_for_current_symbol,raw_candidate/186A_T.json,0,0,0,0,0,0,,,,,,,,
+3778.T,さくらインターネット,missing,no_saved_response_for_current_symbol,raw_candidate/3778_T.json,0,0,0,0,0,0,,,,,,,,
+7014.T,名村造船所,missing,no_saved_response_for_current_symbol,raw_candidate/7014_T.json,0,0,0,0,0,0,,,,,,,,
+3498.T,霞ヶ関キャピタル,missing,no_saved_response_for_current_symbol,raw_candidate/3498_T.json,0,0,0,0,0,0,,,,,,,,
+4417.T,グローバルセキュリティエキスパート,missing,no_saved_response_for_current_symbol,raw_candidate/4417_T.json,0,0,0,0,0,0,,,,,,,,
+4564.T,オンコセラピー・サイエンス,missing,no_saved_response_for_current_symbol,raw_candidate/4564_T.json,0,0,0,0,0,0,,,,,,,,
+6777.T,ｓａｎｔｅｃ　Ｈｏｌｄｉｎｇｓ,missing,no_saved_response_for_current_symbol,raw_candidate/6777_T.json,0,0,0,0,0,0,,,,,,,,
+4478.T,フリー,missing,no_saved_response_for_current_symbol,raw_candidate/4478_T.json,0,0,0,0,0,0,,,,,,,,
+4443.T,Ｓａｎｓａｎ,missing,no_saved_response_for_current_symbol,raw_candidate/4443_T.json,0,0,0,0,0,0,,,,,,,,
+6254.T,野村マイクロ・サイエンス,missing,no_saved_response_for_current_symbol,raw_candidate/6254_T.json,0,0,0,0,0,0,,,,,,,,
+4597.T,ソレイジア・ファーマ,missing,no_saved_response_for_current_symbol,raw_candidate/4597_T.json,0,0,0,0,0,0,,,,,,,,
+3186.T,ネクステージ,missing,no_saved_response_for_current_symbol,raw_candidate/3186_T.json,0,0,0,0,0,0,,,,,,,,
+4258.T,網屋,missing,no_saved_response_for_current_symbol,raw_candidate/4258_T.json,0,0,0,0,0,0,,,,,,,,
+4194.T,ビジョナル,loaded,,raw_candidate/4194_T.json,547,546,1,90,0,456,c855c8d84c0796523832241b3e4097a3c88f91f137f4ae144748a1e4146b1fbd,0480fda465b2d9a74c9d121dce731bb668d2754b62c1958255dde7ad61821431,2026-10-25T16:09:25.665280+00:00,2026-08-28,2026-09-08,2026-08-28 09:00:00+09:00,2026-09-07 15:20:00+09:00,0
+290A.T,Ｓｙｎｓｐｅｃｔｉｖｅ,missing,no_saved_response_for_current_symbol,raw_candidate/290A_T.json,0,0,0,0,0,0,,,,,,,,
+464A.T,ＱＰＳホールディングス,missing,no_saved_response_for_current_symbol,raw_candidate/464A_T.json,0,0,0,0,0,0,,,,,,,,
+5985.T,サンコール,missing,no_saved_response_for_current_symbol,raw_candidate/5985_T.json,0,0,0,0,0,0,,,,,,,,
+5243.T,ｎｏｔｅ,loaded,,raw_candidate/5243_T.json,546,545,1,87,0,458,bd98bf471e2ce3caa6329d1d981682e5f004f4607223ca7dbd85047744afde8c,850ffac9465e7f0a5d2c0025e3d32c1b9cdeb542d5308bfe3d319e504583687a,2026-10-25T16:09:06.905835+00:00,2026-08-28,2026-09-08,2026-08-28 09:05:00+09:00,2026-09-07 15:20:00+09:00,0
+3923.T,ラクス,missing,no_saved_response_for_current_symbol,raw_candidate/3923_T.json,0,0,0,0,0,0,,,,,,,,
+4592.T,サンバイオ,missing,no_saved_response_for_current_symbol,raw_candidate/4592_T.json,0,0,0,0,0,0,,,,,,,,
+4180.T,Ａｐｐｉｅｒ　Ｇｒｏｕｐ,missing,no_saved_response_for_current_symbol,raw_candidate/4180_T.json,0,0,0,0,0,0,,,,,,,,
+219A.T,Ｈｅａｒｔｓｅｅｄ,missing,no_saved_response_for_current_symbol,raw_candidate/219A_T.json,0,0,0,0,0,0,,,,,,,,
+4369.T,トリケミカル研究所,missing,no_saved_response_for_current_symbol,raw_candidate/4369_T.json,0,0,0,0,0,0,,,,,,,,
+5253.T,カバー,loaded,,raw_candidate/5253_T.json,546,545,1,88,0,457,d7a2b65bce0e1c979775e9c734db0ebad8a6b6e5c1a4da6e9f1e0fb7856e7a01,c665a95a63d0ba41a594a685ac3e377ead81d3a1e6cfef681009e7087812f241,2026-10-25T16:09:05.565960+00:00,2026-08-28,2026-09-08,2026-08-28 09:05:00+09:00,2026-09-07 15:20:00+09:00,0
+4894.T,クオリプス,missing,no_saved_response_for_current_symbol,raw_candidate/4894_T.json,0,0,0,0,0,0,,,,,,,,
+4373.T,シンプレクス・ホールディングス,missing,no_saved_response_for_current_symbol,raw_candidate/4373_T.json,0,0,0,0,0,0,,,,,,,,
+5032.T,ＡＮＹＣＯＬＯＲ,loaded,,raw_candidate/5032_T.json,546,545,1,87,0,458,9f2c1a4d6ee13ec3917dfcf14daff0d8adc42d2b28ad474f2820d81b2154901c,3dca8cf6fc0a27ebab5b942126a14f7b0af4f030917045f3e212272c81c08c45,2026-10-25T16:09:19.509996+00:00,2026-08-28,2026-09-08,2026-08-28 09:05:00+09:00,2026-09-07 15:20:00+09:00,0
+6027.T,弁護士ドットコム,missing,no_saved_response_for_current_symbol,raw_candidate/6027_T.json,0,0,0,0,0,0,,,,,,,,
+4483.T,ＪＭＤＣ,missing,no_saved_response_for_current_symbol,raw_candidate/4483_T.json,0,0,0,0,0,0,,,,,,,,
+247A.T,Ａｉロボティクス,missing,no_saved_response_for_current_symbol,raw_candidate/247A_T.json,0,0,0,0,0,0,,,,,,,,
+6521.T,オキサイド,missing,no_saved_response_for_current_symbol,raw_candidate/6521_T.json,0,0,0,0,0,0,,,,,,,,
+3993.T,ＰＫＳＨＡ　Ｔｅｃｈｎｏｌｏｇｙ,missing,no_saved_response_for_current_symbol,raw_candidate/3993_T.json,0,0,0,0,0,0,,,,,,,,

@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "protocol_id": "short-event-study-v1-20261108",
+  "timezone": "Asia/Tokyo",
+  "interval_minutes": 5,
+  "sessions": [["09:00", "11:30"], ["12:30", "15:25"]],
+  "horizons_minutes": [5, 15, 30],
+  "events": ["ma3_cross_down", "vwap_cross_down", "relative_volume_gt_1_5", "prior6_low_break", "time_of_day"],
+  "ma_window": 3,
+  "volume_window": 5,
+  "relative_volume_threshold": 1.5,
+  "prior_low_window": 6,
+  "time_bucket_minutes": 30,
+  "random_seed": 20261108,
+  "random_controls_per_event": 1,
+  "random_matching": "symbol, date, entry 30-minute bucket, event readiness, horizon; without replacement per stratum; event times included; no redraw",
+  "reference_quantity": 100,
+  "assumed_fee_yen_per_side": 100.0,
+  "slippage_yen_per_share_per_side": [1.0, 2.0],
+  "execution_assumption": "exact scheduled next open and exact elapsed-minute exit open, within one continuous session; positive observed volume required; execution unverified",
+  "outcome_path": "all scheduled intermediate opens and positive volume must be observed; future high/low/close not required",
+  "feature_policy": "same-day scheduled windows; missing/invalid/no-print bars block local windows; daily VWAP unknown after incomplete OHLCV prefix; no full-day retrospective exclusion"
+}

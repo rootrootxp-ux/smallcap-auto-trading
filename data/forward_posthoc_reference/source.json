@@ -1,0 +1,33 @@
+{
+  "validation_label": "事後的参考検証（厳密な将来期間検証ではない）",
+  "study_role": "posthoc_reference_only",
+  "requested_current_symbols": 50,
+  "loaded_current_symbols": 8,
+  "period_start_inclusive": "2026-08-28",
+  "period_end_exclusive": "2026-09-08",
+  "acquisition_evidence": "candidate_inputs.zip/acquisition_evidence.json",
+  "acquired_at": "2026-10-25T16:09 UTC onward; per-symbol timestamps preserved in audit",
+  "source_archive": "/workspace/smallcap-event-study/research/frozen/candidate_inputs.zip",
+  "source_archive_sha256": "a85eefc6d7a51d5f63150d0b6adb69136a5a738648130ba59947ef2f89c5af6d",
+  "watchlist_sha256": "5a1798e053e9a07496ae6092d5fe1e79920c15f35456f3de83c3c5543c27d12b",
+  "config_sha256": "9a41b28eab027fde689c70fb0504dd75243ab5f8a48647346f01007fdd4cbb00",
+  "core_sha256": "71d551b5c9f919f7919169ab41e910ecfce79d51e7c01d978e8e6a4f2d7f544f",
+  "input_hashes": {
+    "4493.T": "2837bf07e72b5587bb72326f290f0e6892a62d2a86b2a01cf42787a1bf81bef5",
+    "4385.T": "eef9ab8c5e39cbe5328f8d6382aa615e72b7576a68f69508f36db9448a054661",
+    "3994.T": "f8654a2a78dfb0e020e55333fe65e167150a4f21bbc7da6ff51bff9817988f8f",
+    "4475.T": "20764439910eaa8191cc6b8e988874b643cd2eb726b7588a44384b8d1d5747fe",
+    "4194.T": "0480fda465b2d9a74c9d121dce731bb668d2754b62c1958255dde7ad61821431",
+    "5243.T": "850ffac9465e7f0a5d2c0025e3d32c1b9cdeb542d5308bfe3d319e504583687a",
+    "5253.T": "c665a95a63d0ba41a594a685ac3e377ead81d3a1e6cfef681009e7087812f241",
+    "5032.T": "3dca8cf6fc0a27ebab5b942126a14f7b0af4f030917045f3e212272c81c08c45"
+  },
+  "normalization": "Clamp raw timestamps to requested half-open window. Remove all-null grid placeholders as absence; retain partial rows, off-grid rows and duplicate timestamps. No fill/adjustment/deduplication. Each raw body hash verified against stored acquisition evidence.",
+  "limitations": [
+    "Only 8 of the current fixed 50 have saved data in this request archive; missing symbols remain unavailable.",
+    "Current universe selected in November using information later than this August/September sample.",
+    "The data were retrieved on October 25 and assessed after the hypothesis was chosen. This is not prospective/OOS validation.",
+    "The raw endpoint appended out-of-window latest quotes for some symbols; these quotes are counted and excluded from the normalized input.",
+    "No borrowability, short-sale restrictions, bid/ask or executable fill model."
+  ]
+}

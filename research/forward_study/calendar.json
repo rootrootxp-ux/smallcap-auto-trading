@@ -1,0 +1,61 @@
+{
+  "timezone": "Asia/Tokyo",
+  "start_date": "2026-11-09",
+  "end_date": "2026-12-07",
+  "sessions": [
+    "2026-11-09",
+    "2026-11-10",
+    "2026-11-11",
+    "2026-11-12",
+    "2026-11-13",
+    "2026-11-16",
+    "2026-11-17",
+    "2026-11-18",
+    "2026-11-19",
+    "2026-11-20",
+    "2026-11-24",
+    "2026-11-25",
+    "2026-11-26",
+    "2026-11-27",
+    "2026-11-30",
+    "2026-12-01",
+    "2026-12-02",
+    "2026-12-03",
+    "2026-12-04",
+    "2026-12-07"
+  ],
+  "excluded_holidays": [
+    {
+      "date": "2026-11-23",
+      "name": "勤労感謝の日"
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://www.jpx.co.jp/corporate/about-jpx/calendar/index.html",
+      "path": "calendar_sources/jpx-calendar.html",
+      "sha256": "cda2f71c21cec168b8a30db5873e5542bac53575f392a2bcd7c4aab7409523d0",
+      "retrieved_at": "2026-11-08T06:31:11.948210+00:00",
+      "http_status": 200
+    },
+    {
+      "url": "https://www.jpx.co.jp/equities/trading/domestic/01.html",
+      "path": "calendar_sources/jpx-tse-hours.html",
+      "sha256": "5b9ad3c96c4755b1c031e19bdde6c2c9edfe12bcb439e75215335db37949d201",
+      "retrieved_at": "2026-11-08T06:31:30.948785+00:00",
+      "http_status": 200
+    }
+  ],
+  "official_excerpts": {
+    "holiday": "2026/11/23（月） 勤労感謝の日",
+    "weekends": "また、以下の日は休業日となり、取引は行われません。土曜日、日曜日、国民の祝日及び休日",
+    "hours": "午前立会は9時から11時30分まで、午後立会は12時30分から15時30分まで",
+    "calendar_change": "休業日一覧は、国民の祝日に関する法律（祝日法）の改正及びその他祝日に関する特別法の制定等により変更になる場合があります。"
+  },
+  "limitations": [
+    "This fixes scheduled equity-market sessions from the officially published calendar, not proof that every symbol will trade or the provider will supply complete data.",
+    "Emergency market closures, individual suspensions, corporate actions, missing observations, and provider revisions must be recorded; do not silently replace dates or symbols.",
+    "JPX derivatives holiday trading is different and is not used for this cash-equity schedule.",
+    "GitHub Actions cron start time and provider finalization are not guaranteed by JPX market hours."
+  ]
+}

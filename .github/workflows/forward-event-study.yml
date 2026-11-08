@@ -1,0 +1,277 @@
+name: Forward Event Study (frozen protocol)
+
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: 'preflight=取得なしの監査、collect=閉場後の保存、evaluate=期間終了前は進捗のみ'
+        type: choice
+        default: preflight
+        required: true
+        options:
+          - preflight
+          - collect
+          - evaluate
+  pull_request:
+    paths:
+      - 'research/forward_study/**'
+      - 'tests/**'
+      - 'requirements.txt'
+      - 'docs/forward_study.md'
+      - '.github/workflows/forward-event-study.yml'
+  schedule:
+    - cron: '15 8 * * 1-5' # 17:15 JST: collect only frozen protocol sessions.
+    - cron: '0 10 * * 1-5' # 19:00 JST: coverage only until the final cutoff.
+
+permissions:
+  contents: read
+
+# One writer, with no cancellation of a publication or its receipt push.
+# Readers also wait, so they never observe a half-published run from this workflow.
+concurrency:
+  group: forward-event-study-v1
+  cancel-in-progress: false
+
+env:
+  TZ: Asia/Tokyo
+  PYTHONHASHSEED: '0'
+  FORWARD_CODE_REF: 'PIN_AFTER_CODE_COMMIT'
+  FORWARD_DATA_BRANCH: data/forward-event-study-v1
+
+jobs:
+  preflight:
+    if: >-
+      github.event_name == 'pull_request' ||
+      (github.event_name == 'workflow_dispatch' && inputs.mode == 'preflight')
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: read
+    env:
+      FORWARD_STORE: /tmp/forward-preflight-store-${{ github.run_id }}-${{ github.run_attempt }}
+      FORWARD_OUTPUT: /tmp/forward-preflight-output-${{ github.run_id }}-${{ github.run_attempt }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: research/forward_study/frozen/requirements.txt
+      - name: Install fixed dependencies
+        run: python -m pip install -r research/forward_study/frozen/requirements.txt
+      - name: All automated tests (synthetic data and local bare Git only)
+        run: python -m unittest discover -s tests -v
+      - name: Read-only preflight (no market requests or data-branch writes)
+        run: python -m research.forward_study preflight --store "$FORWARD_STORE" --output "$FORWARD_OUTPUT"
+      - name: Preflight audit artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: forward-preflight-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ env.FORWARD_OUTPUT }}/
+          if-no-files-found: warn
+          retention-days: 90
+
+  collect:
+    if: >-
+      github.ref == 'refs/heads/main' &&
+      ((github.event_name == 'schedule' && github.event.schedule == '15 8 * * 1-5') ||
+      (github.event_name == 'workflow_dispatch' && inputs.mode == 'collect'))
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    permissions:
+      contents: write
+    env:
+      FORWARD_STORE: /tmp/forward-capture-store-${{ github.run_id }}-${{ github.run_attempt }}
+      FORWARD_OUTPUT: /tmp/forward-capture-output-${{ github.run_id }}-${{ github.run_attempt }}
+    steps:
+      - name: Require an immutable code commit
+        run: |
+          python - <<'PY'
+          import os, re
+          if not re.fullmatch(r'[0-9a-f]{40}', os.environ['FORWARD_CODE_REF']):
+              raise SystemExit('The forward-study code commit must be pinned before production collection')
+          PY
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ env.FORWARD_CODE_REF }}
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: research/forward_study/frozen/requirements.txt
+      - name: Install fixed dependencies
+        run: python -m pip install -r research/forward_study/frozen/requirements.txt
+      - name: Check pinned code, frozen session date, and post-close time
+        id: calendar
+        run: |
+          python - <<'PY'
+          from datetime import datetime, time
+          import json, os, subprocess
+          from pathlib import Path
+          from zoneinfo import ZoneInfo
+          from research.forward_study.protocol import load_protocol
+          if subprocess.check_output(['git', 'rev-parse', 'HEAD'], text=True).strip() != os.environ['FORWARD_CODE_REF']:
+              raise SystemExit('Production checkout differs from the frozen code commit')
+          protocol = load_protocol()
+          now = datetime.now(ZoneInfo(protocol['timezone']))
+          ready = (now.date().isoformat() in protocol['sessions']
+                   and now.time().replace(tzinfo=None) >= time.fromisoformat(protocol['capture_not_before_local']))
+          result = {'ready': ready, 'observed_at': now.isoformat(),
+                    'reason': 'frozen_session_after_capture_time' if ready else 'outside_frozen_session_or_before_capture_time'}
+          output = Path(os.environ['FORWARD_OUTPUT'])
+          output.mkdir(parents=True, exist_ok=True)
+          (output / 'calendar.json').write_text(json.dumps(result, indent=2) + '\n')
+          with open(os.environ['GITHUB_OUTPUT'], 'a') as stream:
+              stream.write('ready=' + str(ready).lower() + '\n')
+          print(json.dumps(result))
+          PY
+      - name: Read append-only data branch into a separate worktree
+        id: store
+        if: steps.calendar.outputs.ready == 'true'
+        run: |
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          from research.forward_study.git_store import checkout_store
+          result = checkout_store(Path.cwd(), Path(os.environ['FORWARD_STORE']))
+          (Path(os.environ['FORWARD_OUTPUT']) / 'checkout.json').write_text(json.dumps(result, indent=2) + '\n')
+          PY
+      - name: Capture raw responses without evaluating returns
+        id: capture
+        if: steps.calendar.outputs.ready == 'true' && steps.store.outcome == 'success'
+        continue-on-error: true
+        run: python -u -m research.forward_study collect --store "$FORWARD_STORE" --output "$FORWARD_OUTPUT/collection"
+      - name: Audit sealed captures even after partial collection or failure
+        id: audit
+        if: always() && steps.calendar.outputs.ready == 'true' && steps.store.outcome == 'success'
+        run: python -m research.forward_study audit --store "$FORWARD_STORE" --output "$FORWARD_OUTPUT/audit-before-publication"
+      - name: Publish new immutable files and acknowledged publication receipts
+        id: publish
+        if: always() && steps.calendar.outputs.ready == 'true' && steps.audit.outcome == 'success'
+        run: |
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          from research.forward_study.git_store import publish_store
+          store = Path(os.environ['FORWARD_STORE'])
+          capture_ids = sorted(path.parent.name for path in (store / 'captures').glob('*/manifest.json'))
+          # Passing all IDs lets a rerun repair an earlier acknowledged capture
+          # whose receipt push failed. Already receipted IDs are not rewritten.
+          result = publish_store(store, capture_ids)
+          (Path(os.environ['FORWARD_OUTPUT']) / 'publication.json').write_text(json.dumps(result, indent=2) + '\n')
+          print(json.dumps(result))
+          PY
+      - name: Capture raw evidence and audit artifact (never Git credentials)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: forward-capture-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            ${{ env.FORWARD_OUTPUT }}/
+            ${{ env.FORWARD_STORE }}/protocol.json
+            ${{ env.FORWARD_STORE }}/.gitattributes
+            ${{ env.FORWARD_STORE }}/captures/
+            ${{ env.FORWARD_STORE }}/receipts/
+          include-hidden-files: true
+          if-no-files-found: warn
+          retention-days: 90
+      - name: Fail on failed collection, invalid evidence, or failed publication
+        if: always()
+        env:
+          CALENDAR_OUTCOME: ${{ steps.calendar.outcome }}
+          CALENDAR_READY: ${{ steps.calendar.outputs.ready }}
+          STORE_OUTCOME: ${{ steps.store.outcome }}
+          CAPTURE_OUTCOME: ${{ steps.capture.outcome }}
+          AUDIT_OUTCOME: ${{ steps.audit.outcome }}
+          PUBLISH_OUTCOME: ${{ steps.publish.outcome }}
+        run: |
+          python - <<'PY'
+          import os
+          if os.environ['CALENDAR_OUTCOME'] != 'success':
+              raise SystemExit('Collection preconditions failed')
+          if os.environ['CALENDAR_READY'] == 'true':
+              failed = [name for name in ('STORE_OUTCOME', 'CAPTURE_OUTCOME', 'AUDIT_OUTCOME', 'PUBLISH_OUTCOME')
+                        if os.environ[name] != 'success']
+              if failed:
+                  raise SystemExit('Collection/publication failed; preserved evidence remains downloadable: ' + ', '.join(failed))
+          PY
+
+  evaluate:
+    if: >-
+      github.ref == 'refs/heads/main' &&
+      ((github.event_name == 'schedule' && github.event.schedule == '0 10 * * 1-5') ||
+      (github.event_name == 'workflow_dispatch' && inputs.mode == 'evaluate'))
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: read
+    env:
+      FORWARD_STORE: /tmp/forward-evaluation-store-${{ github.run_id }}-${{ github.run_attempt }}
+      FORWARD_OUTPUT: /tmp/forward-evaluation-output-${{ github.run_id }}-${{ github.run_attempt }}
+    steps:
+      - name: Require an immutable code commit
+        run: |
+          python - <<'PY'
+          import os, re
+          if not re.fullmatch(r'[0-9a-f]{40}', os.environ['FORWARD_CODE_REF']):
+              raise SystemExit('The forward-study code commit must be pinned before production evaluation')
+          PY
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ env.FORWARD_CODE_REF }}
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: research/forward_study/frozen/requirements.txt
+      - name: Install fixed dependencies
+        run: python -m pip install -r research/forward_study/frozen/requirements.txt
+      - name: Bound automatic evaluation to the registered period and one recovery day
+        id: phase
+        run: |
+          python - <<'PY'
+          from datetime import datetime, date, timedelta
+          import json, os
+          from pathlib import Path
+          from zoneinfo import ZoneInfo
+          from research.forward_study.protocol import load_protocol
+          protocol = load_protocol()
+          local = datetime.now(ZoneInfo(protocol['timezone']))
+          recovery = date.fromisoformat(protocol['end_date']) + timedelta(days=1)
+          ready = (os.environ['GITHUB_EVENT_NAME'] == 'workflow_dispatch'
+                   or local.date().isoformat() in protocol['sessions']
+                   or local.date() == recovery)
+          output = Path(os.environ['FORWARD_OUTPUT'])
+          output.mkdir(parents=True, exist_ok=True)
+          (output / 'phase.json').write_text(json.dumps({'ready': ready, 'observed_at': local.isoformat()}) + '\n')
+          with open(os.environ['GITHUB_OUTPUT'], 'a') as stream:
+              stream.write('ready=' + str(ready).lower() + '\n')
+          PY
+      - name: Verify pinned code and read data branch without publication
+        if: steps.phase.outputs.ready == 'true'
+        run: |
+          python - <<'PY'
+          import json, os, subprocess
+          from pathlib import Path
+          from research.forward_study.git_store import checkout_store
+          if subprocess.check_output(['git', 'rev-parse', 'HEAD'], text=True).strip() != os.environ['FORWARD_CODE_REF']:
+              raise SystemExit('Production checkout differs from the frozen code commit')
+          output = Path(os.environ['FORWARD_OUTPUT'])
+          output.mkdir(parents=True, exist_ok=True)
+          result = checkout_store(Path.cwd(), Path(os.environ['FORWARD_STORE']))
+          (output / 'checkout.json').write_text(json.dumps(result, indent=2) + '\n')
+          PY
+      - name: Evaluate frozen evidence (coverage only before the final cutoff)
+        if: steps.phase.outputs.ready == 'true'
+        run: python -u -m research.forward_study evaluate --store "$FORWARD_STORE" --output "$FORWARD_OUTPUT/evaluation"
+      - name: Evaluation and coverage artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: forward-evaluation-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ env.FORWARD_OUTPUT }}/
+          if-no-files-found: warn
+          retention-days: 90
