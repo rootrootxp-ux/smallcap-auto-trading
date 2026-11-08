@@ -48,6 +48,7 @@ def inspect_prices(frame: pd.DataFrame, now: datetime, max_age_days: int = 7):
     rows = []
     errors = []
     latest_dates = {}
+    previous_dates = {}
     for symbol in SYMBOLS:
         try:
             series = _close_column(frame, symbol)
@@ -74,10 +75,13 @@ def inspect_prices(frame: pd.DataFrame, now: datetime, max_age_days: int = 7):
                 "change_pct": round(change / prev * 100, 4),
             })
             latest_dates[symbol] = date
+            previous_dates[symbol] = prev_date
         except (KeyError, TypeError, ValueError, OverflowError) as exc:
             errors.append(f"{symbol}: {exc}")
     if len(set(latest_dates.values())) > 1:
         errors.append("Latest trading dates do not agree across symbols: " + ", ".join(f"{k}={v}" for k, v in latest_dates.items()))
+    if len(set(previous_dates.values())) > 1:
+        errors.append("Previous trading dates do not agree across symbols: " + ", ".join(f"{k}={v}" for k, v in previous_dates.items()))
     if len(rows) != len(SYMBOLS):
         errors.append(f"Incomplete coverage: {len(rows)}/{len(SYMBOLS)} symbols")
     return rows, errors
