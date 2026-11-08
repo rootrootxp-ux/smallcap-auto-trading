@@ -2,6 +2,13 @@ name: Backtest v3
 on:
   workflow_dispatch:
     inputs:
+      simulation_model:
+        description: 'portfolio＝全銘柄共有100万円・現物買いのみ。independent＝旧銘柄別100万円'
+        type: choice
+        default: independent
+        options:
+          - independent
+          - portfolio
       universe:
         description: '研究候補50銘柄、または比較用の旧20銘柄（後者は廃止コードを含む歴史的対照）'
         type: choice
@@ -27,7 +34,7 @@ on:
         required: true
         type: string
       annual_interest_pct:
-        description: '仮定年利（%、同日も最低1日/365）'
+        description: '旧independentの仮定年利（%）。現物portfolioは0固定'
         default: '3'
         required: true
         type: string
@@ -56,21 +63,30 @@ jobs:
         if: inputs.validation_mode == 'fixed_conditions'
         run: python -m research.check_artifact
       - name: Backtest with Yahoo Finance data
+        id: independent
         if: inputs.validation_mode == 'standard'
         env:
+          SIMULATION_MODEL: ${{ inputs.simulation_model }}
           WATCHLIST: ${{ inputs.universe == 'legacy20' && 'data/legacy_watchlist20.csv' || 'watchlist.csv' }}
           FEE_YEN: ${{ inputs.fee_yen }}
           FEE_BPS: ${{ inputs.fee_bps }}
           ANNUAL_INTEREST_PCT: ${{ inputs.annual_interest_pct }}
-        run: >-
-          python -u smallcap_auto_v3.py
-          --watchlist "$WATCHLIST"
-          --fee-yen "$FEE_YEN"
-          --fee-bps "$FEE_BPS"
-          --annual-interest-pct "$ANNUAL_INTEREST_PCT"
+        run: |
+          if [ "$SIMULATION_MODEL" = "portfolio" ]; then ANNUAL_INTEREST_PCT=0; fi
+          python -u smallcap_auto_v3.py --watchlist "$WATCHLIST" --fee-yen "$FEE_YEN" --fee-bps "$FEE_BPS" --annual-interest-pct "$ANNUAL_INTEREST_PCT"
       - name: Validate backtest outputs
         if: ${{ !cancelled() && inputs.validation_mode == 'standard' }}
         run: python scripts/check_results.py
+      - name: Shared cash portfolio (long-only, no credit)
+        id: portfolio
+        if: inputs.validation_mode == 'standard' && inputs.simulation_model == 'portfolio' && steps.independent.outcome == 'success'
+        env:
+          FEE_YEN: ${{ inputs.fee_yen }}
+          FEE_BPS: ${{ inputs.fee_bps }}
+        run: python -u scripts/run_portfolio.py --fee-yen "$FEE_YEN" --fee-bps "$FEE_BPS"
+      - name: Validate portfolio accounting and chronology
+        if: ${{ !cancelled() && inputs.validation_mode == 'standard' && inputs.simulation_model == 'portfolio' && steps.portfolio.outcome == 'success' }}
+        run: python scripts/check_portfolio.py
       - name: Downloadable reports and CSV
         if: always()
         uses: actions/upload-artifact@v4
