@@ -35,7 +35,7 @@ concurrency:
 env:
   TZ: Asia/Tokyo
   PYTHONHASHSEED: '0'
-  FORWARD_CODE_REF: 'b13262f8eecbc7cbf201dbae965e1ba99dda5d80'
+  FORWARD_CODE_REF: '1fea66f15d3f91b934b49151ee3315c0c38972c6'
   FORWARD_DATA_BRANCH: data/forward-event-study-v1
 
 jobs:
