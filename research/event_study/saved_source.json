@@ -1,0 +1,226 @@
+{
+  "schema_version": 1,
+  "dataset": "Persisted Yahoo Finance five-minute observations for the fixed research50 universe; not short-execution data",
+  "source": {
+    "provider": "Yahoo Finance via yfinance",
+    "yfinance_version": "1.7.0",
+    "github_repository": "rootrootxp-ux/smallcap-auto-trading",
+    "github_run_id": 41806856317,
+    "github_run_url": "https://github.com/rootrootxp-ux/smallcap-auto-trading/actions/runs/41806856317",
+    "github_commit": "9aa853b00cf6c803453c1103cfba7e2d7daefccb",
+    "artifact_id": 13310213709,
+    "artifact_url": "https://github.com/rootrootxp-ux/smallcap-auto-trading/actions/runs/41806856317/artifacts/13310213709",
+    "artifact_name": "backtest-results-41806856317-1",
+    "source_run_id": "7e232d149a454579994f171cc57eb7e9",
+    "run_started_at": "2026-11-04T18:22:40+09:00",
+    "artifact_prices_path": "prices/7e232d149a454579994f171cc57eb7e9"
+  },
+  "declared_request_from_source_code": {
+    "method": "yfinance.Ticker(symbol).history",
+    "interval": "5m",
+    "period": "30d",
+    "auto_adjust": false,
+    "prepost": false,
+    "actions": false,
+    "per_symbol_http_requests_and_retrieval_timestamps": "not persisted in this artifact"
+  },
+  "csv_schema": {
+    "encoding": "utf-8-sig",
+    "columns": [
+      "Datetime",
+      "Open",
+      "High",
+      "Low",
+      "Close",
+      "Adj Close",
+      "Volume"
+    ],
+    "timezone": "Asia/Tokyo",
+    "datetime_example": "2026-09-17 09:05:00+09:00",
+    "timestamps": "provider bar labels retained; the event study must separately declare its bar timing assumption"
+  },
+  "actual_coverage": {
+    "first_date": "2026-09-17",
+    "last_date": "2026-11-04",
+    "first_timestamp": "2026-09-17T09:00:00+09:00",
+    "last_timestamp": "2026-11-04T15:20:00+09:00",
+    "symbols": 50,
+    "rows": 95193,
+    "union_observed_dates": 30,
+    "expected_symbol_days_on_union_dates": 1500,
+    "fully_missing_symbol_days": [
+      {
+        "code": "4493.T",
+        "date": "2026-10-08"
+      }
+    ],
+    "opening_0900_present_symbol_days": 543,
+    "opening_0900_0905_0910_complete_symbol_days": 527,
+    "complete_canonical_65slot_symbol_days": 398,
+    "missing_canonical_slots": 3763,
+    "canonical_grid": "09:00..11:25 and 12:30..15:20 every five minutes, Asia/Tokyo",
+    "outside_canonical_grid_rows": 1456,
+    "duplicate_timestamps_in_saved_csv": 0,
+    "nan_cells_in_saved_csv": 0,
+    "invalid_ohlc_rows_in_saved_csv": 0,
+    "zero_volume_rows_in_saved_csv": 783,
+    "earlier_run_eligibility": "48 eligible and 2 insufficient under the earlier full-day rule; never used as a filter for this event study"
+  },
+  "normalization_before_original_csv_persistence": [
+    "provider frame sorted by timestamp",
+    "duplicate timestamps kept first",
+    "rows with missing Open/High/Low/Close/Volume removed",
+    "timestamps converted or localized to Asia/Tokyo",
+    "five-minute rows restricted to 09:00..15:30"
+  ],
+  "limitations": [
+    "This is a normalized saved CSV snapshot, not the original HTTP response; original duplicate/null observations cannot be reconstructed.",
+    "A source manifest records provenance and hashes, not evidence that every expected bar or executable trade exists.",
+    "The current research50 universe was selected using current listing/capitalization and 2026-10-05..2026-11-02 daily observations; hindsight and survivorship bias remain for earlier event dates.",
+    "No borrow availability, locate inventory, lending fee, short-sale price restriction, bid/ask or order-book data is included.",
+    "Missing observations must not be filled with invented prices, replaced with a later open, or retrospectively removed as if earlier trades had not occurred."
+  ],
+  "watchlist_sha256": "5a1798e053e9a07496ae6092d5fe1e79920c15f35456f3de83c3c5543c27d12b",
+  "selection_policy": {
+    "min_market_cap_yen": 5000000000.0,
+    "max_market_cap_yen": 1000000000000.0,
+    "daily_window": 20,
+    "min_avg_value_yen": 100000000.0,
+    "min_avg_range_pct": 2.0,
+    "size": 50,
+    "ranking": "avg_value_yen descending, ticker ascending; no PnL/intraday quality selection",
+    "pool": "Manually specified broad research pool, not all Japanese equities; selection/survivorship bias remains",
+    "selected_at": "2026-11-03T07:58:49.326031+09:00",
+    "pool_size": 140,
+    "qualified_size": 90,
+    "pool_sha256": "ddec1af5f8d4f63b5f9c7352479850ad7285c6b281ddd8d551c1d309c611daa4",
+    "listing_sha256": "a26fdf4420cb6a152a1811ce0c6e293e642c8a99f1cc2ad9c47a5d55f2722c82",
+    "selected_sha256": "5a1798e053e9a07496ae6092d5fe1e79920c15f35456f3de83c3c5543c27d12b",
+    "selection_inputs_sha256": "eadcd099cf28db1cb25faaaee807efe630dab9e23a7a8d1d7e54bd22e3445bef",
+    "manual_pool_bias": "140社は手動プール。JPX20260930存続情報と現況時価総額による選択・生存者バイアスを残す。"
+  },
+  "persisted_provenance": [
+    {
+      "path": "run_summary.csv",
+      "sha256": "be6b2f99cbcc9814d27e3601d9b24af3db28a3814bdce821d5b8a630fdf70f3a",
+      "bytes": 1227
+    },
+    {
+      "path": "run_status.csv",
+      "sha256": "572bd1f68d235ea97e90193618d4eb6c9933899396f3a0008cc6ad9df721bd90",
+      "bytes": 25947
+    },
+    {
+      "path": "universe_audit.csv",
+      "sha256": "98f0d94951681c6403217f6200cd96b1f6a557fc1554f6ec1fd582f1524aafd6",
+      "bytes": 49803
+    },
+    {
+      "path": "portfolio/manifest.json",
+      "sha256": "7a0020074a5a303fe30d2a7571d3c326cdc3ac54e1faf646cea3b4e5f2acdaa3",
+      "bytes": 4956
+    },
+    {
+      "path": "portfolio/portfolio_metadata.csv",
+      "sha256": "b9bcfe948009565647b953d9695f914dbaf115bd4302931e805451702039c4a1",
+      "bytes": 4853
+    },
+    {
+      "path": "selection_snapshot/watchlist.csv",
+      "sha256": "5a1798e053e9a07496ae6092d5fe1e79920c15f35456f3de83c3c5543c27d12b",
+      "bytes": 29221
+    },
+    {
+      "path": "selection_snapshot/selection_policy.json",
+      "sha256": "f87c4e70f9bb74c03dc051f47f7d62bb3bef30b9494c5162fe8b3b1b9ba81769",
+      "bytes": 995
+    },
+    {
+      "path": "selection_snapshot/selection_inputs.zip",
+      "sha256": "eadcd099cf28db1cb25faaaee807efe630dab9e23a7a8d1d7e54bd22e3445bef",
+      "bytes": 197229
+    },
+    {
+      "path": "selection_snapshot/candidate_pool.csv",
+      "sha256": "ddec1af5f8d4f63b5f9c7352479850ad7285c6b281ddd8d551c1d309c611daa4",
+      "bytes": 28068
+    },
+    {
+      "path": "selection_snapshot/delisted_asof_20261103.json",
+      "sha256": "b342dad2f1e288e0a928d66c07e8b3c6dece270c49b74dd58c3ecacbb0364e26",
+      "bytes": 14794
+    },
+    {
+      "path": "selection_snapshot/jpx_listing_20260930.xlsx",
+      "sha256": "a26fdf4420cb6a152a1811ce0c6e293e642c8a99f1cc2ad9c47a5d55f2722c82",
+      "bytes": 266304
+    }
+  ],
+  "input_hashes": {
+    "186A.T": "af1bcf88a35a99aa5ff139d68aee91a8149ba4843938dc01ce19bd79aededfd0",
+    "219A.T": "ff1d01595ee59ee6cea4cbddacff26bf3a8bf1f078bf72f9a36cf522e819a4f9",
+    "247A.T": "69161b0a17e951dc14d5e960a87ab556918a136e8b1e0ecea2024e22f07b4621",
+    "278A.T": "351eaf93d6dc1952da0d395bb3ef01fa30f19c5bf6850ca53d4b2b5b5ba4df9e",
+    "290A.T": "0d1dfee5e82b3184d8cf2cde9d89de55b6a30935b71e8c57bfc6940c27f538ff",
+    "3186.T": "16e9090aba8341c4489ac4439e00bf09c8bab19e0101ed677d35428a616e180c",
+    "3350.T": "cc2c1f62f33ab2f3d025ffd6eea0c844cfbe5d5fbe8234cc5fde5b8a169588e3",
+    "3498.T": "4d0ce307e224cf96faa32488f65235dd2baac6c00a6cdd0a3a37a61f87b523f1",
+    "3692.T": "e6340dc3b5334c4c3b13db16a609ecf64d9813e7c1ffaeb8c5ebe2374323cea5",
+    "3697.T": "72d465c94b2453cb10a0aff6842ac3415a10b9af68d360ddf0116714c0f42655",
+    "3778.T": "14b0fd0b936de9be611405e6a3837c6e7c3206325d22ee2bc387f1f7f3419e97",
+    "3905.T": "9754ef8706519996fae07c52ab0ae4afe5af457d20aa502f8c2f5d689aac3019",
+    "3923.T": "cc8f1c98c9a2110f515677395fe585c0aca1206e14e6deac2e65a423c1019ed7",
+    "3993.T": "e3016841d9fc291a68977a53d04832680f57d0294cf24b2b91cf219eaf0f02f1",
+    "3994.T": "f59db8d54604af1a9fe2d2ac752089a0d15efe46221e44d1cbfb446917bcd094",
+    "4180.T": "a44a419d6a2684a3435f09217b2083962934e0c05588ef3e1339110e5718fa3b",
+    "4194.T": "15f5d83f8dd171b95ecc0704315f107a0bd8bb5854516f875d66793d720fcaaa",
+    "4258.T": "10a17fa27d9ad232953176d018096702db905a91dc66c24ebb29e1e3caa04572",
+    "4369.T": "697f6e73bc00c965d29a1f76c9fef161f4a6830761db553cc3cced2ff66ee46d",
+    "4373.T": "c3a2b21f8a4206820ed18c2bcd35b8e45fa1ef043b1c88d1d99db8252bb746ef",
+    "4382.T": "5e37704baecc8a791281ae742a867d2562bbb7531b44a967ec4ee3f6b4b9f0bf",
+    "4385.T": "811e3c06b9fbb96652ad8d759aac5f394701ddaa694718dd505950881f9bd51f",
+    "4417.T": "bd96fc90f8ad9a47fb2984120eceffb9f78e9a07134c84504156bd30214889db",
+    "4443.T": "e542039a9be7711f984ac711f5fad2476aeff8fcfdab08447079292baf3b3242",
+    "4475.T": "94ee3f10340cb8120a416a8609eb3d583ab49aa9de6d7bbc56fe98c3a8fc1dbc",
+    "4478.T": "dc8644d788a90252845deb82198a70c4a16a382158fc05083eccf9a547b796ab",
+    "4483.T": "aecff05f5c7f2de5ac67649144d963305d2321b0ac617c08fc859862097cccb1",
+    "4493.T": "e1b59fe5b9c8e52a63da5fac9d8d46d698282e2a9debc63765e843da6a30c54d",
+    "4506.T": "f305c7ffa3a1c44a26ca0c82be578aff82c54ec18e538608742eab5547acfab6",
+    "4564.T": "fa11d1b3efe56ae6b00c3d46bb830d179a5365a0672eafcb854aae4dc904262a",
+    "4592.T": "241ac7aaf67da1e6cb79b5c2d1fe155bbf778efb7ec3718f22e2c75afab2e3d8",
+    "4597.T": "fb3a1627f4becf7f724cae788875e5cbff77ad6d912e748780921c58911b6066",
+    "464A.T": "f9143c9b7876a555c6c5c52bf47b82154acaedbd037af1e8f60e78750cd4cf8f",
+    "4894.T": "98b743257ff4470813626e249d6a714cde6f867c04d9f24daf9710d05d15b8a3",
+    "5032.T": "f2421deead8988e533fe347d9f73b2ee868fe8e6a3b5cb78cd13cb166ebee598",
+    "5243.T": "5104d156fff42b0bb76ffa3c989c69bd69ee12eb3f6780735740d3f7f3d72814",
+    "5246.T": "4095fff06d52f352f1cfd712b5d30e8313eec83353537e5cb7761acbe0f731d1",
+    "5253.T": "e1879b97afc7b33f976ad1c9e9bda8f37bb7134e346bb4f39b13b2830c547c82",
+    "5985.T": "15a0810fb5dcf6f1d7871a4d09d1f434532a002b2d33185b7fcfcb0459f4cea5",
+    "6027.T": "20e2d64d7d9f7f58a2c614b31ce58029b032713ec0945ff871ebea3359f8f6cb",
+    "6254.T": "cf5fe0a7713d6ca63f1607e4b6c3590beea0241956740c7a21b44d38a424e9db",
+    "6323.T": "851f0ed2a1c67ff243195098c800a3ac86805682c61886babc83689b64b2054a",
+    "6521.T": "219fd357d162d1552dbf87bd25eeecb222351982d50133f51c66816ee0d56c69",
+    "6526.T": "9c6e9fb6e2b574c6c5cdcc84343dde1c4f3f7c9f876b6ad3f2c988dce892ba92",
+    "6613.T": "47f7f6d11d037a7775e2670e54b9be7a3ebf1de6a1b288188e16f9f6c425f01a",
+    "6777.T": "8f2df53c93798f60c290b5f06a1d64039b9e621ea5b3b9c5fa90d53eb648f68e",
+    "6855.T": "b82f556989b19eecf9d78ebb6b6b25deccc82f62715632fe39815b30ec13daa8",
+    "6871.T": "3b8ce71abecebfc2236abf92da4d325054dcacfdfd74ecef328c17d146ffc370",
+    "6890.T": "892ac7e609b1634f64409fead4ab256b1ccfa376aa8066193a7541ecd68d47e7",
+    "7014.T": "cd0d10a20b53c9e91600d5febe0b76cc6e833b3b104208d86580c20ece9f2798"
+  },
+  "packaging_measurement": {
+    "csv_files": 50,
+    "uncompressed_csv_bytes": 6331303,
+    "flat_zip_deflate_level9_bytes": 968040
+  },
+  "standalone_zip": {
+    "filename": "saved_prices.zip",
+    "sha256": "23d7151c381953a641853ceb01d4365757a4f3850cbe36da97a8c1a33f71ac9d",
+    "bytes": 968040,
+    "compression": "ZIP_DEFLATED, level 9",
+    "member_order": "CSV basename ascending",
+    "member_timestamp_utc": "2026-11-04T09:22:40+00:00",
+    "timestamp_role": "Deterministic ZIP packaging metadata; not an individual retrieval timestamp",
+    "csv_bytes": "Unmodified original CSV byte sequences; verified against input_hashes"
+  }
+}
