@@ -1,0 +1,25 @@
+{
+  "files": {
+    ".gitattributes": "b491d6237f56ccaf52777c3e4ba5c7610872c6aa95cd6b045619b6792f846a81",
+    "__init__.py": "d21ad35bde8526699e14ba442a33b8391f02d6a7795e2b32b603c166e773c148",
+    "__main__.py": "773a69abaa1abc7375ec23e6c409947d37dac264d342b5841b22775a202a8692",
+    "calendar.json": "f54fc68dc0a3591fd6d1d5a0d0123d7faba590c814d7599130a3f15601d23429",
+    "calendar_sources/jpx-calendar.html": "cda2f71c21cec168b8a30db5873e5542bac53575f392a2bcd7c4aab7409523d0",
+    "calendar_sources/jpx-tse-hours.html": "5b9ad3c96c4755b1c031e19bdde6c2c9edfe12bcb439e75215335db37949d201",
+    "collector.py": "ed0bebacbc9ecd31a33ed6826a50013959c558c72d14aa41507c266dd2fe3569",
+    "evaluate.py": "5d5212b9524ffaabfddab8c0165e06077551f76db1c43e1f2542af4a86ce43ac",
+    "frozen/__init__.py": "9a7fa4bba1d141c5d8be51b3ba93878ebfd00a34c28e24e3931c87d34cd7c191",
+    "frozen/config.json": "9a41b28eab027fde689c70fb0504dd75243ab5f8a48647346f01007fdd4cbb00",
+    "frozen/core.py": "71d551b5c9f919f7919169ab41e910ecfce79d51e7c01d978e8e6a4f2d7f544f",
+    "frozen/requirements.txt": "19c0b22a6475da81d84ace0d2ec9a7a5e9c16b21df4d444bfa9a436bf0c475e5",
+    "frozen/watchlist.csv": "5a1798e053e9a07496ae6092d5fe1e79920c15f35456f3de83c3c5543c27d12b",
+    "git_store.py": "4d78721b3cdfe9dbcccd46415ace1c25231d3cae7b59a4fb777f499fa7b8661c",
+    "protocol.json": "fe3df5c0fc5d8beb336bcfe20d0c64b7fd3be010eacb5bf8c27735208fd45b89",
+    "protocol.py": "6682e644878950d43d08979edc1cc68bbe43ebbc7ad0736bb01859bc65d4b219",
+    "store.py": "9515bf01ddeabac2617dfd74b0a712cb2fa3b9d22f1121bce7d3af7b0a1c6bc3"
+  },
+  "policy": "Frozen before the first prospective session; production checkout is pinned by workflow to the immutable implementation commit.",
+  "registered_at": "2026-11-08T10:08:20.107938+00:00",
+  "schema_version": 1,
+  "source_main_commit": "19f6334fc5d83622ff303c58eaf72674c2183e39"
+}

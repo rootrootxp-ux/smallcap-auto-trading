@@ -1,0 +1,2 @@
+# Official calendar evidence is retained byte-for-byte, including its CRLF.
+calendar_sources/*.html -text -diff
