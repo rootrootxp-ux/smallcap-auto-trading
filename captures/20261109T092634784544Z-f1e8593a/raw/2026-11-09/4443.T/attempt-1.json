@@ -1,0 +1,37 @@
+{
+  "outcome": {
+    "attempt": 1,
+    "http_status": 429,
+    "metadata_path": "raw/2026-11-09/4443.T/attempt-1.json",
+    "raw_path": "raw/2026-11-09/4443.T/attempt-1.body",
+    "reason": "http_error",
+    "received_at": "2026-11-09T09:26:37.102297+00:00",
+    "requested_at": "2026-11-09T09:26:37.073546+00:00",
+    "response_url": "https://query1.finance.yahoo.com/v8/finance/chart/4443.T?interval=5m&period1=1794150000&period2=1794236400&includePrePost=false&includeAdjustedClose=false",
+    "status": "failed"
+  },
+  "request": {
+    "params": {
+      "includeAdjustedClose": "false",
+      "includePrePost": "false",
+      "interval": "5m",
+      "period1": 1794150000,
+      "period2": 1794236400
+    },
+    "requested_at": "2026-11-09T09:26:37.073546+00:00",
+    "url": "https://query1.finance.yahoo.com/v8/finance/chart/4443.T"
+  },
+  "response": {
+    "body_path": "raw/2026-11-09/4443.T/attempt-1.body",
+    "headers": {
+      "cache-control": "no-store",
+      "content-length": "19",
+      "content-type": "text/html",
+      "date": "Mon, 09 Nov 2026 09:26:37 GMT",
+      "server": "ATS"
+    },
+    "received_at": "2026-11-09T09:26:37.102297+00:00",
+    "status": 429,
+    "url": "https://query1.finance.yahoo.com/v8/finance/chart/4443.T?interval=5m&period1=1794150000&period2=1794236400&includePrePost=false&includeAdjustedClose=false"
+  }
+}

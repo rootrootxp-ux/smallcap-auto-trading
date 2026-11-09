@@ -1,0 +1,2647 @@
+{
+  "after_final_cutoff": false,
+  "capture_budget_exhausted": false,
+  "capture_id": "20261109T092634784544Z-f1e8593a",
+  "completed_at": "2026-11-09T09:26:38.761994+00:00",
+  "experiment_id": "forward-short-events-20261109-v1",
+  "files": {
+    "raw/2026-11-09/186A.T/attempt-1.body": {
+      "bytes": 19,
+      "sha256": "1edef4f5a4b8726780da570619a5ffe0dd284a0096ea601b01bb8727f3f45757"
+    },
+    "raw/2026-11-09/186A.T/attempt-1.json": {
+      "bytes": 1357,
+      "sha256": "4a76b17f826713a96ab0a6cdd13b7eeb4aa84f0772c548da686d4aaee4f4de75"
+    },
+    "raw/2026-11-09/186A.T/attempt-2.body": {
+      "bytes": 19,
+      "sha256": "1edef4f5a4b8726780da570619a5ffe0dd284a0096ea601b01bb8727f3f45757"
+    },
+    "raw/2026-11-09/186A.T/attempt-2.json": {
+      "bytes": 1357,
+      "sha256": "297ae27aacbde7c15613c835892b5e0d34d565572bb8f40effde30e14d7f486f"
+    },
+    "raw/2026-11-09/219A.T/attempt-1.body": {
+      "bytes": 19,
+      "sha256": "1edef4f5a4b8726780da570619a5ffe0dd284a0096ea601b01bb8727f3f45757"
+    },
+    "raw/2026-11-09/219A.T/attempt-1.json": {
+      "bytes": 1357,
+      "sha256": "c6d1bbe10d40604519c5f1e9aed469254732bb6550a26da2b30fd1560a5eb851"
+    },
+    "raw/2026-11-09/219A.T/attempt-2.body": {
+      "bytes": 19,
+      "sha256": "1edef4f5a4b8726780da570619a5ffe0dd284a0096ea601b01bb8727f3f45757"
+    },
+    "raw/2026-11-09/219A.T/attempt-2.json": {
+      "bytes": 1357,
+      "sha256": "826dd94ad5b933bc80ed078a4d493e8fd501ef905a7f5656940c98491965cd83"
+    },
+    "raw/2026-11-09/247A.T/attempt-1.body": {
+      "bytes": 19,
+      "sha256": "1edef4f5a4b8726780da570619a5ffe0dd284a0096ea601b01bb8727f3f45757"
+    },
+    "raw/2026-11-09/247A.T/attempt-1.json": {
+      "bytes": 1357,
+      "sha256": "64873171f299a69b59558a085a35b32107e1c2ef305854831a12146333388b1e"
+    },
+    "raw/2026-11-09/247A.T/attempt-2.body": {
+      "bytes": 19,
+      "sha256": "1edef4f5a4b8726780da570619a5ffe0dd284a0096ea601b01bb8727f3f45757"
+    },
+    "raw/2026-11-09/247A.T/attempt-2.json": {
+      "bytes": 1357,
+      "sha256": "9ef7f690a7c2d68aa87ee58652915d99c2f13362b4e347c1c824c84e4e410737"
+    },
+    "raw/2026-11-09/278A.T/attempt-1.body": {
+      "bytes": 19,
+      "sha256": "1edef4f5a4b8726780da570619a5ffe0dd284a0096ea601b01bb8727f3f45757"
+    },
+    "raw/2026-11-09/278A.T/attempt-1.json": {
+      "bytes": 1357,
+      "sha256": "c521f4dec03461b172e9de981900059f4102cccf7b0d282caad36c530609668b"
+    },
+    "raw/2026-11-09/278A.T/attempt-2.body": {
+      "bytes": 19,
+      "sha256": "1edef4f5a4b8726780da570619a5ffe0dd284a0096ea601b01bb8727f3f45757"
+    },
+    "raw/2026-11-09/278A.T/attempt-2.json": {
+      "bytes": 1357,
+      "sha256": "548e4a463795f1557ad6352a7ec1d689d0a6760575cb59844b41b84f5e82cc16"
+    },
+    "raw/2026-11-09/290A.T/attempt-1.body": {
+      "bytes": 19,
+      "sha256": "1edef4f5a4b8726780da570619a5ffe0dd284a0096ea601b01bb8727f3f45757"
+    },
+    "raw/2026-11-09/290A.T/attempt-1.json": {
+      "bytes": 1357,
+      "sha256": "6cc3b774d9cfc38616783857544f8e3e95b947a9f02351d74b0959efc24991e5"
+    },
+    "raw/2026-11-09/290A.T/attempt-2.body": {
+      "bytes": 19,
+      "sha256": "1edef4f5a4b8726780da570619a5ffe0dd284a0096ea601b01bb8727f3f45757"
+    },
+    "raw/2026-11-09/290A.T/attempt-2.json": {
+      "bytes": 1357,
+      "sha256": "d72106fe68bf3d089966b197beb7ad437c0d5947b47561b44f894f1e3fe9a375"
+    },
+    "raw/2026-11-09/3186.T/attempt-1.body": {
+      "bytes": 19,
+      "sha256": "1edef4f5a4b8726780da570619a5ffe0dd284a0096ea601b01bb8727f3f45757"
+    },
+    "raw/2026-11-09/3186.T/attempt-1.json": {
+      "bytes": 1357,
+      "sha256": "5d1c4a7f7a6e4e15db9d2f96c2f80643c2a553e6d31eede8e6b6d73f51838f99"
+    },
+    "raw/2026-11-09/3186.T/attempt-2.body": {
+      "bytes": 19,
+      "sha256": "1edef4f5a4b8726780da570619a5ffe0dd284a0096ea601b01bb8727f3f45757"
+    },
+    "raw/2026-11-09/3186.T/attempt-2.json": {
+      "bytes": 1357,
+      "sha256": "e207295bd8df2e2b6de268d3149b1bd8f125b02259afe769da537216633d2a50"
+    },
+    "raw/2026-11-09/3350.T/attempt-1.body": {
+      "bytes": 19,
+      "sha256": "1edef4f5a4b8726780da570619a5ffe0dd284a0096ea601b01bb8727f3f45757"
+    },
+    "raw/2026-11-09/3350.T/attempt-1.json": {
+      "bytes": 1357,
+      "sha256": "9747772c7f753167e21d3172687ea4963c35f34e8157ba8879b3d39f7c6a54a0"
+    },
+    "raw/2026-11-09/3350.T/attempt-2.body": {
+      "bytes": 19,
+      "sha256": "1edef4f5a4b8726780da570619a5ffe0dd284a0096ea601b01bb8727f3f45757"
+    },
+    "raw/2026-11-09/3350.T/attempt-2.json": {
+      "bytes": 1357,
+      "sha256": "dda50b169ed3995e45d05759f8f9726faae5e81256c325367db08bf9afbad07b"
+    },
+    "raw/2026-11-09/3498.T/attempt-1.body": {
+      "bytes": 19,
+      "sha256": "1edef4f5a4b8726780da570619a5ffe0dd284a0096ea601b01bb8727f3f45757"
+    },
+    "raw/2026-11-09/3498.T/attempt-1.json": {
+      "bytes": 1357,
+      "sha256": "98180237903abadbd32b322d7a69b14386882f5c9090168ca3f6dba56b3acd02"
+    },
+    "raw/2026-11-09/3498.T/attempt-2.body": {
+      "bytes": 19,
+      "sha256": "1edef4f5a4b8726780da570619a5ffe0dd284a0096ea601b01bb8727f3f45757"
+    },
+    "raw/2026-11-09/3498.T/attempt-2.json": {
+      "bytes": 1357,
+      "sha256": "61a8e8ebc6ce9b5f2f291124083a9a36917b90bc4f9c9166debe831eda1a82b1"
+    },
+    "raw/2026-11-09/3692.T/attempt-1.body": {
+      "bytes": 19,
+      "sha256": "1edef4f5a4b8726780da570619a5ffe0dd284a0096ea601b01bb8727f3f45757"
+    },
+    "raw/2026-11-09/3692.T/attempt-1.json": {
+      "bytes": 1357,
+      "sha256": "46d5540b0b11b03256c7c823f6d89ef340de6e1eb79ad17a890eb14a61e665ed"
+    },
+    "raw/2026-11-09/3692.T/attempt-2.body": {
+      "bytes": 19,
+      "sha256": "1edef4f5a4b8726780da570619a5ffe0dd284a0096ea601b01bb8727f3f45757"
+    },
+    "raw/2026-11-09/3692.T/attempt-2.json": {
+      "bytes": 1357,
+      "sha256": "952af70dd11c9d61c2b4ff04320c6ef713bddee2b24d2aa10f1db4724a516730"
+    },
+    "raw/2026-11-09/3697.T/attempt-1.body": {
+      "bytes": 19,
+      "sha256": "1edef4f5a4b8726780da570619a5ffe0dd284a0096ea601b01bb8727f3f45757"
+    },
+    "raw/2026-11-09/3697.T/attempt-1.json": {
+      "bytes": 1357,
+      "sha256": "630b6aa66db54dc96fac7325a5f3d1d137839e7eccb4e063b10fb75d85a298b9"
+    },
+    "raw/2026-11-09/3697.T/attempt-2.body": {
+      "bytes": 19,
+      "sha256": "1edef4f5a4b8726780da570619a5ffe0dd284a0096ea601b01bb8727f3f45757"
+    },
+    "raw/2026-11-09/3697.T/attempt-2.json": {
+      "bytes": 1357,
+      "sha256": "213ae675a3b22e54ee696145f0b3cfd30333d346996f755a99007e2868a8dc3a"
+    },
+    "raw/2026-11-09/3778.T/attempt-1.body": {
+      "bytes": 19,
+      "sha256": "1edef4f5a4b8726780da570619a5ffe0dd284a0096ea601b01bb8727f3f45757"
+    },
+    "raw/2026-11-09/3778.T/attempt-1.json": {
+      "bytes": 1357,
+      "sha256": "9d031d2e846e89780429601c82d8d8821426ea9c7970e0e46c1b0621648d9666"
+    },
+    "raw/2026-11-09/3778.T/attempt-2.body": {
+      "bytes": 19,
+      "sha256": "1edef4f5a4b8726780da570619a5ffe0dd284a0096ea601b01bb8727f3f45757"
+    },
+    "raw/2026-11-09/3778.T/attempt-2.json": {
+      "bytes": 1357,
+      "sha256": "0ac521b3a133186d5e40582d38c47dad7074a958d4bcc33eae454e9e491ddeaf"
+    },
+    "raw/2026-11-09/3905.T/attempt-1.body": {
+      "bytes": 19,
+      "sha256": "1edef4f5a4b8726780da570619a5ffe0dd284a0096ea601b01bb8727f3f45757"
+    },
+    "raw/2026-11-09/3905.T/attempt-1.json": {
+      "bytes": 1357,
+      "sha256": "aaac3cc255aee8eeb874b95148c432e29ffa16ef2b28fa7e6ac4fc0adac2dab0"
+    },
+    "raw/2026-11-09/3905.T/attempt-2.body": {
+      "bytes": 19,
+      "sha256": "1edef4f5a4b8726780da570619a5ffe0dd284a0096ea601b01bb8727f3f45757"
+    },
+    "raw/2026-11-09/3905.T/attempt-2.json": {
+      "bytes": 1357,
+      "sha256": "8ff895f9ce4831a3e7c7380659f891b59d9d86f76b4ed676b9b8887a9494b63c"
+    },
+    "raw/2026-11-09/3923.T/attempt-1.body": {
+      "bytes": 19,
+      "sha256": "1edef4f5a4b8726780da570619a5ffe0dd284a0096ea601b01bb8727f3f45757"
+    },
+    "raw/2026-11-09/3923.T/attempt-1.json": {
+      "bytes": 1357,
+      "sha256": "534730aceaada2e73df9cc5e1171ddeb866a6faf65e10ea475e2068363323ca2"
+    },
+    "raw/2026-11-09/3923.T/attempt-2.body": {
+      "bytes": 19,
+      "sha256": "1edef4f5a4b8726780da570619a5ffe0dd284a0096ea601b01bb8727f3f45757"
+    },
+    "raw/2026-11-09/3923.T/attempt-2.json": {
+      "bytes": 1357,
+      "sha256": "ba47dd95fb9f89278ee1041e2bd19d218e3a2e2e36ce1d9df61a1d49d1c159bc"
+    },
+    "raw/2026-11-09/3993.T/attempt-1.body": {
+      "bytes": 19,
+      "sha256": "1edef4f5a4b8726780da570619a5ffe0dd284a0096ea601b01bb8727f3f45757"
+    },
+    "raw/2026-11-09/3993.T/attempt-1.json": {
+      "bytes": 1357,
+      "sha256": "7b344eee0f127393a7ab6d65e9a4d64175a468bfd6f9970e20f33540532a8c8e"
+    },
+    "raw/2026-11-09/3993.T/attempt-2.body": {
+      "bytes": 19,
+      "sha256": "1edef4f5a4b8726780da570619a5ffe0dd284a0096ea601b01bb8727f3f45757"
+    },
+    "raw/2026-11-09/3993.T/attempt-2.json": {
+      "bytes": 1357,
+      "sha256": "458da64b06d549d3ac8325f6fa3bcf0e8cfe8d9daaff5a06e8c5eb4fe42fdf77"
+    },
+    "raw/2026-11-09/3994.T/attempt-1.body": {
+      "bytes": 19,
+      "sha256": "1edef4f5a4b8726780da570619a5ffe0dd284a0096ea601b01bb8727f3f45757"
+    },
+    "raw/2026-11-09/3994.T/attempt-1.json": {
+      "bytes": 1357,
+      "sha256": "1aaebe3a58848adf91289a4fe05d05696249804813d56353764ca5a092f998c0"
+    },
+    "raw/2026-11-09/3994.T/attempt-2.body": {
+      "bytes": 19,
+      "sha256": "1edef4f5a4b8726780da570619a5ffe0dd284a0096ea601b01bb8727f3f45757"
+    },
+    "raw/2026-11-09/3994.T/attempt-2.json": {
+      "bytes": 1357,
+      "sha256": "742372c4717812d8ed75eae6a35e71c47716f63a4efdfcb09e4204df8b368b4b"
+    },
+    "raw/2026-11-09/4180.T/attempt-1.body": {
+      "bytes": 19,
+      "sha256": "1edef4f5a4b8726780da570619a5ffe0dd284a0096ea601b01bb8727f3f45757"
+    },
+    "raw/2026-11-09/4180.T/attempt-1.json": {
+      "bytes": 1357,
+      "sha256": "ee0dc76558a337ef7bb48c243646960b23b786ecb78db237bf0d4977577b1a41"
+    },
+    "raw/2026-11-09/4180.T/attempt-2.body": {
+      "bytes": 19,
+      "sha256": "1edef4f5a4b8726780da570619a5ffe0dd284a0096ea601b01bb8727f3f45757"
+    },
+    "raw/2026-11-09/4180.T/attempt-2.json": {
+      "bytes": 1357,
+      "sha256": "c5887bf248af2e9e3168d293c55281aa8abbfed11512a3f47941dffb7793790f"
+    },
+    "raw/2026-11-09/4194.T/attempt-1.body": {
+      "bytes": 19,
+      "sha256": "1edef4f5a4b8726780da570619a5ffe0dd284a0096ea601b01bb8727f3f45757"
+    },
+    "raw/2026-11-09/4194.T/attempt-1.json": {
+      "bytes": 1357,
+      "sha256": "f1eac7193df580a36525f341c76346f2aab4de39acef11cdf6ca3f17baab2bc7"
+    },
+    "raw/2026-11-09/4194.T/attempt-2.body": {
+      "bytes": 19,
+      "sha256": "1edef4f5a4b8726780da570619a5ffe0dd284a0096ea601b01bb8727f3f45757"
+    },
+    "raw/2026-11-09/4194.T/attempt-2.json": {
+      "bytes": 1357,
+      "sha256": "d5b975bdb8f702e0eab842c88fcaebb62ba193bf898ef3c9abc83563e9193625"
+    },
+    "raw/2026-11-09/4258.T/attempt-1.body": {
+      "bytes": 19,
+      "sha256": "1edef4f5a4b8726780da570619a5ffe0dd284a0096ea601b01bb8727f3f45757"
+    },
+    "raw/2026-11-09/4258.T/attempt-1.json": {
+      "bytes": 1357,
+      "sha256": "8c55915e406491cb046957d9edab5485e2cd456f4431c9a1e8111644cfb7e46a"
+    },
+    "raw/2026-11-09/4258.T/attempt-2.body": {
+      "bytes": 19,
+      "sha256": "1edef4f5a4b8726780da570619a5ffe0dd284a0096ea601b01bb8727f3f45757"
+    },
+    "raw/2026-11-09/4258.T/attempt-2.json": {
+      "bytes": 1357,
+      "sha256": "e62751805f7f5e9c0d9d5d3ba0bf1cb9ab5f638fde049ac5b66e6133f3e22d56"
+    },
+    "raw/2026-11-09/4369.T/attempt-1.body": {
+      "bytes": 19,
+      "sha256": "1edef4f5a4b8726780da570619a5ffe0dd284a0096ea601b01bb8727f3f45757"
+    },
+    "raw/2026-11-09/4369.T/attempt-1.json": {
+      "bytes": 1357,
+      "sha256": "9f45db3fa8411855722aaa5b032263d0e6c8126233b8bdd134e88501b2beecf7"
+    },
+    "raw/2026-11-09/4369.T/attempt-2.body": {
+      "bytes": 19,
+      "sha256": "1edef4f5a4b8726780da570619a5ffe0dd284a0096ea601b01bb8727f3f45757"
+    },
+    "raw/2026-11-09/4369.T/attempt-2.json": {
+      "bytes": 1357,
+      "sha256": "8ff24974dacd8b6d870ccead011b4911d0871a5943d18c9adc5438c7a14a6e9a"
+    },
+    "raw/2026-11-09/4373.T/attempt-1.body": {
+      "bytes": 19,
+      "sha256": "1edef4f5a4b8726780da570619a5ffe0dd284a0096ea601b01bb8727f3f45757"
+    },
+    "raw/2026-11-09/4373.T/attempt-1.json": {
+      "bytes": 1357,
+      "sha256": "6d8b882434b7925e3386c32b957f1d529ede9ec5c7b5724fbe2ba09c66c16e11"
+    },
+    "raw/2026-11-09/4373.T/attempt-2.body": {
+      "bytes": 19,
+      "sha256": "1edef4f5a4b8726780da570619a5ffe0dd284a0096ea601b01bb8727f3f45757"
+    },
+    "raw/2026-11-09/4373.T/attempt-2.json": {
+      "bytes": 1357,
+      "sha256": "42e67c62f1c21d701db298eec06c91bd53141a3043349b53d787013e2d656a5c"
+    },
+    "raw/2026-11-09/4382.T/attempt-1.body": {
+      "bytes": 19,
+      "sha256": "1edef4f5a4b8726780da570619a5ffe0dd284a0096ea601b01bb8727f3f45757"
+    },
+    "raw/2026-11-09/4382.T/attempt-1.json": {
+      "bytes": 1357,
+      "sha256": "7ad35cbabeffbd17045336fd30dec15775f15b74c24d0982200989ac4bc94cff"
+    },
+    "raw/2026-11-09/4382.T/attempt-2.body": {
+      "bytes": 19,
+      "sha256": "1edef4f5a4b8726780da570619a5ffe0dd284a0096ea601b01bb8727f3f45757"
+    },
+    "raw/2026-11-09/4382.T/attempt-2.json": {
+      "bytes": 1357,
+      "sha256": "a2a400cfcfada3b6f4ac42b86c01a630b6140113b95d1a2476f0059aa144bb0e"
+    },
+    "raw/2026-11-09/4385.T/attempt-1.body": {
+      "bytes": 19,
+      "sha256": "1edef4f5a4b8726780da570619a5ffe0dd284a0096ea601b01bb8727f3f45757"
+    },
+    "raw/2026-11-09/4385.T/attempt-1.json": {
+      "bytes": 1357,
+      "sha256": "bb370bcc3ceff932b33bca662e119e3edc4d15bceb2b55c5712e72896a987625"
+    },
+    "raw/2026-11-09/4385.T/attempt-2.body": {
+      "bytes": 19,
+      "sha256": "1edef4f5a4b8726780da570619a5ffe0dd284a0096ea601b01bb8727f3f45757"
+    },
+    "raw/2026-11-09/4385.T/attempt-2.json": {
+      "bytes": 1357,
+      "sha256": "c939f8aee25160e3fbadc31bf1e90cea7b583bf9ac94afb4689f808980676f50"
+    },
+    "raw/2026-11-09/4417.T/attempt-1.body": {
+      "bytes": 19,
+      "sha256": "1edef4f5a4b8726780da570619a5ffe0dd284a0096ea601b01bb8727f3f45757"
+    },
+    "raw/2026-11-09/4417.T/attempt-1.json": {
+      "bytes": 1357,
+      "sha256": "db1774c53674f825ec006c50711e8e36f47cbfecd0a4b9b751dd48122fa29f77"
+    },
+    "raw/2026-11-09/4417.T/attempt-2.body": {
+      "bytes": 19,
+      "sha256": "1edef4f5a4b8726780da570619a5ffe0dd284a0096ea601b01bb8727f3f45757"
+    },
+    "raw/2026-11-09/4417.T/attempt-2.json": {
+      "bytes": 1357,
+      "sha256": "6d4bcbe807290a5593e4c13846b7a4489ebd71477bea991e75d7b0b10ed6ca08"
+    },
+    "raw/2026-11-09/4443.T/attempt-1.body": {
+      "bytes": 19,
+      "sha256": "1edef4f5a4b8726780da570619a5ffe0dd284a0096ea601b01bb8727f3f45757"
+    },
+    "raw/2026-11-09/4443.T/attempt-1.json": {
+      "bytes": 1357,
+      "sha256": "1ee3a51e9435003a1a586876df5bb696e25511edf4a7a6347026c688036f3fd3"
+    },
+    "raw/2026-11-09/4443.T/attempt-2.body": {
+      "bytes": 19,
+      "sha256": "1edef4f5a4b8726780da570619a5ffe0dd284a0096ea601b01bb8727f3f45757"
+    },
+    "raw/2026-11-09/4443.T/attempt-2.json": {
+      "bytes": 1357,
+      "sha256": "b0967428d8fd59808037478801712ec565547fba22262f2b2cef3524dbc29b83"
+    },
+    "raw/2026-11-09/4475.T/attempt-1.body": {
+      "bytes": 19,
+      "sha256": "1edef4f5a4b8726780da570619a5ffe0dd284a0096ea601b01bb8727f3f45757"
+    },
+    "raw/2026-11-09/4475.T/attempt-1.json": {
+      "bytes": 1357,
+      "sha256": "48c3133a1b532e2b874ba26cbf3c3846600357d97fdc0504a302a823b8aaedf8"
+    },
+    "raw/2026-11-09/4475.T/attempt-2.body": {
+      "bytes": 19,
+      "sha256": "1edef4f5a4b8726780da570619a5ffe0dd284a0096ea601b01bb8727f3f45757"
+    },
+    "raw/2026-11-09/4475.T/attempt-2.json": {
+      "bytes": 1357,
+      "sha256": "6afbe0e46f87945bfac3db0a19ee4d036b77f917632f4a3dd6ccffef10bdc49e"
+    },
+    "raw/2026-11-09/4478.T/attempt-1.body": {
+      "bytes": 19,
+      "sha256": "1edef4f5a4b8726780da570619a5ffe0dd284a0096ea601b01bb8727f3f45757"
+    },
+    "raw/2026-11-09/4478.T/attempt-1.json": {
+      "bytes": 1357,
+      "sha256": "db38eb3dcb401dabf4712b8e4be00b06381c2b5a0916f5d1e627f21d793508d4"
+    },
+    "raw/2026-11-09/4478.T/attempt-2.body": {
+      "bytes": 19,
+      "sha256": "1edef4f5a4b8726780da570619a5ffe0dd284a0096ea601b01bb8727f3f45757"
+    },
+    "raw/2026-11-09/4478.T/attempt-2.json": {
+      "bytes": 1357,
+      "sha256": "bfdda7db96a7d0fb1270446834b29ac3768b2fba0e6ee03dbb43e88f309fb415"
+    },
+    "raw/2026-11-09/4483.T/attempt-1.body": {
+      "bytes": 19,
+      "sha256": "1edef4f5a4b8726780da570619a5ffe0dd284a0096ea601b01bb8727f3f45757"
+    },
+    "raw/2026-11-09/4483.T/attempt-1.json": {
+      "bytes": 1357,
+      "sha256": "005d86906ea54526bf0017591065221d3a4bfd8e62771a1552b5cb55fc5ba119"
+    },
+    "raw/2026-11-09/4483.T/attempt-2.body": {
+      "bytes": 19,
+      "sha256": "1edef4f5a4b8726780da570619a5ffe0dd284a0096ea601b01bb8727f3f45757"
+    },
+    "raw/2026-11-09/4483.T/attempt-2.json": {
+      "bytes": 1357,
+      "sha256": "ddb372839307c6103597190f7c47514e64530ae32d53286f96761de22a849944"
+    },
+    "raw/2026-11-09/4493.T/attempt-1.body": {
+      "bytes": 19,
+      "sha256": "1edef4f5a4b8726780da570619a5ffe0dd284a0096ea601b01bb8727f3f45757"
+    },
+    "raw/2026-11-09/4493.T/attempt-1.json": {
+      "bytes": 1357,
+      "sha256": "d8f8b884bbab9e9d79638bd132eed97aa8715f2ffc06dbaf4a59179abd15cf8a"
+    },
+    "raw/2026-11-09/4493.T/attempt-2.body": {
+      "bytes": 19,
+      "sha256": "1edef4f5a4b8726780da570619a5ffe0dd284a0096ea601b01bb8727f3f45757"
+    },
+    "raw/2026-11-09/4493.T/attempt-2.json": {
+      "bytes": 1357,
+      "sha256": "f2465f721063bda3c3538e0a5bc678aad71eda5c0a63589810f0243257f97280"
+    },
+    "raw/2026-11-09/4506.T/attempt-1.body": {
+      "bytes": 19,
+      "sha256": "1edef4f5a4b8726780da570619a5ffe0dd284a0096ea601b01bb8727f3f45757"
+    },
+    "raw/2026-11-09/4506.T/attempt-1.json": {
+      "bytes": 1357,
+      "sha256": "685da7edc0f5274be4c166bff41b7bd83c89b553a8f5b47561bcaaab23fe4343"
+    },
+    "raw/2026-11-09/4506.T/attempt-2.body": {
+      "bytes": 19,
+      "sha256": "1edef4f5a4b8726780da570619a5ffe0dd284a0096ea601b01bb8727f3f45757"
+    },
+    "raw/2026-11-09/4506.T/attempt-2.json": {
+      "bytes": 1357,
+      "sha256": "c31f1b6b568990e760a1172fe5faf11b3167f73fc007915a111712ee10e60661"
+    },
+    "raw/2026-11-09/4564.T/attempt-1.body": {
+      "bytes": 19,
+      "sha256": "1edef4f5a4b8726780da570619a5ffe0dd284a0096ea601b01bb8727f3f45757"
+    },
+    "raw/2026-11-09/4564.T/attempt-1.json": {
+      "bytes": 1357,
+      "sha256": "8abbe3de47b50f8a05ebb987eb7ecb587cf917e61e128c7d9b03b987e00bec3a"
+    },
+    "raw/2026-11-09/4564.T/attempt-2.body": {
+      "bytes": 19,
+      "sha256": "1edef4f5a4b8726780da570619a5ffe0dd284a0096ea601b01bb8727f3f45757"
+    },
+    "raw/2026-11-09/4564.T/attempt-2.json": {
+      "bytes": 1357,
+      "sha256": "8696d34bde1293fbaa03f25b0b1a1b1b1a4d66a027248595fe37d7a0bc0d65e2"
+    },
+    "raw/2026-11-09/4592.T/attempt-1.body": {
+      "bytes": 19,
+      "sha256": "1edef4f5a4b8726780da570619a5ffe0dd284a0096ea601b01bb8727f3f45757"
+    },
+    "raw/2026-11-09/4592.T/attempt-1.json": {
+      "bytes": 1357,
+      "sha256": "6fadd53ac85539cb253eb09071647e94b1fa057116805061a783bc680d86321a"
+    },
+    "raw/2026-11-09/4592.T/attempt-2.body": {
+      "bytes": 19,
+      "sha256": "1edef4f5a4b8726780da570619a5ffe0dd284a0096ea601b01bb8727f3f45757"
+    },
+    "raw/2026-11-09/4592.T/attempt-2.json": {
+      "bytes": 1357,
+      "sha256": "6331fc971c49d4a92315108c442a68ba4d85bd9e0fd958fc1031e0598ffc0201"
+    },
+    "raw/2026-11-09/4597.T/attempt-1.body": {
+      "bytes": 19,
+      "sha256": "1edef4f5a4b8726780da570619a5ffe0dd284a0096ea601b01bb8727f3f45757"
+    },
+    "raw/2026-11-09/4597.T/attempt-1.json": {
+      "bytes": 1357,
+      "sha256": "2c06f917661a5dce5596b8d869415f4463d4081b813b66468784c8276e52a38a"
+    },
+    "raw/2026-11-09/4597.T/attempt-2.body": {
+      "bytes": 19,
+      "sha256": "1edef4f5a4b8726780da570619a5ffe0dd284a0096ea601b01bb8727f3f45757"
+    },
+    "raw/2026-11-09/4597.T/attempt-2.json": {
+      "bytes": 1357,
+      "sha256": "43bc882dd6c8d611a5257d13354d348feeaf8f19e4435354a91c114e51cd53b5"
+    },
+    "raw/2026-11-09/464A.T/attempt-1.body": {
+      "bytes": 19,
+      "sha256": "1edef4f5a4b8726780da570619a5ffe0dd284a0096ea601b01bb8727f3f45757"
+    },
+    "raw/2026-11-09/464A.T/attempt-1.json": {
+      "bytes": 1357,
+      "sha256": "f90ab10c29ba52d846a190c74a5d790b9ae1d7dbb387c8621b1d4fa73651c0e7"
+    },
+    "raw/2026-11-09/464A.T/attempt-2.body": {
+      "bytes": 19,
+      "sha256": "1edef4f5a4b8726780da570619a5ffe0dd284a0096ea601b01bb8727f3f45757"
+    },
+    "raw/2026-11-09/464A.T/attempt-2.json": {
+      "bytes": 1357,
+      "sha256": "a4abc25e863aaaa60f244cc1a83f3ae47a324b4f26d985e16c728ae631417e84"
+    },
+    "raw/2026-11-09/4894.T/attempt-1.body": {
+      "bytes": 19,
+      "sha256": "1edef4f5a4b8726780da570619a5ffe0dd284a0096ea601b01bb8727f3f45757"
+    },
+    "raw/2026-11-09/4894.T/attempt-1.json": {
+      "bytes": 1357,
+      "sha256": "054e18692a50bd7e32cdb1e6374dcdcd11587fca23c522165f090d1dad4e67c6"
+    },
+    "raw/2026-11-09/4894.T/attempt-2.body": {
+      "bytes": 19,
+      "sha256": "1edef4f5a4b8726780da570619a5ffe0dd284a0096ea601b01bb8727f3f45757"
+    },
+    "raw/2026-11-09/4894.T/attempt-2.json": {
+      "bytes": 1357,
+      "sha256": "ba8923e0164b8aabf770c43cf6ce53cfc780d2daebcbcb7cf8a454ba1e00d6ce"
+    },
+    "raw/2026-11-09/5032.T/attempt-1.body": {
+      "bytes": 19,
+      "sha256": "1edef4f5a4b8726780da570619a5ffe0dd284a0096ea601b01bb8727f3f45757"
+    },
+    "raw/2026-11-09/5032.T/attempt-1.json": {
+      "bytes": 1357,
+      "sha256": "31080305946cae55ea88de7da3f9ba9fc2fcd12b1cda291e8de79b0379888bc7"
+    },
+    "raw/2026-11-09/5032.T/attempt-2.body": {
+      "bytes": 19,
+      "sha256": "1edef4f5a4b8726780da570619a5ffe0dd284a0096ea601b01bb8727f3f45757"
+    },
+    "raw/2026-11-09/5032.T/attempt-2.json": {
+      "bytes": 1357,
+      "sha256": "0cd18c3f88c94bfed03f695b17ba7efe62ed174b9d6f2ec8035ec3dac8c8456e"
+    },
+    "raw/2026-11-09/5243.T/attempt-1.body": {
+      "bytes": 19,
+      "sha256": "1edef4f5a4b8726780da570619a5ffe0dd284a0096ea601b01bb8727f3f45757"
+    },
+    "raw/2026-11-09/5243.T/attempt-1.json": {
+      "bytes": 1357,
+      "sha256": "3ab38fa1e229f28d0e648628115a948a3f6ec7fce815fa7e7d1300e25ef81cfd"
+    },
+    "raw/2026-11-09/5243.T/attempt-2.body": {
+      "bytes": 19,
+      "sha256": "1edef4f5a4b8726780da570619a5ffe0dd284a0096ea601b01bb8727f3f45757"
+    },
+    "raw/2026-11-09/5243.T/attempt-2.json": {
+      "bytes": 1357,
+      "sha256": "43329e4840b0f601686ead55401efb6b82b3c0cd35215d08210d23d954bc17e0"
+    },
+    "raw/2026-11-09/5246.T/attempt-1.body": {
+      "bytes": 19,
+      "sha256": "1edef4f5a4b8726780da570619a5ffe0dd284a0096ea601b01bb8727f3f45757"
+    },
+    "raw/2026-11-09/5246.T/attempt-1.json": {
+      "bytes": 1357,
+      "sha256": "390010cc5c674fd35f2e03390b4de195d024341255a609cb1b71b0c51000d722"
+    },
+    "raw/2026-11-09/5246.T/attempt-2.body": {
+      "bytes": 19,
+      "sha256": "1edef4f5a4b8726780da570619a5ffe0dd284a0096ea601b01bb8727f3f45757"
+    },
+    "raw/2026-11-09/5246.T/attempt-2.json": {
+      "bytes": 1357,
+      "sha256": "735bc573267ed07ee4fa83efc0b691eca1d46e0556fafad5792099052e7b71f5"
+    },
+    "raw/2026-11-09/5253.T/attempt-1.body": {
+      "bytes": 19,
+      "sha256": "1edef4f5a4b8726780da570619a5ffe0dd284a0096ea601b01bb8727f3f45757"
+    },
+    "raw/2026-11-09/5253.T/attempt-1.json": {
+      "bytes": 1357,
+      "sha256": "256fc9ad0d9d284b30e7887cb0fc8094b9fbb1818cf715bf16d45ee2704600a4"
+    },
+    "raw/2026-11-09/5253.T/attempt-2.body": {
+      "bytes": 19,
+      "sha256": "1edef4f5a4b8726780da570619a5ffe0dd284a0096ea601b01bb8727f3f45757"
+    },
+    "raw/2026-11-09/5253.T/attempt-2.json": {
+      "bytes": 1357,
+      "sha256": "705563866ca22026a1df0c6b9de65761c1d2c4309ce0a7198dfefd4e47db1f9b"
+    },
+    "raw/2026-11-09/5985.T/attempt-1.body": {
+      "bytes": 19,
+      "sha256": "1edef4f5a4b8726780da570619a5ffe0dd284a0096ea601b01bb8727f3f45757"
+    },
+    "raw/2026-11-09/5985.T/attempt-1.json": {
+      "bytes": 1357,
+      "sha256": "97223111fca20dd7b78214c0fc79dd0a8110a8ddd0223592a8f4d07cc79383c8"
+    },
+    "raw/2026-11-09/5985.T/attempt-2.body": {
+      "bytes": 19,
+      "sha256": "1edef4f5a4b8726780da570619a5ffe0dd284a0096ea601b01bb8727f3f45757"
+    },
+    "raw/2026-11-09/5985.T/attempt-2.json": {
+      "bytes": 1357,
+      "sha256": "1d45f0849b9c8e1f27ef542ccd737d4050c015bec28a1ee18345b58385dc2460"
+    },
+    "raw/2026-11-09/6027.T/attempt-1.body": {
+      "bytes": 19,
+      "sha256": "1edef4f5a4b8726780da570619a5ffe0dd284a0096ea601b01bb8727f3f45757"
+    },
+    "raw/2026-11-09/6027.T/attempt-1.json": {
+      "bytes": 1357,
+      "sha256": "f5250d3ee2ecd480af9351b26c026862531fd879d5a5a50e154294a7cd640f68"
+    },
+    "raw/2026-11-09/6027.T/attempt-2.body": {
+      "bytes": 19,
+      "sha256": "1edef4f5a4b8726780da570619a5ffe0dd284a0096ea601b01bb8727f3f45757"
+    },
+    "raw/2026-11-09/6027.T/attempt-2.json": {
+      "bytes": 1357,
+      "sha256": "f8fa083fc6a8241daa417dba54c95758f3350bd1562a1e691f08c84f2b219b6b"
+    },
+    "raw/2026-11-09/6254.T/attempt-1.body": {
+      "bytes": 19,
+      "sha256": "1edef4f5a4b8726780da570619a5ffe0dd284a0096ea601b01bb8727f3f45757"
+    },
+    "raw/2026-11-09/6254.T/attempt-1.json": {
+      "bytes": 1357,
+      "sha256": "07818260d162194af36ee883a1d647b2e444c9d1b0b17db24790ca30fbdd1918"
+    },
+    "raw/2026-11-09/6254.T/attempt-2.body": {
+      "bytes": 19,
+      "sha256": "1edef4f5a4b8726780da570619a5ffe0dd284a0096ea601b01bb8727f3f45757"
+    },
+    "raw/2026-11-09/6254.T/attempt-2.json": {
+      "bytes": 1357,
+      "sha256": "fcd65b2e7ccfe61f1c6d2b39ff4548846c212d6275eb159887c3cf4b5b39e16a"
+    },
+    "raw/2026-11-09/6323.T/attempt-1.body": {
+      "bytes": 19,
+      "sha256": "1edef4f5a4b8726780da570619a5ffe0dd284a0096ea601b01bb8727f3f45757"
+    },
+    "raw/2026-11-09/6323.T/attempt-1.json": {
+      "bytes": 1357,
+      "sha256": "52b7cfda55816034af0da3a4912aaad42641d825edfb6e2efef1edcb358f6aa4"
+    },
+    "raw/2026-11-09/6323.T/attempt-2.body": {
+      "bytes": 19,
+      "sha256": "1edef4f5a4b8726780da570619a5ffe0dd284a0096ea601b01bb8727f3f45757"
+    },
+    "raw/2026-11-09/6323.T/attempt-2.json": {
+      "bytes": 1357,
+      "sha256": "b3119875d6fe1a624d8fcdfc5a195b5ac70bbfeb9bd67de500dfb614d6e5ff63"
+    },
+    "raw/2026-11-09/6521.T/attempt-1.body": {
+      "bytes": 19,
+      "sha256": "1edef4f5a4b8726780da570619a5ffe0dd284a0096ea601b01bb8727f3f45757"
+    },
+    "raw/2026-11-09/6521.T/attempt-1.json": {
+      "bytes": 1357,
+      "sha256": "79d872785cc5e263562c81cab1c12e36364432918768c95df89ea656f0e385ab"
+    },
+    "raw/2026-11-09/6521.T/attempt-2.body": {
+      "bytes": 19,
+      "sha256": "1edef4f5a4b8726780da570619a5ffe0dd284a0096ea601b01bb8727f3f45757"
+    },
+    "raw/2026-11-09/6521.T/attempt-2.json": {
+      "bytes": 1357,
+      "sha256": "639a6b2fd9656e652f0a05b1ef2ee1d11230214c056f861384ddd0aa58f5457c"
+    },
+    "raw/2026-11-09/6526.T/attempt-1.body": {
+      "bytes": 19,
+      "sha256": "1edef4f5a4b8726780da570619a5ffe0dd284a0096ea601b01bb8727f3f45757"
+    },
+    "raw/2026-11-09/6526.T/attempt-1.json": {
+      "bytes": 1357,
+      "sha256": "2ba468407c85edfc94a400d12bb201dcaa301b892abde9d5cb2c808656cde061"
+    },
+    "raw/2026-11-09/6526.T/attempt-2.body": {
+      "bytes": 19,
+      "sha256": "1edef4f5a4b8726780da570619a5ffe0dd284a0096ea601b01bb8727f3f45757"
+    },
+    "raw/2026-11-09/6526.T/attempt-2.json": {
+      "bytes": 1357,
+      "sha256": "f2329d3cc4731c4203bc47dd5d4bc7f4c64323259d04e62cc8c4e4f0413a2197"
+    },
+    "raw/2026-11-09/6613.T/attempt-1.body": {
+      "bytes": 19,
+      "sha256": "1edef4f5a4b8726780da570619a5ffe0dd284a0096ea601b01bb8727f3f45757"
+    },
+    "raw/2026-11-09/6613.T/attempt-1.json": {
+      "bytes": 1357,
+      "sha256": "bb2ce0d29537caf8508e2da4e7930455badfa8b3522a16523bc5633dfd8388e5"
+    },
+    "raw/2026-11-09/6613.T/attempt-2.body": {
+      "bytes": 19,
+      "sha256": "1edef4f5a4b8726780da570619a5ffe0dd284a0096ea601b01bb8727f3f45757"
+    },
+    "raw/2026-11-09/6613.T/attempt-2.json": {
+      "bytes": 1357,
+      "sha256": "9a4f0da2f5f79ab532ca60250316bbde5a780b8f29ba5764934ed53bc2bd1c8a"
+    },
+    "raw/2026-11-09/6777.T/attempt-1.body": {
+      "bytes": 19,
+      "sha256": "1edef4f5a4b8726780da570619a5ffe0dd284a0096ea601b01bb8727f3f45757"
+    },
+    "raw/2026-11-09/6777.T/attempt-1.json": {
+      "bytes": 1357,
+      "sha256": "4bd603c8bc4e2c871b5363fbe89bac875f97b70b15805c8949b8e925ddff269f"
+    },
+    "raw/2026-11-09/6777.T/attempt-2.body": {
+      "bytes": 19,
+      "sha256": "1edef4f5a4b8726780da570619a5ffe0dd284a0096ea601b01bb8727f3f45757"
+    },
+    "raw/2026-11-09/6777.T/attempt-2.json": {
+      "bytes": 1357,
+      "sha256": "785abe74a044cb21e91aef824495ee4b48f75a27e522d627eb7f023bbfc4ea4b"
+    },
+    "raw/2026-11-09/6855.T/attempt-1.body": {
+      "bytes": 19,
+      "sha256": "1edef4f5a4b8726780da570619a5ffe0dd284a0096ea601b01bb8727f3f45757"
+    },
+    "raw/2026-11-09/6855.T/attempt-1.json": {
+      "bytes": 1357,
+      "sha256": "4502e055d86b1c69a74ec4f8d35410bb66d71d5a34d5b92907f47c562253781c"
+    },
+    "raw/2026-11-09/6855.T/attempt-2.body": {
+      "bytes": 19,
+      "sha256": "1edef4f5a4b8726780da570619a5ffe0dd284a0096ea601b01bb8727f3f45757"
+    },
+    "raw/2026-11-09/6855.T/attempt-2.json": {
+      "bytes": 1357,
+      "sha256": "9acf4152b8392ac2c47332ed564cef29fc914361c59cc43395097660aa248b1b"
+    },
+    "raw/2026-11-09/6871.T/attempt-1.body": {
+      "bytes": 19,
+      "sha256": "1edef4f5a4b8726780da570619a5ffe0dd284a0096ea601b01bb8727f3f45757"
+    },
+    "raw/2026-11-09/6871.T/attempt-1.json": {
+      "bytes": 1357,
+      "sha256": "0ebc057fc0bddb419055bbb489fa055ce55134eed53d0cf16477af6a436d8028"
+    },
+    "raw/2026-11-09/6871.T/attempt-2.body": {
+      "bytes": 19,
+      "sha256": "1edef4f5a4b8726780da570619a5ffe0dd284a0096ea601b01bb8727f3f45757"
+    },
+    "raw/2026-11-09/6871.T/attempt-2.json": {
+      "bytes": 1357,
+      "sha256": "ff46dbff3fe873c7fb830529d83234ed7ce82765868917c3ed51e6fc2269090f"
+    },
+    "raw/2026-11-09/6890.T/attempt-1.body": {
+      "bytes": 19,
+      "sha256": "1edef4f5a4b8726780da570619a5ffe0dd284a0096ea601b01bb8727f3f45757"
+    },
+    "raw/2026-11-09/6890.T/attempt-1.json": {
+      "bytes": 1357,
+      "sha256": "48b5d8b338692dde546412473235ca0e0adacddd4a5d668b8d694c2a69326a1b"
+    },
+    "raw/2026-11-09/6890.T/attempt-2.body": {
+      "bytes": 19,
+      "sha256": "1edef4f5a4b8726780da570619a5ffe0dd284a0096ea601b01bb8727f3f45757"
+    },
+    "raw/2026-11-09/6890.T/attempt-2.json": {
+      "bytes": 1357,
+      "sha256": "0eed0f63be199297b318b2ce7724c949c82837a1396d3ad83a8764cfcabe9542"
+    },
+    "raw/2026-11-09/7014.T/attempt-1.body": {
+      "bytes": 19,
+      "sha256": "1edef4f5a4b8726780da570619a5ffe0dd284a0096ea601b01bb8727f3f45757"
+    },
+    "raw/2026-11-09/7014.T/attempt-1.json": {
+      "bytes": 1357,
+      "sha256": "a50303734c5aea646a3e646936da81976c02341e76caec87cd1eb2f8c5dc1ea8"
+    },
+    "raw/2026-11-09/7014.T/attempt-2.body": {
+      "bytes": 19,
+      "sha256": "1edef4f5a4b8726780da570619a5ffe0dd284a0096ea601b01bb8727f3f45757"
+    },
+    "raw/2026-11-09/7014.T/attempt-2.json": {
+      "bytes": 1357,
+      "sha256": "8e1e07055f32537a5bc9df42c80d304f2864730c770e1ea549b0b6e7f68248e8"
+    }
+  },
+  "final_cutoff": "2026-12-07T18:30:00+09:00",
+  "interval": "5m",
+  "manifest_payload_sha256": "e6dba67d4175a2c46240eec1e7e00e34a8afaa0d72a6219afea385d0bb14ab79",
+  "max_capture_seconds": 2700.0,
+  "previous_capture_sha256": null,
+  "price_fields": "unadjusted quote OHLCV; adjclose not used",
+  "protocol_sha256": "fe3df5c0fc5d8beb336bcfe20d0c64b7fd3be010eacb5bf8c27735208fd45b89",
+  "provider": "Yahoo Finance public chart",
+  "records": [
+    {
+      "after_final_cutoff": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "http_status": 429,
+          "metadata_path": "raw/2026-11-09/3905.T/attempt-1.json",
+          "raw_path": "raw/2026-11-09/3905.T/attempt-1.body",
+          "reason": "http_error",
+          "received_at": "2026-11-09T09:26:35.190232+00:00",
+          "requested_at": "2026-11-09T09:26:34.797068+00:00",
+          "response_url": "https://query1.finance.yahoo.com/v8/finance/chart/3905.T?interval=5m&period1=1794150000&period2=1794236400&includePrePost=false&includeAdjustedClose=false",
+          "status": "failed"
+        },
+        {
+          "attempt": 2,
+          "http_status": 429,
+          "metadata_path": "raw/2026-11-09/3905.T/attempt-2.json",
+          "raw_path": "raw/2026-11-09/3905.T/attempt-2.body",
+          "reason": "http_error",
+          "received_at": "2026-11-09T09:26:35.231582+00:00",
+          "requested_at": "2026-11-09T09:26:35.190356+00:00",
+          "response_url": "https://query1.finance.yahoo.com/v8/finance/chart/3905.T?interval=5m&period1=1794150000&period2=1794236400&includePrePost=false&includeAdjustedClose=false",
+          "status": "failed"
+        }
+      ],
+      "csv_path": null,
+      "on_time": true,
+      "outside_target_day_rows": 0,
+      "reason": "http_error",
+      "received_at": "2026-11-09T09:26:35.231582+00:00",
+      "rows": 0,
+      "session_date": "2026-11-09",
+      "status": "failed",
+      "symbol": "3905.T"
+    },
+    {
+      "after_final_cutoff": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "http_status": 429,
+          "metadata_path": "raw/2026-11-09/4493.T/attempt-1.json",
+          "raw_path": "raw/2026-11-09/4493.T/attempt-1.body",
+          "reason": "http_error",
+          "received_at": "2026-11-09T09:26:35.264683+00:00",
+          "requested_at": "2026-11-09T09:26:35.231697+00:00",
+          "response_url": "https://query1.finance.yahoo.com/v8/finance/chart/4493.T?interval=5m&period1=1794150000&period2=1794236400&includePrePost=false&includeAdjustedClose=false",
+          "status": "failed"
+        },
+        {
+          "attempt": 2,
+          "http_status": 429,
+          "metadata_path": "raw/2026-11-09/4493.T/attempt-2.json",
+          "raw_path": "raw/2026-11-09/4493.T/attempt-2.body",
+          "reason": "http_error",
+          "received_at": "2026-11-09T09:26:35.293957+00:00",
+          "requested_at": "2026-11-09T09:26:35.264780+00:00",
+          "response_url": "https://query1.finance.yahoo.com/v8/finance/chart/4493.T?interval=5m&period1=1794150000&period2=1794236400&includePrePost=false&includeAdjustedClose=false",
+          "status": "failed"
+        }
+      ],
+      "csv_path": null,
+      "on_time": true,
+      "outside_target_day_rows": 0,
+      "reason": "http_error",
+      "received_at": "2026-11-09T09:26:35.293957+00:00",
+      "rows": 0,
+      "session_date": "2026-11-09",
+      "status": "failed",
+      "symbol": "4493.T"
+    },
+    {
+      "after_final_cutoff": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "http_status": 429,
+          "metadata_path": "raw/2026-11-09/6871.T/attempt-1.json",
+          "raw_path": "raw/2026-11-09/6871.T/attempt-1.body",
+          "reason": "http_error",
+          "received_at": "2026-11-09T09:26:35.324129+00:00",
+          "requested_at": "2026-11-09T09:26:35.294059+00:00",
+          "response_url": "https://query1.finance.yahoo.com/v8/finance/chart/6871.T?interval=5m&period1=1794150000&period2=1794236400&includePrePost=false&includeAdjustedClose=false",
+          "status": "failed"
+        },
+        {
+          "attempt": 2,
+          "http_status": 429,
+          "metadata_path": "raw/2026-11-09/6871.T/attempt-2.json",
+          "raw_path": "raw/2026-11-09/6871.T/attempt-2.body",
+          "reason": "http_error",
+          "received_at": "2026-11-09T09:26:35.365043+00:00",
+          "requested_at": "2026-11-09T09:26:35.324261+00:00",
+          "response_url": "https://query1.finance.yahoo.com/v8/finance/chart/6871.T?interval=5m&period1=1794150000&period2=1794236400&includePrePost=false&includeAdjustedClose=false",
+          "status": "failed"
+        }
+      ],
+      "csv_path": null,
+      "on_time": true,
+      "outside_target_day_rows": 0,
+      "reason": "http_error",
+      "received_at": "2026-11-09T09:26:35.365043+00:00",
+      "rows": 0,
+      "session_date": "2026-11-09",
+      "status": "failed",
+      "symbol": "6871.T"
+    },
+    {
+      "after_final_cutoff": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "http_status": 429,
+          "metadata_path": "raw/2026-11-09/6323.T/attempt-1.json",
+          "raw_path": "raw/2026-11-09/6323.T/attempt-1.body",
+          "reason": "http_error",
+          "received_at": "2026-11-09T09:26:35.407577+00:00",
+          "requested_at": "2026-11-09T09:26:35.365221+00:00",
+          "response_url": "https://query1.finance.yahoo.com/v8/finance/chart/6323.T?interval=5m&period1=1794150000&period2=1794236400&includePrePost=false&includeAdjustedClose=false",
+          "status": "failed"
+        },
+        {
+          "attempt": 2,
+          "http_status": 429,
+          "metadata_path": "raw/2026-11-09/6323.T/attempt-2.json",
+          "raw_path": "raw/2026-11-09/6323.T/attempt-2.body",
+          "reason": "http_error",
+          "received_at": "2026-11-09T09:26:35.448147+00:00",
+          "requested_at": "2026-11-09T09:26:35.407685+00:00",
+          "response_url": "https://query1.finance.yahoo.com/v8/finance/chart/6323.T?interval=5m&period1=1794150000&period2=1794236400&includePrePost=false&includeAdjustedClose=false",
+          "status": "failed"
+        }
+      ],
+      "csv_path": null,
+      "on_time": true,
+      "outside_target_day_rows": 0,
+      "reason": "http_error",
+      "received_at": "2026-11-09T09:26:35.448147+00:00",
+      "rows": 0,
+      "session_date": "2026-11-09",
+      "status": "failed",
+      "symbol": "6323.T"
+    },
+    {
+      "after_final_cutoff": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "http_status": 429,
+          "metadata_path": "raw/2026-11-09/6890.T/attempt-1.json",
+          "raw_path": "raw/2026-11-09/6890.T/attempt-1.body",
+          "reason": "http_error",
+          "received_at": "2026-11-09T09:26:35.488300+00:00",
+          "requested_at": "2026-11-09T09:26:35.448287+00:00",
+          "response_url": "https://query1.finance.yahoo.com/v8/finance/chart/6890.T?interval=5m&period1=1794150000&period2=1794236400&includePrePost=false&includeAdjustedClose=false",
+          "status": "failed"
+        },
+        {
+          "attempt": 2,
+          "http_status": 429,
+          "metadata_path": "raw/2026-11-09/6890.T/attempt-2.json",
+          "raw_path": "raw/2026-11-09/6890.T/attempt-2.body",
+          "reason": "http_error",
+          "received_at": "2026-11-09T09:26:35.553453+00:00",
+          "requested_at": "2026-11-09T09:26:35.488410+00:00",
+          "response_url": "https://query1.finance.yahoo.com/v8/finance/chart/6890.T?interval=5m&period1=1794150000&period2=1794236400&includePrePost=false&includeAdjustedClose=false",
+          "status": "failed"
+        }
+      ],
+      "csv_path": null,
+      "on_time": true,
+      "outside_target_day_rows": 0,
+      "reason": "http_error",
+      "received_at": "2026-11-09T09:26:35.553453+00:00",
+      "rows": 0,
+      "session_date": "2026-11-09",
+      "status": "failed",
+      "symbol": "6890.T"
+    },
+    {
+      "after_final_cutoff": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "http_status": 429,
+          "metadata_path": "raw/2026-11-09/6526.T/attempt-1.json",
+          "raw_path": "raw/2026-11-09/6526.T/attempt-1.body",
+          "reason": "http_error",
+          "received_at": "2026-11-09T09:26:35.585108+00:00",
+          "requested_at": "2026-11-09T09:26:35.553571+00:00",
+          "response_url": "https://query1.finance.yahoo.com/v8/finance/chart/6526.T?interval=5m&period1=1794150000&period2=1794236400&includePrePost=false&includeAdjustedClose=false",
+          "status": "failed"
+        },
+        {
+          "attempt": 2,
+          "http_status": 429,
+          "metadata_path": "raw/2026-11-09/6526.T/attempt-2.json",
+          "raw_path": "raw/2026-11-09/6526.T/attempt-2.body",
+          "reason": "http_error",
+          "received_at": "2026-11-09T09:26:35.615323+00:00",
+          "requested_at": "2026-11-09T09:26:35.585249+00:00",
+          "response_url": "https://query1.finance.yahoo.com/v8/finance/chart/6526.T?interval=5m&period1=1794150000&period2=1794236400&includePrePost=false&includeAdjustedClose=false",
+          "status": "failed"
+        }
+      ],
+      "csv_path": null,
+      "on_time": true,
+      "outside_target_day_rows": 0,
+      "reason": "http_error",
+      "received_at": "2026-11-09T09:26:35.615323+00:00",
+      "rows": 0,
+      "session_date": "2026-11-09",
+      "status": "failed",
+      "symbol": "6526.T"
+    },
+    {
+      "after_final_cutoff": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "http_status": 429,
+          "metadata_path": "raw/2026-11-09/3692.T/attempt-1.json",
+          "raw_path": "raw/2026-11-09/3692.T/attempt-1.body",
+          "reason": "http_error",
+          "received_at": "2026-11-09T09:26:35.644946+00:00",
+          "requested_at": "2026-11-09T09:26:35.615438+00:00",
+          "response_url": "https://query1.finance.yahoo.com/v8/finance/chart/3692.T?interval=5m&period1=1794150000&period2=1794236400&includePrePost=false&includeAdjustedClose=false",
+          "status": "failed"
+        },
+        {
+          "attempt": 2,
+          "http_status": 429,
+          "metadata_path": "raw/2026-11-09/3692.T/attempt-2.json",
+          "raw_path": "raw/2026-11-09/3692.T/attempt-2.body",
+          "reason": "http_error",
+          "received_at": "2026-11-09T09:26:35.678631+00:00",
+          "requested_at": "2026-11-09T09:26:35.645048+00:00",
+          "response_url": "https://query1.finance.yahoo.com/v8/finance/chart/3692.T?interval=5m&period1=1794150000&period2=1794236400&includePrePost=false&includeAdjustedClose=false",
+          "status": "failed"
+        }
+      ],
+      "csv_path": null,
+      "on_time": true,
+      "outside_target_day_rows": 0,
+      "reason": "http_error",
+      "received_at": "2026-11-09T09:26:35.678631+00:00",
+      "rows": 0,
+      "session_date": "2026-11-09",
+      "status": "failed",
+      "symbol": "3692.T"
+    },
+    {
+      "after_final_cutoff": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "http_status": 429,
+          "metadata_path": "raw/2026-11-09/278A.T/attempt-1.json",
+          "raw_path": "raw/2026-11-09/278A.T/attempt-1.body",
+          "reason": "http_error",
+          "received_at": "2026-11-09T09:26:35.710316+00:00",
+          "requested_at": "2026-11-09T09:26:35.678738+00:00",
+          "response_url": "https://query1.finance.yahoo.com/v8/finance/chart/278A.T?interval=5m&period1=1794150000&period2=1794236400&includePrePost=false&includeAdjustedClose=false",
+          "status": "failed"
+        },
+        {
+          "attempt": 2,
+          "http_status": 429,
+          "metadata_path": "raw/2026-11-09/278A.T/attempt-2.json",
+          "raw_path": "raw/2026-11-09/278A.T/attempt-2.body",
+          "reason": "http_error",
+          "received_at": "2026-11-09T09:26:35.748772+00:00",
+          "requested_at": "2026-11-09T09:26:35.710416+00:00",
+          "response_url": "https://query1.finance.yahoo.com/v8/finance/chart/278A.T?interval=5m&period1=1794150000&period2=1794236400&includePrePost=false&includeAdjustedClose=false",
+          "status": "failed"
+        }
+      ],
+      "csv_path": null,
+      "on_time": true,
+      "outside_target_day_rows": 0,
+      "reason": "http_error",
+      "received_at": "2026-11-09T09:26:35.748772+00:00",
+      "rows": 0,
+      "session_date": "2026-11-09",
+      "status": "failed",
+      "symbol": "278A.T"
+    },
+    {
+      "after_final_cutoff": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "http_status": 429,
+          "metadata_path": "raw/2026-11-09/4506.T/attempt-1.json",
+          "raw_path": "raw/2026-11-09/4506.T/attempt-1.body",
+          "reason": "http_error",
+          "received_at": "2026-11-09T09:26:35.781671+00:00",
+          "requested_at": "2026-11-09T09:26:35.748881+00:00",
+          "response_url": "https://query1.finance.yahoo.com/v8/finance/chart/4506.T?interval=5m&period1=1794150000&period2=1794236400&includePrePost=false&includeAdjustedClose=false",
+          "status": "failed"
+        },
+        {
+          "attempt": 2,
+          "http_status": 429,
+          "metadata_path": "raw/2026-11-09/4506.T/attempt-2.json",
+          "raw_path": "raw/2026-11-09/4506.T/attempt-2.body",
+          "reason": "http_error",
+          "received_at": "2026-11-09T09:26:35.811000+00:00",
+          "requested_at": "2026-11-09T09:26:35.781774+00:00",
+          "response_url": "https://query1.finance.yahoo.com/v8/finance/chart/4506.T?interval=5m&period1=1794150000&period2=1794236400&includePrePost=false&includeAdjustedClose=false",
+          "status": "failed"
+        }
+      ],
+      "csv_path": null,
+      "on_time": true,
+      "outside_target_day_rows": 0,
+      "reason": "http_error",
+      "received_at": "2026-11-09T09:26:35.811000+00:00",
+      "rows": 0,
+      "session_date": "2026-11-09",
+      "status": "failed",
+      "symbol": "4506.T"
+    },
+    {
+      "after_final_cutoff": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "http_status": 429,
+          "metadata_path": "raw/2026-11-09/3697.T/attempt-1.json",
+          "raw_path": "raw/2026-11-09/3697.T/attempt-1.body",
+          "reason": "http_error",
+          "received_at": "2026-11-09T09:26:35.875461+00:00",
+          "requested_at": "2026-11-09T09:26:35.811113+00:00",
+          "response_url": "https://query1.finance.yahoo.com/v8/finance/chart/3697.T?interval=5m&period1=1794150000&period2=1794236400&includePrePost=false&includeAdjustedClose=false",
+          "status": "failed"
+        },
+        {
+          "attempt": 2,
+          "http_status": 429,
+          "metadata_path": "raw/2026-11-09/3697.T/attempt-2.json",
+          "raw_path": "raw/2026-11-09/3697.T/attempt-2.body",
+          "reason": "http_error",
+          "received_at": "2026-11-09T09:26:35.907005+00:00",
+          "requested_at": "2026-11-09T09:26:35.875565+00:00",
+          "response_url": "https://query1.finance.yahoo.com/v8/finance/chart/3697.T?interval=5m&period1=1794150000&period2=1794236400&includePrePost=false&includeAdjustedClose=false",
+          "status": "failed"
+        }
+      ],
+      "csv_path": null,
+      "on_time": true,
+      "outside_target_day_rows": 0,
+      "reason": "http_error",
+      "received_at": "2026-11-09T09:26:35.907005+00:00",
+      "rows": 0,
+      "session_date": "2026-11-09",
+      "status": "failed",
+      "symbol": "3697.T"
+    },
+    {
+      "after_final_cutoff": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "http_status": 429,
+          "metadata_path": "raw/2026-11-09/4385.T/attempt-1.json",
+          "raw_path": "raw/2026-11-09/4385.T/attempt-1.body",
+          "reason": "http_error",
+          "received_at": "2026-11-09T09:26:35.941657+00:00",
+          "requested_at": "2026-11-09T09:26:35.907120+00:00",
+          "response_url": "https://query1.finance.yahoo.com/v8/finance/chart/4385.T?interval=5m&period1=1794150000&period2=1794236400&includePrePost=false&includeAdjustedClose=false",
+          "status": "failed"
+        },
+        {
+          "attempt": 2,
+          "http_status": 429,
+          "metadata_path": "raw/2026-11-09/4385.T/attempt-2.json",
+          "raw_path": "raw/2026-11-09/4385.T/attempt-2.body",
+          "reason": "http_error",
+          "received_at": "2026-11-09T09:26:35.988891+00:00",
+          "requested_at": "2026-11-09T09:26:35.941790+00:00",
+          "response_url": "https://query1.finance.yahoo.com/v8/finance/chart/4385.T?interval=5m&period1=1794150000&period2=1794236400&includePrePost=false&includeAdjustedClose=false",
+          "status": "failed"
+        }
+      ],
+      "csv_path": null,
+      "on_time": true,
+      "outside_target_day_rows": 0,
+      "reason": "http_error",
+      "received_at": "2026-11-09T09:26:35.988891+00:00",
+      "rows": 0,
+      "session_date": "2026-11-09",
+      "status": "failed",
+      "symbol": "4385.T"
+    },
+    {
+      "after_final_cutoff": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "http_status": 429,
+          "metadata_path": "raw/2026-11-09/5246.T/attempt-1.json",
+          "raw_path": "raw/2026-11-09/5246.T/attempt-1.body",
+          "reason": "http_error",
+          "received_at": "2026-11-09T09:26:36.017861+00:00",
+          "requested_at": "2026-11-09T09:26:35.988996+00:00",
+          "response_url": "https://query1.finance.yahoo.com/v8/finance/chart/5246.T?interval=5m&period1=1794150000&period2=1794236400&includePrePost=false&includeAdjustedClose=false",
+          "status": "failed"
+        },
+        {
+          "attempt": 2,
+          "http_status": 429,
+          "metadata_path": "raw/2026-11-09/5246.T/attempt-2.json",
+          "raw_path": "raw/2026-11-09/5246.T/attempt-2.body",
+          "reason": "http_error",
+          "received_at": "2026-11-09T09:26:36.048613+00:00",
+          "requested_at": "2026-11-09T09:26:36.017957+00:00",
+          "response_url": "https://query1.finance.yahoo.com/v8/finance/chart/5246.T?interval=5m&period1=1794150000&period2=1794236400&includePrePost=false&includeAdjustedClose=false",
+          "status": "failed"
+        }
+      ],
+      "csv_path": null,
+      "on_time": true,
+      "outside_target_day_rows": 0,
+      "reason": "http_error",
+      "received_at": "2026-11-09T09:26:36.048613+00:00",
+      "rows": 0,
+      "session_date": "2026-11-09",
+      "status": "failed",
+      "symbol": "5246.T"
+    },
+    {
+      "after_final_cutoff": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "http_status": 429,
+          "metadata_path": "raw/2026-11-09/4382.T/attempt-1.json",
+          "raw_path": "raw/2026-11-09/4382.T/attempt-1.body",
+          "reason": "http_error",
+          "received_at": "2026-11-09T09:26:36.078251+00:00",
+          "requested_at": "2026-11-09T09:26:36.048716+00:00",
+          "response_url": "https://query1.finance.yahoo.com/v8/finance/chart/4382.T?interval=5m&period1=1794150000&period2=1794236400&includePrePost=false&includeAdjustedClose=false",
+          "status": "failed"
+        },
+        {
+          "attempt": 2,
+          "http_status": 429,
+          "metadata_path": "raw/2026-11-09/4382.T/attempt-2.json",
+          "raw_path": "raw/2026-11-09/4382.T/attempt-2.body",
+          "reason": "http_error",
+          "received_at": "2026-11-09T09:26:36.114522+00:00",
+          "requested_at": "2026-11-09T09:26:36.078343+00:00",
+          "response_url": "https://query1.finance.yahoo.com/v8/finance/chart/4382.T?interval=5m&period1=1794150000&period2=1794236400&includePrePost=false&includeAdjustedClose=false",
+          "status": "failed"
+        }
+      ],
+      "csv_path": null,
+      "on_time": true,
+      "outside_target_day_rows": 0,
+      "reason": "http_error",
+      "received_at": "2026-11-09T09:26:36.114522+00:00",
+      "rows": 0,
+      "session_date": "2026-11-09",
+      "status": "failed",
+      "symbol": "4382.T"
+    },
+    {
+      "after_final_cutoff": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "http_status": 429,
+          "metadata_path": "raw/2026-11-09/3350.T/attempt-1.json",
+          "raw_path": "raw/2026-11-09/3350.T/attempt-1.body",
+          "reason": "http_error",
+          "received_at": "2026-11-09T09:26:36.154884+00:00",
+          "requested_at": "2026-11-09T09:26:36.114624+00:00",
+          "response_url": "https://query1.finance.yahoo.com/v8/finance/chart/3350.T?interval=5m&period1=1794150000&period2=1794236400&includePrePost=false&includeAdjustedClose=false",
+          "status": "failed"
+        },
+        {
+          "attempt": 2,
+          "http_status": 429,
+          "metadata_path": "raw/2026-11-09/3350.T/attempt-2.json",
+          "raw_path": "raw/2026-11-09/3350.T/attempt-2.body",
+          "reason": "http_error",
+          "received_at": "2026-11-09T09:26:36.186461+00:00",
+          "requested_at": "2026-11-09T09:26:36.154983+00:00",
+          "response_url": "https://query1.finance.yahoo.com/v8/finance/chart/3350.T?interval=5m&period1=1794150000&period2=1794236400&includePrePost=false&includeAdjustedClose=false",
+          "status": "failed"
+        }
+      ],
+      "csv_path": null,
+      "on_time": true,
+      "outside_target_day_rows": 0,
+      "reason": "http_error",
+      "received_at": "2026-11-09T09:26:36.186461+00:00",
+      "rows": 0,
+      "session_date": "2026-11-09",
+      "status": "failed",
+      "symbol": "3350.T"
+    },
+    {
+      "after_final_cutoff": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "http_status": 429,
+          "metadata_path": "raw/2026-11-09/6613.T/attempt-1.json",
+          "raw_path": "raw/2026-11-09/6613.T/attempt-1.body",
+          "reason": "http_error",
+          "received_at": "2026-11-09T09:26:36.219971+00:00",
+          "requested_at": "2026-11-09T09:26:36.186562+00:00",
+          "response_url": "https://query1.finance.yahoo.com/v8/finance/chart/6613.T?interval=5m&period1=1794150000&period2=1794236400&includePrePost=false&includeAdjustedClose=false",
+          "status": "failed"
+        },
+        {
+          "attempt": 2,
+          "http_status": 429,
+          "metadata_path": "raw/2026-11-09/6613.T/attempt-2.json",
+          "raw_path": "raw/2026-11-09/6613.T/attempt-2.body",
+          "reason": "http_error",
+          "received_at": "2026-11-09T09:26:36.250403+00:00",
+          "requested_at": "2026-11-09T09:26:36.220066+00:00",
+          "response_url": "https://query1.finance.yahoo.com/v8/finance/chart/6613.T?interval=5m&period1=1794150000&period2=1794236400&includePrePost=false&includeAdjustedClose=false",
+          "status": "failed"
+        }
+      ],
+      "csv_path": null,
+      "on_time": true,
+      "outside_target_day_rows": 0,
+      "reason": "http_error",
+      "received_at": "2026-11-09T09:26:36.250403+00:00",
+      "rows": 0,
+      "session_date": "2026-11-09",
+      "status": "failed",
+      "symbol": "6613.T"
+    },
+    {
+      "after_final_cutoff": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "http_status": 429,
+          "metadata_path": "raw/2026-11-09/3994.T/attempt-1.json",
+          "raw_path": "raw/2026-11-09/3994.T/attempt-1.body",
+          "reason": "http_error",
+          "received_at": "2026-11-09T09:26:36.280959+00:00",
+          "requested_at": "2026-11-09T09:26:36.250505+00:00",
+          "response_url": "https://query1.finance.yahoo.com/v8/finance/chart/3994.T?interval=5m&period1=1794150000&period2=1794236400&includePrePost=false&includeAdjustedClose=false",
+          "status": "failed"
+        },
+        {
+          "attempt": 2,
+          "http_status": 429,
+          "metadata_path": "raw/2026-11-09/3994.T/attempt-2.json",
+          "raw_path": "raw/2026-11-09/3994.T/attempt-2.body",
+          "reason": "http_error",
+          "received_at": "2026-11-09T09:26:36.318418+00:00",
+          "requested_at": "2026-11-09T09:26:36.281062+00:00",
+          "response_url": "https://query1.finance.yahoo.com/v8/finance/chart/3994.T?interval=5m&period1=1794150000&period2=1794236400&includePrePost=false&includeAdjustedClose=false",
+          "status": "failed"
+        }
+      ],
+      "csv_path": null,
+      "on_time": true,
+      "outside_target_day_rows": 0,
+      "reason": "http_error",
+      "received_at": "2026-11-09T09:26:36.318418+00:00",
+      "rows": 0,
+      "session_date": "2026-11-09",
+      "status": "failed",
+      "symbol": "3994.T"
+    },
+    {
+      "after_final_cutoff": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "http_status": 429,
+          "metadata_path": "raw/2026-11-09/4475.T/attempt-1.json",
+          "raw_path": "raw/2026-11-09/4475.T/attempt-1.body",
+          "reason": "http_error",
+          "received_at": "2026-11-09T09:26:36.346832+00:00",
+          "requested_at": "2026-11-09T09:26:36.318518+00:00",
+          "response_url": "https://query1.finance.yahoo.com/v8/finance/chart/4475.T?interval=5m&period1=1794150000&period2=1794236400&includePrePost=false&includeAdjustedClose=false",
+          "status": "failed"
+        },
+        {
+          "attempt": 2,
+          "http_status": 429,
+          "metadata_path": "raw/2026-11-09/4475.T/attempt-2.json",
+          "raw_path": "raw/2026-11-09/4475.T/attempt-2.body",
+          "reason": "http_error",
+          "received_at": "2026-11-09T09:26:36.375833+00:00",
+          "requested_at": "2026-11-09T09:26:36.346924+00:00",
+          "response_url": "https://query1.finance.yahoo.com/v8/finance/chart/4475.T?interval=5m&period1=1794150000&period2=1794236400&includePrePost=false&includeAdjustedClose=false",
+          "status": "failed"
+        }
+      ],
+      "csv_path": null,
+      "on_time": true,
+      "outside_target_day_rows": 0,
+      "reason": "http_error",
+      "received_at": "2026-11-09T09:26:36.375833+00:00",
+      "rows": 0,
+      "session_date": "2026-11-09",
+      "status": "failed",
+      "symbol": "4475.T"
+    },
+    {
+      "after_final_cutoff": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "http_status": 429,
+          "metadata_path": "raw/2026-11-09/6855.T/attempt-1.json",
+          "raw_path": "raw/2026-11-09/6855.T/attempt-1.body",
+          "reason": "http_error",
+          "received_at": "2026-11-09T09:26:36.413612+00:00",
+          "requested_at": "2026-11-09T09:26:36.375938+00:00",
+          "response_url": "https://query1.finance.yahoo.com/v8/finance/chart/6855.T?interval=5m&period1=1794150000&period2=1794236400&includePrePost=false&includeAdjustedClose=false",
+          "status": "failed"
+        },
+        {
+          "attempt": 2,
+          "http_status": 429,
+          "metadata_path": "raw/2026-11-09/6855.T/attempt-2.json",
+          "raw_path": "raw/2026-11-09/6855.T/attempt-2.body",
+          "reason": "http_error",
+          "received_at": "2026-11-09T09:26:36.456249+00:00",
+          "requested_at": "2026-11-09T09:26:36.413706+00:00",
+          "response_url": "https://query1.finance.yahoo.com/v8/finance/chart/6855.T?interval=5m&period1=1794150000&period2=1794236400&includePrePost=false&includeAdjustedClose=false",
+          "status": "failed"
+        }
+      ],
+      "csv_path": null,
+      "on_time": true,
+      "outside_target_day_rows": 0,
+      "reason": "http_error",
+      "received_at": "2026-11-09T09:26:36.456249+00:00",
+      "rows": 0,
+      "session_date": "2026-11-09",
+      "status": "failed",
+      "symbol": "6855.T"
+    },
+    {
+      "after_final_cutoff": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "http_status": 429,
+          "metadata_path": "raw/2026-11-09/186A.T/attempt-1.json",
+          "raw_path": "raw/2026-11-09/186A.T/attempt-1.body",
+          "reason": "http_error",
+          "received_at": "2026-11-09T09:26:36.495111+00:00",
+          "requested_at": "2026-11-09T09:26:36.456355+00:00",
+          "response_url": "https://query1.finance.yahoo.com/v8/finance/chart/186A.T?interval=5m&period1=1794150000&period2=1794236400&includePrePost=false&includeAdjustedClose=false",
+          "status": "failed"
+        },
+        {
+          "attempt": 2,
+          "http_status": 429,
+          "metadata_path": "raw/2026-11-09/186A.T/attempt-2.json",
+          "raw_path": "raw/2026-11-09/186A.T/attempt-2.body",
+          "reason": "http_error",
+          "received_at": "2026-11-09T09:26:36.535274+00:00",
+          "requested_at": "2026-11-09T09:26:36.495280+00:00",
+          "response_url": "https://query1.finance.yahoo.com/v8/finance/chart/186A.T?interval=5m&period1=1794150000&period2=1794236400&includePrePost=false&includeAdjustedClose=false",
+          "status": "failed"
+        }
+      ],
+      "csv_path": null,
+      "on_time": true,
+      "outside_target_day_rows": 0,
+      "reason": "http_error",
+      "received_at": "2026-11-09T09:26:36.535274+00:00",
+      "rows": 0,
+      "session_date": "2026-11-09",
+      "status": "failed",
+      "symbol": "186A.T"
+    },
+    {
+      "after_final_cutoff": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "http_status": 429,
+          "metadata_path": "raw/2026-11-09/3778.T/attempt-1.json",
+          "raw_path": "raw/2026-11-09/3778.T/attempt-1.body",
+          "reason": "http_error",
+          "received_at": "2026-11-09T09:26:36.567021+00:00",
+          "requested_at": "2026-11-09T09:26:36.535389+00:00",
+          "response_url": "https://query1.finance.yahoo.com/v8/finance/chart/3778.T?interval=5m&period1=1794150000&period2=1794236400&includePrePost=false&includeAdjustedClose=false",
+          "status": "failed"
+        },
+        {
+          "attempt": 2,
+          "http_status": 429,
+          "metadata_path": "raw/2026-11-09/3778.T/attempt-2.json",
+          "raw_path": "raw/2026-11-09/3778.T/attempt-2.body",
+          "reason": "http_error",
+          "received_at": "2026-11-09T09:26:36.608157+00:00",
+          "requested_at": "2026-11-09T09:26:36.567124+00:00",
+          "response_url": "https://query1.finance.yahoo.com/v8/finance/chart/3778.T?interval=5m&period1=1794150000&period2=1794236400&includePrePost=false&includeAdjustedClose=false",
+          "status": "failed"
+        }
+      ],
+      "csv_path": null,
+      "on_time": true,
+      "outside_target_day_rows": 0,
+      "reason": "http_error",
+      "received_at": "2026-11-09T09:26:36.608157+00:00",
+      "rows": 0,
+      "session_date": "2026-11-09",
+      "status": "failed",
+      "symbol": "3778.T"
+    },
+    {
+      "after_final_cutoff": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "http_status": 429,
+          "metadata_path": "raw/2026-11-09/7014.T/attempt-1.json",
+          "raw_path": "raw/2026-11-09/7014.T/attempt-1.body",
+          "reason": "http_error",
+          "received_at": "2026-11-09T09:26:36.669047+00:00",
+          "requested_at": "2026-11-09T09:26:36.608302+00:00",
+          "response_url": "https://query1.finance.yahoo.com/v8/finance/chart/7014.T?interval=5m&period1=1794150000&period2=1794236400&includePrePost=false&includeAdjustedClose=false",
+          "status": "failed"
+        },
+        {
+          "attempt": 2,
+          "http_status": 429,
+          "metadata_path": "raw/2026-11-09/7014.T/attempt-2.json",
+          "raw_path": "raw/2026-11-09/7014.T/attempt-2.body",
+          "reason": "http_error",
+          "received_at": "2026-11-09T09:26:36.701156+00:00",
+          "requested_at": "2026-11-09T09:26:36.669158+00:00",
+          "response_url": "https://query1.finance.yahoo.com/v8/finance/chart/7014.T?interval=5m&period1=1794150000&period2=1794236400&includePrePost=false&includeAdjustedClose=false",
+          "status": "failed"
+        }
+      ],
+      "csv_path": null,
+      "on_time": true,
+      "outside_target_day_rows": 0,
+      "reason": "http_error",
+      "received_at": "2026-11-09T09:26:36.701156+00:00",
+      "rows": 0,
+      "session_date": "2026-11-09",
+      "status": "failed",
+      "symbol": "7014.T"
+    },
+    {
+      "after_final_cutoff": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "http_status": 429,
+          "metadata_path": "raw/2026-11-09/3498.T/attempt-1.json",
+          "raw_path": "raw/2026-11-09/3498.T/attempt-1.body",
+          "reason": "http_error",
+          "received_at": "2026-11-09T09:26:36.741488+00:00",
+          "requested_at": "2026-11-09T09:26:36.701307+00:00",
+          "response_url": "https://query1.finance.yahoo.com/v8/finance/chart/3498.T?interval=5m&period1=1794150000&period2=1794236400&includePrePost=false&includeAdjustedClose=false",
+          "status": "failed"
+        },
+        {
+          "attempt": 2,
+          "http_status": 429,
+          "metadata_path": "raw/2026-11-09/3498.T/attempt-2.json",
+          "raw_path": "raw/2026-11-09/3498.T/attempt-2.body",
+          "reason": "http_error",
+          "received_at": "2026-11-09T09:26:36.781902+00:00",
+          "requested_at": "2026-11-09T09:26:36.741601+00:00",
+          "response_url": "https://query1.finance.yahoo.com/v8/finance/chart/3498.T?interval=5m&period1=1794150000&period2=1794236400&includePrePost=false&includeAdjustedClose=false",
+          "status": "failed"
+        }
+      ],
+      "csv_path": null,
+      "on_time": true,
+      "outside_target_day_rows": 0,
+      "reason": "http_error",
+      "received_at": "2026-11-09T09:26:36.781902+00:00",
+      "rows": 0,
+      "session_date": "2026-11-09",
+      "status": "failed",
+      "symbol": "3498.T"
+    },
+    {
+      "after_final_cutoff": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "http_status": 429,
+          "metadata_path": "raw/2026-11-09/4417.T/attempt-1.json",
+          "raw_path": "raw/2026-11-09/4417.T/attempt-1.body",
+          "reason": "http_error",
+          "received_at": "2026-11-09T09:26:36.816715+00:00",
+          "requested_at": "2026-11-09T09:26:36.782012+00:00",
+          "response_url": "https://query1.finance.yahoo.com/v8/finance/chart/4417.T?interval=5m&period1=1794150000&period2=1794236400&includePrePost=false&includeAdjustedClose=false",
+          "status": "failed"
+        },
+        {
+          "attempt": 2,
+          "http_status": 429,
+          "metadata_path": "raw/2026-11-09/4417.T/attempt-2.json",
+          "raw_path": "raw/2026-11-09/4417.T/attempt-2.body",
+          "reason": "http_error",
+          "received_at": "2026-11-09T09:26:36.859480+00:00",
+          "requested_at": "2026-11-09T09:26:36.816819+00:00",
+          "response_url": "https://query1.finance.yahoo.com/v8/finance/chart/4417.T?interval=5m&period1=1794150000&period2=1794236400&includePrePost=false&includeAdjustedClose=false",
+          "status": "failed"
+        }
+      ],
+      "csv_path": null,
+      "on_time": true,
+      "outside_target_day_rows": 0,
+      "reason": "http_error",
+      "received_at": "2026-11-09T09:26:36.859480+00:00",
+      "rows": 0,
+      "session_date": "2026-11-09",
+      "status": "failed",
+      "symbol": "4417.T"
+    },
+    {
+      "after_final_cutoff": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "http_status": 429,
+          "metadata_path": "raw/2026-11-09/4564.T/attempt-1.json",
+          "raw_path": "raw/2026-11-09/4564.T/attempt-1.body",
+          "reason": "http_error",
+          "received_at": "2026-11-09T09:26:36.898654+00:00",
+          "requested_at": "2026-11-09T09:26:36.859596+00:00",
+          "response_url": "https://query1.finance.yahoo.com/v8/finance/chart/4564.T?interval=5m&period1=1794150000&period2=1794236400&includePrePost=false&includeAdjustedClose=false",
+          "status": "failed"
+        },
+        {
+          "attempt": 2,
+          "http_status": 429,
+          "metadata_path": "raw/2026-11-09/4564.T/attempt-2.json",
+          "raw_path": "raw/2026-11-09/4564.T/attempt-2.body",
+          "reason": "http_error",
+          "received_at": "2026-11-09T09:26:36.928758+00:00",
+          "requested_at": "2026-11-09T09:26:36.898762+00:00",
+          "response_url": "https://query1.finance.yahoo.com/v8/finance/chart/4564.T?interval=5m&period1=1794150000&period2=1794236400&includePrePost=false&includeAdjustedClose=false",
+          "status": "failed"
+        }
+      ],
+      "csv_path": null,
+      "on_time": true,
+      "outside_target_day_rows": 0,
+      "reason": "http_error",
+      "received_at": "2026-11-09T09:26:36.928758+00:00",
+      "rows": 0,
+      "session_date": "2026-11-09",
+      "status": "failed",
+      "symbol": "4564.T"
+    },
+    {
+      "after_final_cutoff": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "http_status": 429,
+          "metadata_path": "raw/2026-11-09/6777.T/attempt-1.json",
+          "raw_path": "raw/2026-11-09/6777.T/attempt-1.body",
+          "reason": "http_error",
+          "received_at": "2026-11-09T09:26:36.960251+00:00",
+          "requested_at": "2026-11-09T09:26:36.928865+00:00",
+          "response_url": "https://query1.finance.yahoo.com/v8/finance/chart/6777.T?interval=5m&period1=1794150000&period2=1794236400&includePrePost=false&includeAdjustedClose=false",
+          "status": "failed"
+        },
+        {
+          "attempt": 2,
+          "http_status": 429,
+          "metadata_path": "raw/2026-11-09/6777.T/attempt-2.json",
+          "raw_path": "raw/2026-11-09/6777.T/attempt-2.body",
+          "reason": "http_error",
+          "received_at": "2026-11-09T09:26:36.998341+00:00",
+          "requested_at": "2026-11-09T09:26:36.960348+00:00",
+          "response_url": "https://query1.finance.yahoo.com/v8/finance/chart/6777.T?interval=5m&period1=1794150000&period2=1794236400&includePrePost=false&includeAdjustedClose=false",
+          "status": "failed"
+        }
+      ],
+      "csv_path": null,
+      "on_time": true,
+      "outside_target_day_rows": 0,
+      "reason": "http_error",
+      "received_at": "2026-11-09T09:26:36.998341+00:00",
+      "rows": 0,
+      "session_date": "2026-11-09",
+      "status": "failed",
+      "symbol": "6777.T"
+    },
+    {
+      "after_final_cutoff": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "http_status": 429,
+          "metadata_path": "raw/2026-11-09/4478.T/attempt-1.json",
+          "raw_path": "raw/2026-11-09/4478.T/attempt-1.body",
+          "reason": "http_error",
+          "received_at": "2026-11-09T09:26:37.038674+00:00",
+          "requested_at": "2026-11-09T09:26:36.998446+00:00",
+          "response_url": "https://query1.finance.yahoo.com/v8/finance/chart/4478.T?interval=5m&period1=1794150000&period2=1794236400&includePrePost=false&includeAdjustedClose=false",
+          "status": "failed"
+        },
+        {
+          "attempt": 2,
+          "http_status": 429,
+          "metadata_path": "raw/2026-11-09/4478.T/attempt-2.json",
+          "raw_path": "raw/2026-11-09/4478.T/attempt-2.body",
+          "reason": "http_error",
+          "received_at": "2026-11-09T09:26:37.073440+00:00",
+          "requested_at": "2026-11-09T09:26:37.038772+00:00",
+          "response_url": "https://query1.finance.yahoo.com/v8/finance/chart/4478.T?interval=5m&period1=1794150000&period2=1794236400&includePrePost=false&includeAdjustedClose=false",
+          "status": "failed"
+        }
+      ],
+      "csv_path": null,
+      "on_time": true,
+      "outside_target_day_rows": 0,
+      "reason": "http_error",
+      "received_at": "2026-11-09T09:26:37.073440+00:00",
+      "rows": 0,
+      "session_date": "2026-11-09",
+      "status": "failed",
+      "symbol": "4478.T"
+    },
+    {
+      "after_final_cutoff": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "http_status": 429,
+          "metadata_path": "raw/2026-11-09/4443.T/attempt-1.json",
+          "raw_path": "raw/2026-11-09/4443.T/attempt-1.body",
+          "reason": "http_error",
+          "received_at": "2026-11-09T09:26:37.102297+00:00",
+          "requested_at": "2026-11-09T09:26:37.073546+00:00",
+          "response_url": "https://query1.finance.yahoo.com/v8/finance/chart/4443.T?interval=5m&period1=1794150000&period2=1794236400&includePrePost=false&includeAdjustedClose=false",
+          "status": "failed"
+        },
+        {
+          "attempt": 2,
+          "http_status": 429,
+          "metadata_path": "raw/2026-11-09/4443.T/attempt-2.json",
+          "raw_path": "raw/2026-11-09/4443.T/attempt-2.body",
+          "reason": "http_error",
+          "received_at": "2026-11-09T09:26:37.138996+00:00",
+          "requested_at": "2026-11-09T09:26:37.102399+00:00",
+          "response_url": "https://query1.finance.yahoo.com/v8/finance/chart/4443.T?interval=5m&period1=1794150000&period2=1794236400&includePrePost=false&includeAdjustedClose=false",
+          "status": "failed"
+        }
+      ],
+      "csv_path": null,
+      "on_time": true,
+      "outside_target_day_rows": 0,
+      "reason": "http_error",
+      "received_at": "2026-11-09T09:26:37.138996+00:00",
+      "rows": 0,
+      "session_date": "2026-11-09",
+      "status": "failed",
+      "symbol": "4443.T"
+    },
+    {
+      "after_final_cutoff": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "http_status": 429,
+          "metadata_path": "raw/2026-11-09/6254.T/attempt-1.json",
+          "raw_path": "raw/2026-11-09/6254.T/attempt-1.body",
+          "reason": "http_error",
+          "received_at": "2026-11-09T09:26:37.167939+00:00",
+          "requested_at": "2026-11-09T09:26:37.139098+00:00",
+          "response_url": "https://query1.finance.yahoo.com/v8/finance/chart/6254.T?interval=5m&period1=1794150000&period2=1794236400&includePrePost=false&includeAdjustedClose=false",
+          "status": "failed"
+        },
+        {
+          "attempt": 2,
+          "http_status": 429,
+          "metadata_path": "raw/2026-11-09/6254.T/attempt-2.json",
+          "raw_path": "raw/2026-11-09/6254.T/attempt-2.body",
+          "reason": "http_error",
+          "received_at": "2026-11-09T09:26:37.208124+00:00",
+          "requested_at": "2026-11-09T09:26:37.168034+00:00",
+          "response_url": "https://query1.finance.yahoo.com/v8/finance/chart/6254.T?interval=5m&period1=1794150000&period2=1794236400&includePrePost=false&includeAdjustedClose=false",
+          "status": "failed"
+        }
+      ],
+      "csv_path": null,
+      "on_time": true,
+      "outside_target_day_rows": 0,
+      "reason": "http_error",
+      "received_at": "2026-11-09T09:26:37.208124+00:00",
+      "rows": 0,
+      "session_date": "2026-11-09",
+      "status": "failed",
+      "symbol": "6254.T"
+    },
+    {
+      "after_final_cutoff": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "http_status": 429,
+          "metadata_path": "raw/2026-11-09/4597.T/attempt-1.json",
+          "raw_path": "raw/2026-11-09/4597.T/attempt-1.body",
+          "reason": "http_error",
+          "received_at": "2026-11-09T09:26:37.247060+00:00",
+          "requested_at": "2026-11-09T09:26:37.208250+00:00",
+          "response_url": "https://query1.finance.yahoo.com/v8/finance/chart/4597.T?interval=5m&period1=1794150000&period2=1794236400&includePrePost=false&includeAdjustedClose=false",
+          "status": "failed"
+        },
+        {
+          "attempt": 2,
+          "http_status": 429,
+          "metadata_path": "raw/2026-11-09/4597.T/attempt-2.json",
+          "raw_path": "raw/2026-11-09/4597.T/attempt-2.body",
+          "reason": "http_error",
+          "received_at": "2026-11-09T09:26:37.288417+00:00",
+          "requested_at": "2026-11-09T09:26:37.247157+00:00",
+          "response_url": "https://query1.finance.yahoo.com/v8/finance/chart/4597.T?interval=5m&period1=1794150000&period2=1794236400&includePrePost=false&includeAdjustedClose=false",
+          "status": "failed"
+        }
+      ],
+      "csv_path": null,
+      "on_time": true,
+      "outside_target_day_rows": 0,
+      "reason": "http_error",
+      "received_at": "2026-11-09T09:26:37.288417+00:00",
+      "rows": 0,
+      "session_date": "2026-11-09",
+      "status": "failed",
+      "symbol": "4597.T"
+    },
+    {
+      "after_final_cutoff": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "http_status": 429,
+          "metadata_path": "raw/2026-11-09/3186.T/attempt-1.json",
+          "raw_path": "raw/2026-11-09/3186.T/attempt-1.body",
+          "reason": "http_error",
+          "received_at": "2026-11-09T09:26:37.328445+00:00",
+          "requested_at": "2026-11-09T09:26:37.288520+00:00",
+          "response_url": "https://query1.finance.yahoo.com/v8/finance/chart/3186.T?interval=5m&period1=1794150000&period2=1794236400&includePrePost=false&includeAdjustedClose=false",
+          "status": "failed"
+        },
+        {
+          "attempt": 2,
+          "http_status": 429,
+          "metadata_path": "raw/2026-11-09/3186.T/attempt-2.json",
+          "raw_path": "raw/2026-11-09/3186.T/attempt-2.body",
+          "reason": "http_error",
+          "received_at": "2026-11-09T09:26:37.358305+00:00",
+          "requested_at": "2026-11-09T09:26:37.328541+00:00",
+          "response_url": "https://query1.finance.yahoo.com/v8/finance/chart/3186.T?interval=5m&period1=1794150000&period2=1794236400&includePrePost=false&includeAdjustedClose=false",
+          "status": "failed"
+        }
+      ],
+      "csv_path": null,
+      "on_time": true,
+      "outside_target_day_rows": 0,
+      "reason": "http_error",
+      "received_at": "2026-11-09T09:26:37.358305+00:00",
+      "rows": 0,
+      "session_date": "2026-11-09",
+      "status": "failed",
+      "symbol": "3186.T"
+    },
+    {
+      "after_final_cutoff": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "http_status": 429,
+          "metadata_path": "raw/2026-11-09/4258.T/attempt-1.json",
+          "raw_path": "raw/2026-11-09/4258.T/attempt-1.body",
+          "reason": "http_error",
+          "received_at": "2026-11-09T09:26:37.390950+00:00",
+          "requested_at": "2026-11-09T09:26:37.358406+00:00",
+          "response_url": "https://query1.finance.yahoo.com/v8/finance/chart/4258.T?interval=5m&period1=1794150000&period2=1794236400&includePrePost=false&includeAdjustedClose=false",
+          "status": "failed"
+        },
+        {
+          "attempt": 2,
+          "http_status": 429,
+          "metadata_path": "raw/2026-11-09/4258.T/attempt-2.json",
+          "raw_path": "raw/2026-11-09/4258.T/attempt-2.body",
+          "reason": "http_error",
+          "received_at": "2026-11-09T09:26:37.427563+00:00",
+          "requested_at": "2026-11-09T09:26:37.391046+00:00",
+          "response_url": "https://query1.finance.yahoo.com/v8/finance/chart/4258.T?interval=5m&period1=1794150000&period2=1794236400&includePrePost=false&includeAdjustedClose=false",
+          "status": "failed"
+        }
+      ],
+      "csv_path": null,
+      "on_time": true,
+      "outside_target_day_rows": 0,
+      "reason": "http_error",
+      "received_at": "2026-11-09T09:26:37.427563+00:00",
+      "rows": 0,
+      "session_date": "2026-11-09",
+      "status": "failed",
+      "symbol": "4258.T"
+    },
+    {
+      "after_final_cutoff": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "http_status": 429,
+          "metadata_path": "raw/2026-11-09/4194.T/attempt-1.json",
+          "raw_path": "raw/2026-11-09/4194.T/attempt-1.body",
+          "reason": "http_error",
+          "received_at": "2026-11-09T09:26:37.461762+00:00",
+          "requested_at": "2026-11-09T09:26:37.427664+00:00",
+          "response_url": "https://query1.finance.yahoo.com/v8/finance/chart/4194.T?interval=5m&period1=1794150000&period2=1794236400&includePrePost=false&includeAdjustedClose=false",
+          "status": "failed"
+        },
+        {
+          "attempt": 2,
+          "http_status": 429,
+          "metadata_path": "raw/2026-11-09/4194.T/attempt-2.json",
+          "raw_path": "raw/2026-11-09/4194.T/attempt-2.body",
+          "reason": "http_error",
+          "received_at": "2026-11-09T09:26:37.506991+00:00",
+          "requested_at": "2026-11-09T09:26:37.461868+00:00",
+          "response_url": "https://query1.finance.yahoo.com/v8/finance/chart/4194.T?interval=5m&period1=1794150000&period2=1794236400&includePrePost=false&includeAdjustedClose=false",
+          "status": "failed"
+        }
+      ],
+      "csv_path": null,
+      "on_time": true,
+      "outside_target_day_rows": 0,
+      "reason": "http_error",
+      "received_at": "2026-11-09T09:26:37.506991+00:00",
+      "rows": 0,
+      "session_date": "2026-11-09",
+      "status": "failed",
+      "symbol": "4194.T"
+    },
+    {
+      "after_final_cutoff": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "http_status": 429,
+          "metadata_path": "raw/2026-11-09/290A.T/attempt-1.json",
+          "raw_path": "raw/2026-11-09/290A.T/attempt-1.body",
+          "reason": "http_error",
+          "received_at": "2026-11-09T09:26:37.548587+00:00",
+          "requested_at": "2026-11-09T09:26:37.507106+00:00",
+          "response_url": "https://query1.finance.yahoo.com/v8/finance/chart/290A.T?interval=5m&period1=1794150000&period2=1794236400&includePrePost=false&includeAdjustedClose=false",
+          "status": "failed"
+        },
+        {
+          "attempt": 2,
+          "http_status": 429,
+          "metadata_path": "raw/2026-11-09/290A.T/attempt-2.json",
+          "raw_path": "raw/2026-11-09/290A.T/attempt-2.body",
+          "reason": "http_error",
+          "received_at": "2026-11-09T09:26:37.579920+00:00",
+          "requested_at": "2026-11-09T09:26:37.548697+00:00",
+          "response_url": "https://query1.finance.yahoo.com/v8/finance/chart/290A.T?interval=5m&period1=1794150000&period2=1794236400&includePrePost=false&includeAdjustedClose=false",
+          "status": "failed"
+        }
+      ],
+      "csv_path": null,
+      "on_time": true,
+      "outside_target_day_rows": 0,
+      "reason": "http_error",
+      "received_at": "2026-11-09T09:26:37.579920+00:00",
+      "rows": 0,
+      "session_date": "2026-11-09",
+      "status": "failed",
+      "symbol": "290A.T"
+    },
+    {
+      "after_final_cutoff": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "http_status": 429,
+          "metadata_path": "raw/2026-11-09/464A.T/attempt-1.json",
+          "raw_path": "raw/2026-11-09/464A.T/attempt-1.body",
+          "reason": "http_error",
+          "received_at": "2026-11-09T09:26:37.618050+00:00",
+          "requested_at": "2026-11-09T09:26:37.580027+00:00",
+          "response_url": "https://query1.finance.yahoo.com/v8/finance/chart/464A.T?interval=5m&period1=1794150000&period2=1794236400&includePrePost=false&includeAdjustedClose=false",
+          "status": "failed"
+        },
+        {
+          "attempt": 2,
+          "http_status": 429,
+          "metadata_path": "raw/2026-11-09/464A.T/attempt-2.json",
+          "raw_path": "raw/2026-11-09/464A.T/attempt-2.body",
+          "reason": "http_error",
+          "received_at": "2026-11-09T09:26:37.648564+00:00",
+          "requested_at": "2026-11-09T09:26:37.618158+00:00",
+          "response_url": "https://query1.finance.yahoo.com/v8/finance/chart/464A.T?interval=5m&period1=1794150000&period2=1794236400&includePrePost=false&includeAdjustedClose=false",
+          "status": "failed"
+        }
+      ],
+      "csv_path": null,
+      "on_time": true,
+      "outside_target_day_rows": 0,
+      "reason": "http_error",
+      "received_at": "2026-11-09T09:26:37.648564+00:00",
+      "rows": 0,
+      "session_date": "2026-11-09",
+      "status": "failed",
+      "symbol": "464A.T"
+    },
+    {
+      "after_final_cutoff": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "http_status": 429,
+          "metadata_path": "raw/2026-11-09/5985.T/attempt-1.json",
+          "raw_path": "raw/2026-11-09/5985.T/attempt-1.body",
+          "reason": "http_error",
+          "received_at": "2026-11-09T09:26:37.684356+00:00",
+          "requested_at": "2026-11-09T09:26:37.648667+00:00",
+          "response_url": "https://query1.finance.yahoo.com/v8/finance/chart/5985.T?interval=5m&period1=1794150000&period2=1794236400&includePrePost=false&includeAdjustedClose=false",
+          "status": "failed"
+        },
+        {
+          "attempt": 2,
+          "http_status": 429,
+          "metadata_path": "raw/2026-11-09/5985.T/attempt-2.json",
+          "raw_path": "raw/2026-11-09/5985.T/attempt-2.body",
+          "reason": "http_error",
+          "received_at": "2026-11-09T09:26:37.717344+00:00",
+          "requested_at": "2026-11-09T09:26:37.684458+00:00",
+          "response_url": "https://query1.finance.yahoo.com/v8/finance/chart/5985.T?interval=5m&period1=1794150000&period2=1794236400&includePrePost=false&includeAdjustedClose=false",
+          "status": "failed"
+        }
+      ],
+      "csv_path": null,
+      "on_time": true,
+      "outside_target_day_rows": 0,
+      "reason": "http_error",
+      "received_at": "2026-11-09T09:26:37.717344+00:00",
+      "rows": 0,
+      "session_date": "2026-11-09",
+      "status": "failed",
+      "symbol": "5985.T"
+    },
+    {
+      "after_final_cutoff": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "http_status": 429,
+          "metadata_path": "raw/2026-11-09/5243.T/attempt-1.json",
+          "raw_path": "raw/2026-11-09/5243.T/attempt-1.body",
+          "reason": "http_error",
+          "received_at": "2026-11-09T09:26:37.749581+00:00",
+          "requested_at": "2026-11-09T09:26:37.717459+00:00",
+          "response_url": "https://query1.finance.yahoo.com/v8/finance/chart/5243.T?interval=5m&period1=1794150000&period2=1794236400&includePrePost=false&includeAdjustedClose=false",
+          "status": "failed"
+        },
+        {
+          "attempt": 2,
+          "http_status": 429,
+          "metadata_path": "raw/2026-11-09/5243.T/attempt-2.json",
+          "raw_path": "raw/2026-11-09/5243.T/attempt-2.body",
+          "reason": "http_error",
+          "received_at": "2026-11-09T09:26:37.781549+00:00",
+          "requested_at": "2026-11-09T09:26:37.749682+00:00",
+          "response_url": "https://query1.finance.yahoo.com/v8/finance/chart/5243.T?interval=5m&period1=1794150000&period2=1794236400&includePrePost=false&includeAdjustedClose=false",
+          "status": "failed"
+        }
+      ],
+      "csv_path": null,
+      "on_time": true,
+      "outside_target_day_rows": 0,
+      "reason": "http_error",
+      "received_at": "2026-11-09T09:26:37.781549+00:00",
+      "rows": 0,
+      "session_date": "2026-11-09",
+      "status": "failed",
+      "symbol": "5243.T"
+    },
+    {
+      "after_final_cutoff": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "http_status": 429,
+          "metadata_path": "raw/2026-11-09/3923.T/attempt-1.json",
+          "raw_path": "raw/2026-11-09/3923.T/attempt-1.body",
+          "reason": "http_error",
+          "received_at": "2026-11-09T09:26:37.825336+00:00",
+          "requested_at": "2026-11-09T09:26:37.781650+00:00",
+          "response_url": "https://query1.finance.yahoo.com/v8/finance/chart/3923.T?interval=5m&period1=1794150000&period2=1794236400&includePrePost=false&includeAdjustedClose=false",
+          "status": "failed"
+        },
+        {
+          "attempt": 2,
+          "http_status": 429,
+          "metadata_path": "raw/2026-11-09/3923.T/attempt-2.json",
+          "raw_path": "raw/2026-11-09/3923.T/attempt-2.body",
+          "reason": "http_error",
+          "received_at": "2026-11-09T09:26:37.854893+00:00",
+          "requested_at": "2026-11-09T09:26:37.825433+00:00",
+          "response_url": "https://query1.finance.yahoo.com/v8/finance/chart/3923.T?interval=5m&period1=1794150000&period2=1794236400&includePrePost=false&includeAdjustedClose=false",
+          "status": "failed"
+        }
+      ],
+      "csv_path": null,
+      "on_time": true,
+      "outside_target_day_rows": 0,
+      "reason": "http_error",
+      "received_at": "2026-11-09T09:26:37.854893+00:00",
+      "rows": 0,
+      "session_date": "2026-11-09",
+      "status": "failed",
+      "symbol": "3923.T"
+    },
+    {
+      "after_final_cutoff": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "http_status": 429,
+          "metadata_path": "raw/2026-11-09/4592.T/attempt-1.json",
+          "raw_path": "raw/2026-11-09/4592.T/attempt-1.body",
+          "reason": "http_error",
+          "received_at": "2026-11-09T09:26:37.885093+00:00",
+          "requested_at": "2026-11-09T09:26:37.854996+00:00",
+          "response_url": "https://query1.finance.yahoo.com/v8/finance/chart/4592.T?interval=5m&period1=1794150000&period2=1794236400&includePrePost=false&includeAdjustedClose=false",
+          "status": "failed"
+        },
+        {
+          "attempt": 2,
+          "http_status": 429,
+          "metadata_path": "raw/2026-11-09/4592.T/attempt-2.json",
+          "raw_path": "raw/2026-11-09/4592.T/attempt-2.body",
+          "reason": "http_error",
+          "received_at": "2026-11-09T09:26:37.913713+00:00",
+          "requested_at": "2026-11-09T09:26:37.885249+00:00",
+          "response_url": "https://query1.finance.yahoo.com/v8/finance/chart/4592.T?interval=5m&period1=1794150000&period2=1794236400&includePrePost=false&includeAdjustedClose=false",
+          "status": "failed"
+        }
+      ],
+      "csv_path": null,
+      "on_time": true,
+      "outside_target_day_rows": 0,
+      "reason": "http_error",
+      "received_at": "2026-11-09T09:26:37.913713+00:00",
+      "rows": 0,
+      "session_date": "2026-11-09",
+      "status": "failed",
+      "symbol": "4592.T"
+    },
+    {
+      "after_final_cutoff": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "http_status": 429,
+          "metadata_path": "raw/2026-11-09/4180.T/attempt-1.json",
+          "raw_path": "raw/2026-11-09/4180.T/attempt-1.body",
+          "reason": "http_error",
+          "received_at": "2026-11-09T09:26:37.952871+00:00",
+          "requested_at": "2026-11-09T09:26:37.913829+00:00",
+          "response_url": "https://query1.finance.yahoo.com/v8/finance/chart/4180.T?interval=5m&period1=1794150000&period2=1794236400&includePrePost=false&includeAdjustedClose=false",
+          "status": "failed"
+        },
+        {
+          "attempt": 2,
+          "http_status": 429,
+          "metadata_path": "raw/2026-11-09/4180.T/attempt-2.json",
+          "raw_path": "raw/2026-11-09/4180.T/attempt-2.body",
+          "reason": "http_error",
+          "received_at": "2026-11-09T09:26:37.991612+00:00",
+          "requested_at": "2026-11-09T09:26:37.952980+00:00",
+          "response_url": "https://query1.finance.yahoo.com/v8/finance/chart/4180.T?interval=5m&period1=1794150000&period2=1794236400&includePrePost=false&includeAdjustedClose=false",
+          "status": "failed"
+        }
+      ],
+      "csv_path": null,
+      "on_time": true,
+      "outside_target_day_rows": 0,
+      "reason": "http_error",
+      "received_at": "2026-11-09T09:26:37.991612+00:00",
+      "rows": 0,
+      "session_date": "2026-11-09",
+      "status": "failed",
+      "symbol": "4180.T"
+    },
+    {
+      "after_final_cutoff": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "http_status": 429,
+          "metadata_path": "raw/2026-11-09/219A.T/attempt-1.json",
+          "raw_path": "raw/2026-11-09/219A.T/attempt-1.body",
+          "reason": "http_error",
+          "received_at": "2026-11-09T09:26:38.026123+00:00",
+          "requested_at": "2026-11-09T09:26:37.991726+00:00",
+          "response_url": "https://query1.finance.yahoo.com/v8/finance/chart/219A.T?interval=5m&period1=1794150000&period2=1794236400&includePrePost=false&includeAdjustedClose=false",
+          "status": "failed"
+        },
+        {
+          "attempt": 2,
+          "http_status": 429,
+          "metadata_path": "raw/2026-11-09/219A.T/attempt-2.json",
+          "raw_path": "raw/2026-11-09/219A.T/attempt-2.body",
+          "reason": "http_error",
+          "received_at": "2026-11-09T09:26:38.062451+00:00",
+          "requested_at": "2026-11-09T09:26:38.026257+00:00",
+          "response_url": "https://query1.finance.yahoo.com/v8/finance/chart/219A.T?interval=5m&period1=1794150000&period2=1794236400&includePrePost=false&includeAdjustedClose=false",
+          "status": "failed"
+        }
+      ],
+      "csv_path": null,
+      "on_time": true,
+      "outside_target_day_rows": 0,
+      "reason": "http_error",
+      "received_at": "2026-11-09T09:26:38.062451+00:00",
+      "rows": 0,
+      "session_date": "2026-11-09",
+      "status": "failed",
+      "symbol": "219A.T"
+    },
+    {
+      "after_final_cutoff": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "http_status": 429,
+          "metadata_path": "raw/2026-11-09/4369.T/attempt-1.json",
+          "raw_path": "raw/2026-11-09/4369.T/attempt-1.body",
+          "reason": "http_error",
+          "received_at": "2026-11-09T09:26:38.095223+00:00",
+          "requested_at": "2026-11-09T09:26:38.062563+00:00",
+          "response_url": "https://query1.finance.yahoo.com/v8/finance/chart/4369.T?interval=5m&period1=1794150000&period2=1794236400&includePrePost=false&includeAdjustedClose=false",
+          "status": "failed"
+        },
+        {
+          "attempt": 2,
+          "http_status": 429,
+          "metadata_path": "raw/2026-11-09/4369.T/attempt-2.json",
+          "raw_path": "raw/2026-11-09/4369.T/attempt-2.body",
+          "reason": "http_error",
+          "received_at": "2026-11-09T09:26:38.130024+00:00",
+          "requested_at": "2026-11-09T09:26:38.095325+00:00",
+          "response_url": "https://query1.finance.yahoo.com/v8/finance/chart/4369.T?interval=5m&period1=1794150000&period2=1794236400&includePrePost=false&includeAdjustedClose=false",
+          "status": "failed"
+        }
+      ],
+      "csv_path": null,
+      "on_time": true,
+      "outside_target_day_rows": 0,
+      "reason": "http_error",
+      "received_at": "2026-11-09T09:26:38.130024+00:00",
+      "rows": 0,
+      "session_date": "2026-11-09",
+      "status": "failed",
+      "symbol": "4369.T"
+    },
+    {
+      "after_final_cutoff": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "http_status": 429,
+          "metadata_path": "raw/2026-11-09/5253.T/attempt-1.json",
+          "raw_path": "raw/2026-11-09/5253.T/attempt-1.body",
+          "reason": "http_error",
+          "received_at": "2026-11-09T09:26:38.161350+00:00",
+          "requested_at": "2026-11-09T09:26:38.130134+00:00",
+          "response_url": "https://query1.finance.yahoo.com/v8/finance/chart/5253.T?interval=5m&period1=1794150000&period2=1794236400&includePrePost=false&includeAdjustedClose=false",
+          "status": "failed"
+        },
+        {
+          "attempt": 2,
+          "http_status": 429,
+          "metadata_path": "raw/2026-11-09/5253.T/attempt-2.json",
+          "raw_path": "raw/2026-11-09/5253.T/attempt-2.body",
+          "reason": "http_error",
+          "received_at": "2026-11-09T09:26:38.196524+00:00",
+          "requested_at": "2026-11-09T09:26:38.161450+00:00",
+          "response_url": "https://query1.finance.yahoo.com/v8/finance/chart/5253.T?interval=5m&period1=1794150000&period2=1794236400&includePrePost=false&includeAdjustedClose=false",
+          "status": "failed"
+        }
+      ],
+      "csv_path": null,
+      "on_time": true,
+      "outside_target_day_rows": 0,
+      "reason": "http_error",
+      "received_at": "2026-11-09T09:26:38.196524+00:00",
+      "rows": 0,
+      "session_date": "2026-11-09",
+      "status": "failed",
+      "symbol": "5253.T"
+    },
+    {
+      "after_final_cutoff": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "http_status": 429,
+          "metadata_path": "raw/2026-11-09/4894.T/attempt-1.json",
+          "raw_path": "raw/2026-11-09/4894.T/attempt-1.body",
+          "reason": "http_error",
+          "received_at": "2026-11-09T09:26:38.232389+00:00",
+          "requested_at": "2026-11-09T09:26:38.196629+00:00",
+          "response_url": "https://query1.finance.yahoo.com/v8/finance/chart/4894.T?interval=5m&period1=1794150000&period2=1794236400&includePrePost=false&includeAdjustedClose=false",
+          "status": "failed"
+        },
+        {
+          "attempt": 2,
+          "http_status": 429,
+          "metadata_path": "raw/2026-11-09/4894.T/attempt-2.json",
+          "raw_path": "raw/2026-11-09/4894.T/attempt-2.body",
+          "reason": "http_error",
+          "received_at": "2026-11-09T09:26:38.276736+00:00",
+          "requested_at": "2026-11-09T09:26:38.232489+00:00",
+          "response_url": "https://query1.finance.yahoo.com/v8/finance/chart/4894.T?interval=5m&period1=1794150000&period2=1794236400&includePrePost=false&includeAdjustedClose=false",
+          "status": "failed"
+        }
+      ],
+      "csv_path": null,
+      "on_time": true,
+      "outside_target_day_rows": 0,
+      "reason": "http_error",
+      "received_at": "2026-11-09T09:26:38.276736+00:00",
+      "rows": 0,
+      "session_date": "2026-11-09",
+      "status": "failed",
+      "symbol": "4894.T"
+    },
+    {
+      "after_final_cutoff": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "http_status": 429,
+          "metadata_path": "raw/2026-11-09/4373.T/attempt-1.json",
+          "raw_path": "raw/2026-11-09/4373.T/attempt-1.body",
+          "reason": "http_error",
+          "received_at": "2026-11-09T09:26:38.307384+00:00",
+          "requested_at": "2026-11-09T09:26:38.276848+00:00",
+          "response_url": "https://query1.finance.yahoo.com/v8/finance/chart/4373.T?interval=5m&period1=1794150000&period2=1794236400&includePrePost=false&includeAdjustedClose=false",
+          "status": "failed"
+        },
+        {
+          "attempt": 2,
+          "http_status": 429,
+          "metadata_path": "raw/2026-11-09/4373.T/attempt-2.json",
+          "raw_path": "raw/2026-11-09/4373.T/attempt-2.body",
+          "reason": "http_error",
+          "received_at": "2026-11-09T09:26:38.349944+00:00",
+          "requested_at": "2026-11-09T09:26:38.307480+00:00",
+          "response_url": "https://query1.finance.yahoo.com/v8/finance/chart/4373.T?interval=5m&period1=1794150000&period2=1794236400&includePrePost=false&includeAdjustedClose=false",
+          "status": "failed"
+        }
+      ],
+      "csv_path": null,
+      "on_time": true,
+      "outside_target_day_rows": 0,
+      "reason": "http_error",
+      "received_at": "2026-11-09T09:26:38.349944+00:00",
+      "rows": 0,
+      "session_date": "2026-11-09",
+      "status": "failed",
+      "symbol": "4373.T"
+    },
+    {
+      "after_final_cutoff": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "http_status": 429,
+          "metadata_path": "raw/2026-11-09/5032.T/attempt-1.json",
+          "raw_path": "raw/2026-11-09/5032.T/attempt-1.body",
+          "reason": "http_error",
+          "received_at": "2026-11-09T09:26:38.379443+00:00",
+          "requested_at": "2026-11-09T09:26:38.350043+00:00",
+          "response_url": "https://query1.finance.yahoo.com/v8/finance/chart/5032.T?interval=5m&period1=1794150000&period2=1794236400&includePrePost=false&includeAdjustedClose=false",
+          "status": "failed"
+        },
+        {
+          "attempt": 2,
+          "http_status": 429,
+          "metadata_path": "raw/2026-11-09/5032.T/attempt-2.json",
+          "raw_path": "raw/2026-11-09/5032.T/attempt-2.body",
+          "reason": "http_error",
+          "received_at": "2026-11-09T09:26:38.413110+00:00",
+          "requested_at": "2026-11-09T09:26:38.379541+00:00",
+          "response_url": "https://query1.finance.yahoo.com/v8/finance/chart/5032.T?interval=5m&period1=1794150000&period2=1794236400&includePrePost=false&includeAdjustedClose=false",
+          "status": "failed"
+        }
+      ],
+      "csv_path": null,
+      "on_time": true,
+      "outside_target_day_rows": 0,
+      "reason": "http_error",
+      "received_at": "2026-11-09T09:26:38.413110+00:00",
+      "rows": 0,
+      "session_date": "2026-11-09",
+      "status": "failed",
+      "symbol": "5032.T"
+    },
+    {
+      "after_final_cutoff": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "http_status": 429,
+          "metadata_path": "raw/2026-11-09/6027.T/attempt-1.json",
+          "raw_path": "raw/2026-11-09/6027.T/attempt-1.body",
+          "reason": "http_error",
+          "received_at": "2026-11-09T09:26:38.442872+00:00",
+          "requested_at": "2026-11-09T09:26:38.413252+00:00",
+          "response_url": "https://query1.finance.yahoo.com/v8/finance/chart/6027.T?interval=5m&period1=1794150000&period2=1794236400&includePrePost=false&includeAdjustedClose=false",
+          "status": "failed"
+        },
+        {
+          "attempt": 2,
+          "http_status": 429,
+          "metadata_path": "raw/2026-11-09/6027.T/attempt-2.json",
+          "raw_path": "raw/2026-11-09/6027.T/attempt-2.body",
+          "reason": "http_error",
+          "received_at": "2026-11-09T09:26:38.479969+00:00",
+          "requested_at": "2026-11-09T09:26:38.442968+00:00",
+          "response_url": "https://query1.finance.yahoo.com/v8/finance/chart/6027.T?interval=5m&period1=1794150000&period2=1794236400&includePrePost=false&includeAdjustedClose=false",
+          "status": "failed"
+        }
+      ],
+      "csv_path": null,
+      "on_time": true,
+      "outside_target_day_rows": 0,
+      "reason": "http_error",
+      "received_at": "2026-11-09T09:26:38.479969+00:00",
+      "rows": 0,
+      "session_date": "2026-11-09",
+      "status": "failed",
+      "symbol": "6027.T"
+    },
+    {
+      "after_final_cutoff": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "http_status": 429,
+          "metadata_path": "raw/2026-11-09/4483.T/attempt-1.json",
+          "raw_path": "raw/2026-11-09/4483.T/attempt-1.body",
+          "reason": "http_error",
+          "received_at": "2026-11-09T09:26:38.511309+00:00",
+          "requested_at": "2026-11-09T09:26:38.480078+00:00",
+          "response_url": "https://query1.finance.yahoo.com/v8/finance/chart/4483.T?interval=5m&period1=1794150000&period2=1794236400&includePrePost=false&includeAdjustedClose=false",
+          "status": "failed"
+        },
+        {
+          "attempt": 2,
+          "http_status": 429,
+          "metadata_path": "raw/2026-11-09/4483.T/attempt-2.json",
+          "raw_path": "raw/2026-11-09/4483.T/attempt-2.body",
+          "reason": "http_error",
+          "received_at": "2026-11-09T09:26:38.548459+00:00",
+          "requested_at": "2026-11-09T09:26:38.511418+00:00",
+          "response_url": "https://query1.finance.yahoo.com/v8/finance/chart/4483.T?interval=5m&period1=1794150000&period2=1794236400&includePrePost=false&includeAdjustedClose=false",
+          "status": "failed"
+        }
+      ],
+      "csv_path": null,
+      "on_time": true,
+      "outside_target_day_rows": 0,
+      "reason": "http_error",
+      "received_at": "2026-11-09T09:26:38.548459+00:00",
+      "rows": 0,
+      "session_date": "2026-11-09",
+      "status": "failed",
+      "symbol": "4483.T"
+    },
+    {
+      "after_final_cutoff": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "http_status": 429,
+          "metadata_path": "raw/2026-11-09/247A.T/attempt-1.json",
+          "raw_path": "raw/2026-11-09/247A.T/attempt-1.body",
+          "reason": "http_error",
+          "received_at": "2026-11-09T09:26:38.580260+00:00",
+          "requested_at": "2026-11-09T09:26:38.548574+00:00",
+          "response_url": "https://query1.finance.yahoo.com/v8/finance/chart/247A.T?interval=5m&period1=1794150000&period2=1794236400&includePrePost=false&includeAdjustedClose=false",
+          "status": "failed"
+        },
+        {
+          "attempt": 2,
+          "http_status": 429,
+          "metadata_path": "raw/2026-11-09/247A.T/attempt-2.json",
+          "raw_path": "raw/2026-11-09/247A.T/attempt-2.body",
+          "reason": "http_error",
+          "received_at": "2026-11-09T09:26:38.618615+00:00",
+          "requested_at": "2026-11-09T09:26:38.580366+00:00",
+          "response_url": "https://query1.finance.yahoo.com/v8/finance/chart/247A.T?interval=5m&period1=1794150000&period2=1794236400&includePrePost=false&includeAdjustedClose=false",
+          "status": "failed"
+        }
+      ],
+      "csv_path": null,
+      "on_time": true,
+      "outside_target_day_rows": 0,
+      "reason": "http_error",
+      "received_at": "2026-11-09T09:26:38.618615+00:00",
+      "rows": 0,
+      "session_date": "2026-11-09",
+      "status": "failed",
+      "symbol": "247A.T"
+    },
+    {
+      "after_final_cutoff": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "http_status": 429,
+          "metadata_path": "raw/2026-11-09/6521.T/attempt-1.json",
+          "raw_path": "raw/2026-11-09/6521.T/attempt-1.body",
+          "reason": "http_error",
+          "received_at": "2026-11-09T09:26:38.661088+00:00",
+          "requested_at": "2026-11-09T09:26:38.618745+00:00",
+          "response_url": "https://query1.finance.yahoo.com/v8/finance/chart/6521.T?interval=5m&period1=1794150000&period2=1794236400&includePrePost=false&includeAdjustedClose=false",
+          "status": "failed"
+        },
+        {
+          "attempt": 2,
+          "http_status": 429,
+          "metadata_path": "raw/2026-11-09/6521.T/attempt-2.json",
+          "raw_path": "raw/2026-11-09/6521.T/attempt-2.body",
+          "reason": "http_error",
+          "received_at": "2026-11-09T09:26:38.692054+00:00",
+          "requested_at": "2026-11-09T09:26:38.661248+00:00",
+          "response_url": "https://query1.finance.yahoo.com/v8/finance/chart/6521.T?interval=5m&period1=1794150000&period2=1794236400&includePrePost=false&includeAdjustedClose=false",
+          "status": "failed"
+        }
+      ],
+      "csv_path": null,
+      "on_time": true,
+      "outside_target_day_rows": 0,
+      "reason": "http_error",
+      "received_at": "2026-11-09T09:26:38.692054+00:00",
+      "rows": 0,
+      "session_date": "2026-11-09",
+      "status": "failed",
+      "symbol": "6521.T"
+    },
+    {
+      "after_final_cutoff": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "http_status": 429,
+          "metadata_path": "raw/2026-11-09/3993.T/attempt-1.json",
+          "raw_path": "raw/2026-11-09/3993.T/attempt-1.body",
+          "reason": "http_error",
+          "received_at": "2026-11-09T09:26:38.721831+00:00",
+          "requested_at": "2026-11-09T09:26:38.692163+00:00",
+          "response_url": "https://query1.finance.yahoo.com/v8/finance/chart/3993.T?interval=5m&period1=1794150000&period2=1794236400&includePrePost=false&includeAdjustedClose=false",
+          "status": "failed"
+        },
+        {
+          "attempt": 2,
+          "http_status": 429,
+          "metadata_path": "raw/2026-11-09/3993.T/attempt-2.json",
+          "raw_path": "raw/2026-11-09/3993.T/attempt-2.body",
+          "reason": "http_error",
+          "received_at": "2026-11-09T09:26:38.761893+00:00",
+          "requested_at": "2026-11-09T09:26:38.721930+00:00",
+          "response_url": "https://query1.finance.yahoo.com/v8/finance/chart/3993.T?interval=5m&period1=1794150000&period2=1794236400&includePrePost=false&includeAdjustedClose=false",
+          "status": "failed"
+        }
+      ],
+      "csv_path": null,
+      "on_time": true,
+      "outside_target_day_rows": 0,
+      "reason": "http_error",
+      "received_at": "2026-11-09T09:26:38.761893+00:00",
+      "rows": 0,
+      "session_date": "2026-11-09",
+      "status": "failed",
+      "symbol": "3993.T"
+    }
+  ],
+  "requested_sessions": [
+    "2026-11-09"
+  ],
+  "schema_version": 1,
+  "sealed_with_implementation": {
+    "code_commit": "1fea66f15d3f91b934b49151ee3315c0c38972c6",
+    "module_sha256": {
+      "__init__.py": "d21ad35bde8526699e14ba442a33b8391f02d6a7795e2b32b603c166e773c148",
+      "__main__.py": "773a69abaa1abc7375ec23e6c409947d37dac264d342b5841b22775a202a8692",
+      "collector.py": "ed0bebacbc9ecd31a33ed6826a50013959c558c72d14aa41507c266dd2fe3569",
+      "evaluate.py": "5d5212b9524ffaabfddab8c0165e06077551f76db1c43e1f2542af4a86ce43ac",
+      "git_store.py": "4d78721b3cdfe9dbcccd46415ace1c25231d3cae7b59a4fb777f499fa7b8661c",
+      "protocol.py": "6682e644878950d43d08979edc1cc68bbe43ebbc7ad0736bb01859bc65d4b219",
+      "store.py": "9515bf01ddeabac2617dfd74b0a712cb2fa3b9d22f1121bce7d3af7b0a1c6bc3"
+    },
+    "packages": {
+      "curl_cffi": "0.17.0",
+      "numpy": "2.5.4",
+      "pandas": "3.1.0",
+      "yfinance": "1.7.0"
+    },
+    "platform": "Linux-7.0.0-1019-azure-x86_64-with-glibc2.43",
+    "python": "3.12.16 (main, Oct 26 2026, 02:48:44) [GCC 15.2.0]",
+    "registration_lock_sha256": "02c45aa661f59ee7ed5764b7b70f31b35636e9ab9620f4381475c26e34efcef4"
+  },
+  "started_at": "2026-11-09T09:26:34.784544+00:00",
+  "status": "failed",
+  "trigger": "automatic"
+}
