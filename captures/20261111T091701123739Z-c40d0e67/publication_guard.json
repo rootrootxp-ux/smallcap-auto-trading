@@ -1,0 +1,19 @@
+{
+  "allowed": true,
+  "blocked_runs": [],
+  "checked_at": "2026-11-11T09:16:59.764321+00:00",
+  "checked_attempts": [
+    {
+      "run_attempt": 1,
+      "run_id": "42593406361"
+    }
+  ],
+  "current_run_attempt": 1,
+  "current_run_id": "42993814252",
+  "evidence_version": "capture-transport-v2",
+  "github_requests": 3,
+  "provider_requests": 0,
+  "reason": "previous_publications_verified",
+  "repaired_attempts": [],
+  "repository": "rootrootxp-ux/smallcap-auto-trading"
+}
