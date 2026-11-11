@@ -1,0 +1,16 @@
+{
+  "change_is_post_launch": true,
+  "files": {
+    "__init__.py": "42934f61a1908001b129d6c57789f5d5178d0393c3e26a19935ad3dc19a84aa9",
+    "__main__.py": "f7eeb4550e195a6ab186387baf947af946c6734f41ae1c995f53d178848f148e",
+    "acquisition_policy.json": "d9cb609e579693dd1e85b57e14c4ec14aae8facc43e859ad144a7edd7f294efb",
+    "collector.py": "64fd99063f53cf6855a742ee4fc6d3dc468ec2f7d32e67c048480a753d60ad79",
+    "github_guard.py": "6dc556a17e9d43b42716a632e81613ed91998ef16649cbefe8cb936d15744e4b",
+    "policy.py": "79d3b5856e2e7706415b010f3237f4e0bf4f540976f57b10145fcf10b005fe67",
+    "rate_limit.py": "afb6c92151c5f21475b1f05c7e0fd063afd16897005160ed5c298fd36063400a"
+  },
+  "implementation_id": "yahoo-chart-paced-v2",
+  "locked_at": "2026-11-11T09:14:39.105292+00:00",
+  "research_conditions_changed": false,
+  "schema_version": 1
+}

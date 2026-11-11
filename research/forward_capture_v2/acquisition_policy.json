@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "version": 2,
+  "implementation_id": "yahoo-chart-paced-v2",
+  "data_source_id": "yahoo-chart-v8",
+  "endpoint": "https://query1.finance.yahoo.com/v8/finance/chart/",
+  "effective_at": "2026-11-11T09:14:39.105025+00:00",
+  "change_reason": "HTTP 429 incident: run 42593406361, first response already rate-limited; stop bursts and respect provider cooldown",
+  "incident_run_id": 42593406361,
+  "legacy_research_protocol_sha256": "fe3df5c0fc5d8beb336bcfe20d0c64b7fd3be010eacb5bf8c27735208fd45b89",
+  "legacy_registered_code_commit": "1fea66f15d3f91b934b49151ee3315c0c38972c6",
+  "research_conditions_changed": false,
+  "post_launch_acquisition_change": true,
+  "minimum_interval_seconds": 5,
+  "fallback_cooldown_seconds": 3600,
+  "backoff_base_seconds": 5,
+  "backoff_cap_seconds": 30,
+  "request_max_attempts": 2,
+  "request_timeout_seconds": 10,
+  "max_capture_seconds": 2700,
+  "probe_max_requests": 1,
+  "retryable_http_statuses": [
+    500,
+    502,
+    503,
+    504
+  ],
+  "global_stop_http_statuses": [
+    401,
+    403,
+    429
+  ],
+  "no_rate_limit_evasion": true,
+  "headers_recorded_not_interpreted": [
+    "x-ratelimit-*",
+    "ratelimit-* except standard Retry-After"
+  ],
+  "publication_failure_policy": "fail closed until prior missing evidence publication is repaired and auditable",
+  "limitations": [
+    "Pacing does not guarantee Yahoo availability or a quota reset.",
+    "No host/IP/User-Agent rotation, cookies or credential workaround.",
+    "A successful one-request probe does not establish sustained 50-symbol availability.",
+    "Alternative providers require explicit access/licensing verification; no automatic fallback."
+  ],
+  "drafted_at": "2026-11-09T10:06:57.968422+00:00"
+}
