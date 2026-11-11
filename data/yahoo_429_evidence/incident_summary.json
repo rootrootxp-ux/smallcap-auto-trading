@@ -109,8 +109,8 @@
   ],
   "redaction": "No credentials, cookies, authorization headers, runner addresses or absolute workspace paths are included. Public request origins and date-window parameters are retained.",
   "new_probe": {
-    "status": "not_run",
-    "result": null,
-    "note": "A separately authorized GitHub-hosted single diagnostic request may be run only after persistent cooldown. This document does not claim an outcome."
+    "status": "recorded_separately",
+    "result_path": "probe_result_20261111.json",
+    "note": "The Nov9 forensic measurements above use saved records only. The separate Nov11 diagnostic performed one request and received HTTP429."
   }
 }
