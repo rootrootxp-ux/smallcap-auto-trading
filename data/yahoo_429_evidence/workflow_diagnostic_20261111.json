@@ -1,0 +1,87 @@
+{
+  "schema_version": 1,
+  "checked_at_utc": "2026-11-11T09:15:30Z",
+  "repository": "rootrootxp-ux/smallcap-auto-trading",
+  "diagnostic_scope": "Read-only GitHub workflow/repository metadata and task operation record; no Yahoo requests",
+  "workflow": {
+    "id": 411041094,
+    "path": ".github/workflows/forward-event-study.yml",
+    "state": "disabled_manually",
+    "updated_at": "2026-11-09T09:59:57.000Z",
+    "source": "https://api.github.com/repos/rootrootxp-ux/smallcap-auto-trading/actions/workflows/411041094"
+  },
+  "pause_operation": {
+    "actor": "The agent responsible for this task",
+    "reason": "Prevent repeated legacy Yahoo HTTP 429 acquisition attempts",
+    "source": "Task operator's 2026-11-09 pause record, corroborated by disabled_manually metadata",
+    "restart_and_fix_completed_at_check": false
+  },
+  "repository_metadata": {
+    "default_branch": "main",
+    "visibility": "public",
+    "archived": false,
+    "source": "https://api.github.com/repos/rootrootxp-ux/smallcap-auto-trading"
+  },
+  "scheduled_history": {
+    "source": "https://api.github.com/repos/rootrootxp-ux/smallcap-auto-trading/actions/workflows/411041094/runs?event=schedule&per_page=100",
+    "runs": [
+      {
+        "id": 42593406361,
+        "created_at": "2026-11-09T09:26:12Z",
+        "event": "schedule",
+        "status": "completed",
+        "conclusion": "failure",
+        "head_sha": "8d8bd785a51d3ca48a1fd3873db808a103c46956",
+        "url": "https://github.com/rootrootxp-ux/smallcap-auto-trading/actions/runs/42593406361"
+      }
+    ],
+    "no_scheduled_run_dates_jst": ["2026-11-10", "2026-11-11"],
+    "missing_symbol_days_per_date": 50,
+    "interpretation": "Intentional task pause remained in effect while correction/restart was unfinished; retain missing observations"
+  },
+  "main_workflow_schedule": {
+    "collect_cron_utc": "15 8 * * 1-5",
+    "collect_time_jst": "17:15",
+    "evaluate_cron_utc": "0 10 * * 1-5",
+    "evaluate_time_jst": "19:00",
+    "source": "https://github.com/rootrootxp-ux/smallcap-auto-trading/blob/8d8bd785a51d3ca48a1fd3873db808a103c46956/.github/workflows/forward-event-study.yml"
+  },
+  "admin_settings_queries": [
+    {
+      "source": "https://api.github.com/repos/rootrootxp-ux/smallcap-auto-trading/actions/permissions",
+      "http_status": 403,
+      "settings_verified": false
+    },
+    {
+      "source": "https://api.github.com/repos/rootrootxp-ux/smallcap-auto-trading/actions/permissions/workflow",
+      "http_status": 403,
+      "settings_verified": false
+    }
+  ],
+  "nov9_schedule_delay": {
+    "scheduled_at_utc": "2026-11-09T08:15:00Z",
+    "run_created_at_utc": "2026-11-09T09:26:12Z",
+    "seconds": 4272,
+    "cause": "unverified",
+    "official_general_reference": "https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows#schedule",
+    "limitation": "General documented delay possibilities do not establish this run's cause"
+  },
+  "cache_and_archive_policy": {
+    "evaluation_reads_saved_archive_without_provider_requests": true,
+    "primary_selection": "Reuse the registered first eligible persistently published version; preserve revisions and late classifications",
+    "cooldown": "Reuse all stored restriction evidence, including unreceipted captures; a new run does not reset it",
+    "explicit_refetch": "Separate capture with actual acquisition version and timestamps; never overwrite prior data",
+    "automatic_bulk_backfill": false
+  },
+  "manual_probe": {
+    "status_at_check": "not_run",
+    "run_id": null,
+    "result": null,
+    "primary_input": false,
+    "future_result_location": "docs/yahoo_429_incident.md#診断プローブの実行結果今後追記"
+  },
+  "limitations": [
+    "The workflow's manual pause is confirmed; administrator settings remain unverified after HTTP 403",
+    "No provider availability, rate-limit expiry, or IP-related cause was established by this metadata audit"
+  ]
+}

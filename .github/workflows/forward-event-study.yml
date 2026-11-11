@@ -4,20 +4,27 @@ on:
   workflow_dispatch:
     inputs:
       mode:
-        description: 'preflight=取得なしの監査、collect=閉場後の保存、evaluate=期間終了前は進捗のみ'
+        description: 'preflight=取得なし、collect=保存、probe=手動1要求診断、evaluate=固定評価'
         type: choice
         default: preflight
         required: true
         options:
           - preflight
           - collect
+          - probe
           - evaluate
+      session_date:
+        description: '任意の対象営業日 YYYY-MM-DD（空欄は当日。固定期間・閉場後条件をCLIで検証）'
+        type: string
+        default: ''
+        required: false
   pull_request:
     paths:
       - 'research/forward_study/**'
+      - 'research/forward_capture_v2/**'
       - 'tests/**'
       - 'requirements.txt'
-      - 'docs/forward_study.md'
+      - 'docs/**'
       - '.github/workflows/forward-event-study.yml'
   schedule:
     - cron: '15 8 * * 1-5' # 17:15 JST: collect only frozen protocol sessions.
@@ -36,6 +43,7 @@ env:
   TZ: Asia/Tokyo
   PYTHONHASHSEED: '0'
   FORWARD_CODE_REF: '1fea66f15d3f91b934b49151ee3315c0c38972c6'
+  FORWARD_CAPTURE_CODE_REF: '9f4173c447f291b1a05183c322ee99b92c92c1b7'
   FORWARD_DATA_BRANCH: data/forward-event-study-v1
 
 jobs:
@@ -81,20 +89,22 @@ jobs:
     timeout-minutes: 60
     permissions:
       contents: write
+      actions: read
     env:
       FORWARD_STORE: /tmp/forward-capture-store-${{ github.run_id }}-${{ github.run_attempt }}
       FORWARD_OUTPUT: /tmp/forward-capture-output-${{ github.run_id }}-${{ github.run_attempt }}
+      SESSION_DATE: ${{ inputs.session_date }}
     steps:
       - name: Require an immutable code commit
         run: |
           python - <<'PY'
           import os, re
-          if not re.fullmatch(r'[0-9a-f]{40}', os.environ['FORWARD_CODE_REF']):
-              raise SystemExit('The forward-study code commit must be pinned before production collection')
+          if not re.fullmatch(r'[0-9a-f]{40}', os.environ['FORWARD_CAPTURE_CODE_REF']):
+              raise SystemExit('The capture-v2 code commit must be pinned before production collection')
           PY
       - uses: actions/checkout@v4
         with:
-          ref: ${{ env.FORWARD_CODE_REF }}
+          ref: ${{ env.FORWARD_CAPTURE_CODE_REF }}
           fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
@@ -107,19 +117,27 @@ jobs:
         id: calendar
         run: |
           python - <<'PY'
-          from datetime import datetime, time
+          from datetime import date, datetime, time
           import json, os, subprocess
           from pathlib import Path
           from zoneinfo import ZoneInfo
           from research.forward_study.protocol import load_protocol
-          if subprocess.check_output(['git', 'rev-parse', 'HEAD'], text=True).strip() != os.environ['FORWARD_CODE_REF']:
+          if subprocess.check_output(['git', 'rev-parse', 'HEAD'], text=True).strip() != os.environ['FORWARD_CAPTURE_CODE_REF']:
               raise SystemExit('Production checkout differs from the frozen code commit')
           protocol = load_protocol()
           now = datetime.now(ZoneInfo(protocol['timezone']))
-          ready = (now.date().isoformat() in protocol['sessions']
-                   and now.time().replace(tzinfo=None) >= time.fromisoformat(protocol['capture_not_before_local']))
+          requested = os.environ.get('SESSION_DATE', '')
+          day = date.fromisoformat(requested) if requested else now.date()
+          if requested and day.isoformat() != requested:
+              raise SystemExit('session_date must be exactly YYYY-MM-DD')
+          automatic_ready = (day.isoformat() in protocol['sessions'] and day <= now.date()
+                             and (day < now.date() or now.time().replace(tzinfo=None) >= time.fromisoformat(protocol['capture_not_before_local'])))
+          # Explicit dates go to the capture-v2 CLI for semantic validation;
+          # its fixed-session/closed-day checks reject invalid dates before HTTP.
+          ready = bool(requested) or automatic_ready
           result = {'ready': ready, 'observed_at': now.isoformat(),
-                    'reason': 'frozen_session_after_capture_time' if ready else 'outside_frozen_session_or_before_capture_time'}
+                    'reason': ('manual_date_requires_capture_v2_validation' if requested else
+                               'frozen_session_after_capture_time' if ready else 'outside_frozen_session_or_before_capture_time')}
           output = Path(os.environ['FORWARD_OUTPUT'])
           output.mkdir(parents=True, exist_ok=True)
           (output / 'calendar.json').write_text(json.dumps(result, indent=2) + '\n')
@@ -138,11 +156,34 @@ jobs:
           result = checkout_store(Path.cwd(), Path(os.environ['FORWARD_STORE']))
           (Path(os.environ['FORWARD_OUTPUT']) / 'checkout.json').write_text(json.dumps(result, indent=2) + '\n')
           PY
-      - name: Capture raw responses without evaluating returns
-        id: capture
+      - name: Guard previous Yahoo attempts against unpersisted publication
+        id: guard
         if: steps.calendar.outputs.ready == 'true' && steps.store.outcome == 'success'
         continue-on-error: true
-        run: python -u -m research.forward_study collect --store "$FORWARD_STORE" --output "$FORWARD_OUTPUT/collection"
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          from research.forward_capture_v2.github_guard import guard_previous_publications
+          result = guard_previous_publications(
+              Path(os.environ['FORWARD_STORE']), os.environ['GITHUB_REPOSITORY'],
+              os.environ['GITHUB_RUN_ID'], int(os.environ['GITHUB_RUN_ATTEMPT']))
+          (Path(os.environ['FORWARD_OUTPUT']) / 'guard.json').write_text(json.dumps(result, indent=2) + '\n')
+          with open(os.environ['GITHUB_OUTPUT'], 'a') as stream:
+              stream.write('allowed=' + str(result.get('allowed') is True).lower() + '\n')
+          if result.get('allowed') is not True:
+              raise SystemExit('Previous Yahoo request evidence is not durably published; quote requests blocked')
+          PY
+      - name: Capture raw responses without evaluating returns
+        id: capture
+        if: steps.calendar.outputs.ready == 'true' && steps.guard.outcome == 'success' && steps.guard.outputs.allowed == 'true'
+        continue-on-error: true
+        run: |
+          args=()
+          if [ -n "$SESSION_DATE" ]; then args+=(--date "$SESSION_DATE"); fi
+          python -u -m research.forward_capture_v2 collect --store "$FORWARD_STORE" --output "$FORWARD_OUTPUT/collection" --guard-report "$FORWARD_OUTPUT/guard.json" "${args[@]}"
       - name: Audit sealed captures even after partial collection or failure
         id: audit
         if: always() && steps.calendar.outputs.ready == 'true' && steps.store.outcome == 'success'
@@ -183,6 +224,7 @@ jobs:
           CALENDAR_OUTCOME: ${{ steps.calendar.outcome }}
           CALENDAR_READY: ${{ steps.calendar.outputs.ready }}
           STORE_OUTCOME: ${{ steps.store.outcome }}
+          GUARD_OUTCOME: ${{ steps.guard.outcome }}
           CAPTURE_OUTCOME: ${{ steps.capture.outcome }}
           AUDIT_OUTCOME: ${{ steps.audit.outcome }}
           PUBLISH_OUTCOME: ${{ steps.publish.outcome }}
@@ -192,10 +234,145 @@ jobs:
           if os.environ['CALENDAR_OUTCOME'] != 'success':
               raise SystemExit('Collection preconditions failed')
           if os.environ['CALENDAR_READY'] == 'true':
-              failed = [name for name in ('STORE_OUTCOME', 'CAPTURE_OUTCOME', 'AUDIT_OUTCOME', 'PUBLISH_OUTCOME')
+              failed = [name for name in ('STORE_OUTCOME', 'GUARD_OUTCOME', 'CAPTURE_OUTCOME', 'AUDIT_OUTCOME', 'PUBLISH_OUTCOME')
                         if os.environ[name] != 'success']
               if failed:
                   raise SystemExit('Collection/publication failed; preserved evidence remains downloadable: ' + ', '.join(failed))
+          PY
+
+  probe:
+    # Explicit manual diagnostic only; never runs for pull requests or schedules.
+    # The workflow is kept paused until the operator briefly enables this mode.
+    if: github.event_name == 'workflow_dispatch' && inputs.mode == 'probe'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: write
+      actions: read
+    env:
+      FORWARD_STORE: /tmp/forward-probe-store-${{ github.run_id }}-${{ github.run_attempt }}
+      FORWARD_OUTPUT: /tmp/forward-probe-output-${{ github.run_id }}-${{ github.run_attempt }}
+      SESSION_DATE: ${{ inputs.session_date }}
+    steps:
+      - name: Require an immutable capture-v2 code commit
+        run: |
+          python - <<'PY'
+          import os, re
+          if not re.fullmatch(r'[0-9a-f]{40}', os.environ['FORWARD_CAPTURE_CODE_REF']):
+              raise SystemExit('The capture-v2 code commit must be pinned before a manual probe')
+          PY
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ env.FORWARD_CAPTURE_CODE_REF }}
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: research/forward_study/frozen/requirements.txt
+      - name: Install fixed dependencies
+        run: python -m pip install -r research/forward_study/frozen/requirements.txt
+      - name: Verify pinned probe code and prepare audit output
+        id: prepare
+        run: |
+          python - <<'PY'
+          from datetime import date
+          import os, subprocess
+          from pathlib import Path
+          if subprocess.check_output(['git', 'rev-parse', 'HEAD'], text=True).strip() != os.environ['FORWARD_CAPTURE_CODE_REF']:
+              raise SystemExit('Probe checkout differs from the frozen capture-v2 code commit')
+          requested = os.environ.get('SESSION_DATE', '')
+          if requested and date.fromisoformat(requested).isoformat() != requested:
+              raise SystemExit('session_date must be exactly YYYY-MM-DD')
+          Path(os.environ['FORWARD_OUTPUT']).mkdir(parents=True, exist_ok=True)
+          PY
+      - name: Read append-only data branch into a separate worktree
+        id: store
+        run: |
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          from research.forward_study.git_store import checkout_store
+          result = checkout_store(Path.cwd(), Path(os.environ['FORWARD_STORE']))
+          (Path(os.environ['FORWARD_OUTPUT']) / 'checkout.json').write_text(json.dumps(result, indent=2) + '\n')
+          PY
+      - name: Guard previous Yahoo attempts against unpersisted publication
+        id: guard
+        if: steps.store.outcome == 'success'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          from research.forward_capture_v2.github_guard import guard_previous_publications
+          result = guard_previous_publications(
+              Path(os.environ['FORWARD_STORE']), os.environ['GITHUB_REPOSITORY'],
+              os.environ['GITHUB_RUN_ID'], int(os.environ['GITHUB_RUN_ATTEMPT']))
+          (Path(os.environ['FORWARD_OUTPUT']) / 'guard.json').write_text(json.dumps(result, indent=2) + '\n')
+          with open(os.environ['GITHUB_OUTPUT'], 'a') as stream:
+              stream.write('allowed=' + str(result.get('allowed') is True).lower() + '\n')
+          if result.get('allowed') is not True:
+              raise SystemExit('Previous Yahoo request evidence is not durably published; probe blocked')
+          PY
+      - name: Single raw-only Yahoo probe (no primary CSV)
+        id: capture
+        if: steps.guard.outcome == 'success' && steps.guard.outputs.allowed == 'true'
+        continue-on-error: true
+        run: |
+          args=()
+          if [ -n "$SESSION_DATE" ]; then args+=(--date "$SESSION_DATE"); fi
+          python -u -m research.forward_capture_v2 probe --store "$FORWARD_STORE" --output "$FORWARD_OUTPUT/probe" --guard-report "$FORWARD_OUTPUT/guard.json" "${args[@]}"
+      - name: Audit sealed diagnostic evidence even after a probe failure
+        id: audit
+        if: always() && steps.store.outcome == 'success'
+        run: python -m research.forward_study audit --store "$FORWARD_STORE" --output "$FORWARD_OUTPUT/audit-before-publication"
+      - name: Publish new immutable files and acknowledged publication receipts
+        id: publish
+        if: always() && steps.audit.outcome == 'success'
+        run: |
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          from research.forward_study.git_store import publish_store
+          store = Path(os.environ['FORWARD_STORE'])
+          capture_ids = sorted(path.parent.name for path in (store / 'captures').glob('*/manifest.json'))
+          result = publish_store(store, capture_ids)
+          (Path(os.environ['FORWARD_OUTPUT']) / 'publication.json').write_text(json.dumps(result, indent=2) + '\n')
+          print(json.dumps(result))
+          PY
+      - name: Raw-only probe and persistence audit artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: forward-probe-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            ${{ env.FORWARD_OUTPUT }}/
+            ${{ env.FORWARD_STORE }}/protocol.json
+            ${{ env.FORWARD_STORE }}/.gitattributes
+            ${{ env.FORWARD_STORE }}/captures/
+            ${{ env.FORWARD_STORE }}/receipts/
+          include-hidden-files: true
+          if-no-files-found: warn
+          retention-days: 90
+      - name: Fail on blocked probe, critical error, or failed publication
+        if: always()
+        env:
+          PREPARE_OUTCOME: ${{ steps.prepare.outcome }}
+          STORE_OUTCOME: ${{ steps.store.outcome }}
+          GUARD_OUTCOME: ${{ steps.guard.outcome }}
+          CAPTURE_OUTCOME: ${{ steps.capture.outcome }}
+          AUDIT_OUTCOME: ${{ steps.audit.outcome }}
+          PUBLISH_OUTCOME: ${{ steps.publish.outcome }}
+        run: |
+          python - <<'PY'
+          import os
+          names = ('PREPARE_OUTCOME', 'STORE_OUTCOME', 'GUARD_OUTCOME',
+                   'CAPTURE_OUTCOME', 'AUDIT_OUTCOME', 'PUBLISH_OUTCOME')
+          failed = [name for name in names if os.environ[name] != 'success']
+          if failed:
+              raise SystemExit('Probe blocked or failed; preserved evidence remains downloadable: ' + ', '.join(failed))
           PY
 
   evaluate:

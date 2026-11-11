@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "run_url": "https://github.com/rootrootxp-ux/smallcap-auto-trading/actions/runs/42993814252",
+  "run_conclusion": "success",
+  "price_acquisition_succeeded": false,
+  "source": "yahoo-chart-v8",
+  "code_commit": "9f4173c447f291b1a05183c322ee99b92c92c1b7",
+  "policy_sha256": "d9cb609e579693dd1e85b57e14c4ec14aae8facc43e859ad144a7edd7f294efb",
+  "capture_id": "20261111T091701123739Z-c40d0e67",
+  "manifest_sha256": "b3b24d2dad6df231b803f8637079c5ad39352e9e5f8f7b9fce46587f21c90ef6",
+  "symbol": "3905.T",
+  "session_date": "2026-11-09",
+  "interval": "5m",
+  "actual_provider_requests": 1,
+  "http_status_counts": {
+    "429": 1
+  },
+  "successful_symbols": 0,
+  "derived_csv_count": 0,
+  "primary_added": 0,
+  "probe_result": "rate_limited",
+  "requested_at": "2026-11-11T09:17:01.154773+00:00",
+  "received_at": "2026-11-11T09:17:01.437772+00:00",
+  "response_headers": {
+    "cache-control": "no-store",
+    "content-length": "19",
+    "content-type": "text/html",
+    "date": "Wed, 11 Nov 2026 09:17:01 GMT",
+    "server": "ATS"
+  },
+  "raw_body": {
+    "bytes": 19,
+    "sha256": "1edef4f5a4b8726780da570619a5ffe0dd284a0096ea601b01bb8727f3f45757"
+  },
+  "blocked_until": "2026-11-11T10:17:01.437772+00:00",
+  "publication_commit": "8d5f90f0ca77ed06da87ed090945c2d2492cd351",
+  "receipt_commit": "94f7cd2ca029d7d9230fdf56d7e592f3301e6d28",
+  "published_at": "2026-11-11T09:17:04.644823+00:00",
+  "archive_audit": "verified",
+  "legacy_evidence_preserved": true,
+  "dispatch": {
+    "enabled_at": "2026-11-11T09:16:37.582327+00:00",
+    "branch": "fix/forward-yahoo-rate-limit",
+    "session_date": "2026-11-09",
+    "mode": "probe",
+    "run": {
+      "id": 42993814252,
+      "html_url": "https://github.com/rootrootxp-ux/smallcap-auto-trading/actions/runs/42993814252",
+      "status": "in_progress",
+      "head_sha": "3f6aabd3c5711eb69e6b01a0d1aabac354c5b7a4",
+      "created_at": "2026-11-11T09:16:40Z"
+    },
+    "disabled_at": "2026-11-11T09:16:47.494978+00:00",
+    "state_after": "disabled_manually"
+  },
+  "interpretation": "Successful diagnostic/persistence workflow; failed market data acquisition. No repeated Yahoo request or automatic fallback."
+}

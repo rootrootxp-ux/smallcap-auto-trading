@@ -1,0 +1,51 @@
+name: Yahoo capture v2 safety (no live quotes)
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'research/forward_capture_v2/**'
+      - 'research/forward_study/**'
+      - 'tests/**'
+      - 'requirements.txt'
+      - 'docs/**'
+      - '.github/workflows/forward-event-study.yml'
+      - '.github/workflows/yahoo-rate-limit-ci.yml'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: yahoo-rate-limit-ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  safety-tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      TZ: Asia/Tokyo
+      PYTHONHASHSEED: '0'
+      FORWARD_STORE: /tmp/yahoo-safety-store-${{ github.run_id }}-${{ github.run_attempt }}
+      FORWARD_OUTPUT: /tmp/yahoo-safety-output-${{ github.run_id }}-${{ github.run_attempt }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: research/forward_study/frozen/requirements.txt
+      - name: Install fixed dependencies
+        run: python -m pip install -r research/forward_study/frozen/requirements.txt
+      - name: All automated tests (mocked HTTP and local bare Git only)
+        run: python -m unittest discover -s tests -v
+      - name: Capture-v2 preflight (zero Yahoo requests and no data-branch writes)
+        run: python -m research.forward_capture_v2 preflight --store "$FORWARD_STORE" --output "$FORWARD_OUTPUT"
+      - name: Safety test and preflight artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: yahoo-rate-limit-ci-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ env.FORWARD_OUTPUT }}/
+          if-no-files-found: warn
+          retention-days: 90
