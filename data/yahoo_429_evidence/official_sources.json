@@ -1,0 +1,315 @@
+{
+  "schema_version": 1,
+  "research_date_utc": "2026-11-09",
+  "scope": "Official public product/specification/usage documents only. No price API fetch, new account, contract, payment or credentials used.",
+  "evidence_files_sha256": {
+    "jquants_retail": "820efcc070928507a242647f8d89ca0135dc2c90e7373d7ab6a54842c0ce90b1",
+    "quick": "22f1b68bb4fc69755413c3fad0a4c93489d80e2b0cf0f79cb60ff763dcec4ee7",
+    "jpx_pro_datacube": "f9127b76d6447f0a235139d6c1125b2ecf048a0664d809a450eed69fff6985a2"
+  },
+  "body_preservation": "Full fetched bodies remain outside Git in the investigation workspace. This small repository record preserves URLs, local body-save UTC, body hashes and short excerpts; it does not republish complete third-party websites.",
+  "sources": [
+    {
+      "provider": "jquants_retail",
+      "url": "https://jpx-jquants.com/ja/",
+      "http_status": 200,
+      "body_saved_at_utc": "2026-11-09T09:49:28.776612+00:00",
+      "body_sha256": "3b2a4d9384f19f9c9d5fa54a5e90bfe38fecb0684b39f1a47723220bf65e9ce0",
+      "body_bytes": 243391,
+      "excerpts": [
+        "株価 分足・ティック(2年間)",
+        "5,500円/月",
+        "¥1,650",
+        "月額（税込）"
+      ],
+      "qualification": []
+    },
+    {
+      "provider": "jquants_retail",
+      "url": "https://jpx-jquants.com/ja/spec/",
+      "http_status": 200,
+      "body_saved_at_utc": "2026-11-09T09:50:02.112021+00:00",
+      "body_sha256": "3edd2fad4514773d9158b3109e14643c8c95415793b928e2d2234b616a98971d",
+      "body_bytes": 172703,
+      "excerpts": [
+        "株価分足(/equities/bars/minute)",
+        "V1）は2026年6月1日に終了しました"
+      ],
+      "qualification": []
+    },
+    {
+      "provider": "jquants_retail",
+      "url": "https://jpx-jquants.com/ja/spec/eq-bars-minute.md",
+      "http_status": 200,
+      "body_saved_at_utc": "2026-11-09T09:50:27.344804+00:00",
+      "body_sha256": "d90d26e581f3429d2755f1e4eff1ff16cda0a752a8ee14d42d8fdc2b2efebe6e",
+      "body_bytes": 10000,
+      "excerpts": [
+        "1分単位の四本値（始値・高値・安値・終値）、出来高、売買代金のデータを提供します。",
+        "本APIは「株価 分足・ティック」アドオンのご契約により利用可能となります。ベースプランのみではご利用いただけません。",
+        "収録対象は東証上場の現物株です",
+        "その1分間に取引が存在しない時間帯のデータは返却値に含まれません。",
+        "四本値（`O`/`H`/`L`/`C`）は**調整前の価格**です"
+      ],
+      "qualification": []
+    },
+    {
+      "provider": "jquants_retail",
+      "url": "https://jpx-jquants.com/ja/spec/data-spec.md",
+      "http_status": 200,
+      "body_saved_at_utc": "2026-11-09T09:50:25.368672+00:00",
+      "body_sha256": "a9c767bbebac732e6da84ce97f3e6a621bacae36edac223c527d0c32984cd63e",
+      "body_bytes": 10150,
+      "excerpts": [
+        "株価分足",
+        "2年前まで"
+      ],
+      "qualification": []
+    },
+    {
+      "provider": "jquants_retail",
+      "url": "https://jpx-jquants.com/ja/spec/data-update.md",
+      "http_status": 200,
+      "body_saved_at_utc": "2026-11-09T09:50:25.282012+00:00",
+      "body_sha256": "123114b6df28b6653ab9a2e210a9db2d5893815f1c4226461b475f58f0bfbb72",
+      "body_bytes": 13044,
+      "excerpts": [
+        "| [株価分足](/ja/spec/eq-bars-minute)                              | 日次                                    | 16:30頃",
+        "記載の更新タイミングは更新時刻を確約するものではなく、実際は前後する可能性がございます。"
+      ],
+      "qualification": []
+    },
+    {
+      "provider": "jquants_retail",
+      "url": "https://jpx-jquants.com/ja/spec/rate-limits.md",
+      "http_status": 200,
+      "body_saved_at_utc": "2026-11-09T09:50:25.075648+00:00",
+      "body_sha256": "14d67e75b05202e99bd1cb02f6c7a38f2ff35e2cbb5a7f8d8bc5486b33ec722a",
+      "body_bytes": 4806,
+      "excerpts": [
+        "| **株価 分足・ティック**   | 60",
+        "APIキーを複数発行しても上限は増えません。"
+      ],
+      "qualification": []
+    },
+    {
+      "provider": "jquants_retail",
+      "url": "https://jpx-jquants.com/ja/help/plan",
+      "http_status": 200,
+      "body_saved_at_utc": "2026-11-09T09:50:48.259265+00:00",
+      "body_sha256": "279a36ac5d85a76d524e651c62bc7f9821e118be3595fbc9ef2658210fe3db76",
+      "body_bytes": 180175,
+      "excerpts": [
+        "アドオンプランのご利用には、ライトプラン以上のご利用が必要です。アドオンプラン単体でのご利用はできません。"
+      ],
+      "qualification": []
+    },
+    {
+      "provider": "jquants_retail",
+      "url": "https://jpx-jquants.com/ja/help/usage",
+      "http_status": 200,
+      "body_saved_at_utc": "2026-11-09T09:50:47.911269+00:00",
+      "body_sha256": "e8f4f0267bc17ff6d0c70e4a073c11910a6b9427a72946860afc7b397f402909",
+      "body_bytes": 182568,
+      "excerpts": [
+        "J-Quants APIは個人の方の私的利用に限定したサービスです。",
+        "取得したデータそのものを閲覧できる形で配布・シェアすることは禁止",
+        "ご本人のみが閲覧可能な状態であれば、ご本人が管理する外部クラウドへの保存も可能です。",
+        "サブスクリプションのキャンセルまたは退会後は、それまでに取得したデータおよびその複製物、ならびに元データを復元（リバースエンジニアリング）できる派生物をすべて削除していただく必要があります。"
+      ],
+      "qualification": []
+    },
+    {
+      "provider": "quick",
+      "url": "https://corporate.quick.co.jp/products/quick-apis/",
+      "http_status": 200,
+      "body_saved_at_utc": "2026-11-09T09:50:27.587593+00:00",
+      "body_sha256": "d4f38ee8bc7f5631c56a8f98a2e747570fa87d89548e5d9bce26e540660f075b",
+      "body_bytes": 63839,
+      "excerpts": [
+        "マーケットデータ 国内株式、海外株式、外国為替、国内外の上場デリバティブ、OTCデリバティブ、金利Fixing、国内債券、海外債券、指数、投資信託 / ヒストリカルデータ Tick、1分足、5分足、日足、週足、月足、年足",
+        "Web API形式でデータを取得、専用線またはインターネットのどちらもご利用可能です。データ形式は、「JSON」「CSV」「TSV」から選択していただけます。",
+        "Snowflakeの「MarketPlace （Private）」に対応、分析基盤へのデータ統合を加速",
+        "※ご利用に際しては、別途、データ利用料が必要となります。 / ※データのご利用について、情報提供元とお客さまとの間で直接契約が必要となる場合があります。",
+        "通常2週間～1カ月ほどで開発用の「ステージング環境」を提供します。その後、お客さま側での開発・テストが完了次第、本番用の「サービス環境」をご利用いただけます。",
+        "契約開始以降は断面情報を日次で蓄積するため、事後に過去データを参照するほか、監査対応などにもご活用いただけます。"
+      ],
+      "qualification": []
+    },
+    {
+      "provider": "jpx_pro_datacube",
+      "url": "https://www.jpx.co.jp/markets/other-data-services/j-quants-pro/index.html",
+      "http_status": 200,
+      "body_saved_at_utc": "2026-11-09T09:50:18.390724+00:00",
+      "body_sha256": "3a2dbfded582dd4d2d61f187b7bf6a20cd4b8fb01ca114c9637b10a06736db3a",
+      "body_bytes": 28013,
+      "excerpts": [
+        "J-Quants Proは、日本市場に関する多種多様なデータを豊富なヒストリカルデータと共にAPIやCSV、Snowflake経由で配信する、法人向けサービスです。",
+        "提供データや料金プラン、API等の仕様、ご利用お申込みについては、以下のリンクをご確認ください。"
+      ],
+      "qualification": [
+        "Corporate API/CSV/Snowflake product confirmed. Minute-bar product/schema/update/retention/fee not established by this general overview; do not assert them."
+      ]
+    },
+    {
+      "provider": "jpx_pro_datacube",
+      "url": "https://www.jpx.co.jp/markets/other-data-services/j-quants-datacube/index.html",
+      "http_status": 200,
+      "body_saved_at_utc": "2026-11-09T09:50:48.875258+00:00",
+      "body_sha256": "b0154ab8f9dcb600fe6c8f420056fd965456614a09fc5526be479a018b7c67a5",
+      "body_bytes": 28832,
+      "excerpts": [
+        "必要なデータを必要な時に必要な分だけ、用途に合わせてご購入いただける「買い切り型」サービスです。",
+        "歩み値（株式・CB・デリバティブ）",
+        "歩み値（ティック）を収録しています。"
+      ],
+      "qualification": [
+        "Official linked current portal is https://dc.jpx-jquants.com/ja; not the old db-ec hostname."
+      ]
+    },
+    {
+      "provider": "jpx_pro_datacube",
+      "url": "https://dc.jpx-jquants.com/ja",
+      "http_status": 200,
+      "body_saved_at_utc": "2026-11-09T09:51:08.582954+00:00",
+      "body_sha256": "c71039c39b4a41e2521c13bb0688c2e213484506053efe897ae86ba5be2b3f4e",
+      "body_bytes": 104737,
+      "excerpts": [
+        "東証 株式歩み値（ティック）",
+        "198202",
+        "（月単位）",
+        "歩み値（ティック）は日中の約定値段の推移を収録しています。",
+        "自己使用（個人）・学術利用：¥1,650（税込） / 自己使用（法人）：¥42,900（税込） / 外部配信：¥128,700（税込）"
+      ],
+      "qualification": [
+        "Prices transcribed from homepage display at retrieval; not a quotation or proof of entitlement for the fixed fifty symbols/date range.",
+        "Tick history from displayed 198202 monthly products confirmed; exact fields including trade volume, current-month release time and fixed50 coverage unverified because detail page returned WAF202.",
+        "Not a verified direct five-minute API or same-day17:15 fallback. Tick-to-bar derivation would need an independently specified aggregation and entitlement."
+      ]
+    },
+    {
+      "provider": "jpx_pro_datacube",
+      "url": "https://dc.jpx-jquants.com/ja/terms-of-service",
+      "http_status": 200,
+      "body_saved_at_utc": "2026-11-09T09:51:33.138590+00:00",
+      "body_sha256": "ad839ff9337dc50ba68f0f7493c343da0ecdbeec340c2b596b9253e99540e00e",
+      "body_bytes": 178618,
+      "excerpts": [
+        "本サービスは、事前にアカウントをご作成いただいたお客様のみご利用いただけます。",
+        "本契約が成立した後は、当社の責に帰すべき事由がある場合を除き、お客様都合で本契約を解約することはできません",
+        "例えば、本件情報をインターネット上で掲載するなど、不特定多数の第三者が使用できるようにする場合は、自己使用目的（個人）に該当しません。",
+        "情報をファイル形式でダウンロードできる機能を提供しないこと。"
+      ],
+      "qualification": [
+        "Account, application and payment required; no account created or contract executed.",
+        "Private/personal use and external distribution are different paid purposes. Public raw CSV publication cannot be assumed permitted, even from the word external-distribution; terms contain download restrictions.",
+        "Managed shared cloud use and a proposed data archive must be checked under the actual license."
+      ]
+    },
+    {
+      "provider": "jpx_pro_datacube",
+      "url": "https://www.jpx.co.jp/markets/paid-info-equities/historical/01.html",
+      "http_status": 200,
+      "body_saved_at_utc": "2026-11-09T09:49:36.800467+00:00",
+      "body_sha256": "a0047a0930bc8fa4fea43f07a39b58673d692b692f55476cdd4b16f28ac10897",
+      "body_bytes": 47523,
+      "excerpts": [
+        "東証上場現物株式及びCB（Standard版・MBO版をそれぞれ提供）。",
+        "当日ファイルのアップデートタイミング 24時",
+        "2011年1月11日以降のデータを提供可能です。2010年1月4日からサービス開始日までのデータは参考情報としてアクセス可能ですが、一部データの欠落が発生しています。",
+        "通常サービス 直近30日分のデータを提供します。",
+        "全期間データサービス 過去全期間分のデータを提供します。",
+        "通常サービス：HTTPS通信を用いたAPIによるファイル転送",
+        "全期間データサービス・スポットデータサービス：AWS上のストレージサービス（S3）間でのファイル転送",
+        "当サービスの利用に関する申込みを行い、契約を締結する必要があります。"
+      ],
+      "qualification": [
+        "FLEX tick/market-message historical service, not a ready five-minute OHLCV endpoint. Independent reconstruction required.",
+        "24:00 file update misses same-day17:15/18:30 protocol timing; cannot silently relabel as on-time collection.",
+        "Paid contract and redistribution permissions required; do not infer public-cloud publication authorization from S3 delivery."
+      ]
+    }
+  ],
+  "confirmed": {
+    "jquants_retail": {
+      "japanese_stock_intraday": "One-minute unadjusted OHLC, shares volume and yen turnover for TSE-listed cash equities; may aggregate observed minute bars into 5-minute bars, but must predefine session/auction/no-trade handling.",
+      "coverage": "TSE ordinary shares plus ETF/ETN/REIT/TSE foreign shares. No regional-exchange-only stocks, PTS, futures/options/index minute data. Delisted history included within retention while listed.",
+      "history": "2 years for minute/tick add-on, independent of longer daily-data base plan history; newly listed issues only since TSE listing.",
+      "availability": "Daily about16:30JST; not a live minute feed, no guaranteed exact update time and no data-available-at per observation.",
+      "access": "API key and paid Light/Standard/Premium base plan plus minute/tick add-on; CSV download also documented; no use/account/contract attempted.",
+      "published_price": "Current homepage: Light1,650JPY/month; stock-minute/tick add-on5,500JPY/month. Displayed monthly sum7,150JPY. No price inferred for corporate licensing or existing user terms.",
+      "rate": "Minute/tick add-on60requests/min, account-wide; multiple keys do not multiply limits. Official429 guidance wait>=1minute (about2minutes forcertainty); no requests were made to the priceAPI.",
+      "license_cloud": "Personal private use only; third-party raw-data sharing prohibited. Cloud storage allowed only when solely the individual can view it and access is controlled. Delete originals, copies and reconstructable derivatives after cancellation/downgrade.",
+      "limitations": "Official page states no-trade minutes are omitted; 09:00 opening bar is not guaranteed, 11:30/15:30 auctions may create equal-OHLC bars, generally15:24 then15:30. Data may be corrected without supplying previous versions."
+    },
+    "quick": [
+      {
+        "topic": "Japanese equities and bar intervals",
+        "excerpt": "マーケットデータ 国内株式、海外株式、外国為替、国内外の上場デリバティブ、OTCデリバティブ、金利Fixing、国内債券、海外債券、指数、投資信託 / ヒストリカルデータ Tick、1分足、5分足、日足、週足、月足、年足",
+        "qualification": "These appear in adjacent service-category rows; per-instrument coverage and exact OHLCV schema still require the service specification."
+      },
+      {
+        "topic": "Access format",
+        "excerpt": "Web API形式でデータを取得、専用線またはインターネットのどちらもご利用可能です。データ形式は、「JSON」「CSV」「TSV」から選択していただけます。"
+      },
+      {
+        "topic": "Cloud offering",
+        "excerpt": "Snowflakeの「MarketPlace （Private）」に対応、分析基盤へのデータ統合を加速",
+        "qualification": "A supported cloud offering does not establish this project's permission to store data in GitHub Actions/artifacts or redistribute the original CSV."
+      },
+      {
+        "topic": "Fees and data-provider contract",
+        "excerpt": "※ご利用に際しては、別途、データ利用料が必要となります。 / ※データのご利用について、情報提供元とお客さまとの間で直接契約が必要となる場合があります。"
+      },
+      {
+        "topic": "Onboarding lead time",
+        "excerpt": "通常2週間～1カ月ほどで開発用の「ステージング環境」を提供します。その後、お客さま側での開発・テストが完了次第、本番用の「サービス環境」をご利用いただけます。"
+      },
+      {
+        "topic": "Historical snapshots beyond a missed request",
+        "excerpt": "契約開始以降は断面情報を日次で蓄積するため、事後に過去データを参照するほか、監査対応などにもご活用いただけます。",
+        "qualification": "This describes contracted fixed-time snapshots, not a stated retention period for stock 1min/5min OHLCV."
+      }
+    ]
+  },
+  "unverified": {
+    "jquants_retail": [
+      "User already holds an eligible active contract/add-on/API key.",
+      "Permission for this exact sharedcloud/GitHub Actions exposure, public archive/artifact/rawCSV distribution and permanent append-only retention; no automatic assumption of compatibility.",
+      "Full50ticker coverage/actual retainedNov9 bars, completeness or matchingprices; no priceAPI called.",
+      "Any SLA or execution/borrow/tradability guarantee."
+    ],
+    "quick": [
+      "Exact availability of all fixed 50 TSE individual-stock symbols",
+      "Whether volume is supplied with the 1min/5min stock bars and the exact corporate-action/session conventions",
+      "Live/delayed/EOD status and the earliest finalized availability for a 17:15 JST collection",
+      "Historical stock-bar coverage start/end, retention period, and retrieval limits",
+      "Numeric service/data fee, exchange charges, current contract/account availability",
+      "Permission for GitHub-hosted cloud processing, persistent original CSV storage, output artifacts and redistribution under the user's existing license"
+    ]
+  },
+  "access_limitations": [
+    {
+      "url": "https://db-ec.jpx.co.jp/",
+      "headers_file": "jpx-datacube.headers",
+      "final_recorded_http_status": 403,
+      "headers_sha256": "c468c4e89571f23166c90b3e7098de643f73c3faf012a4fa74ae3d46e2472080",
+      "note": "No workaround attempted. Old-host proxy403 or current-portal WAF202 prevented detail verification."
+    },
+    {
+      "url": "https://dc.jpx-jquants.com/ja/product",
+      "headers_file": "datacube-products.headers",
+      "final_recorded_http_status": 202,
+      "headers_sha256": "a367db849fa4119e408f63ba91a5da18e93f258c618eecc4966e047570f1c1e9",
+      "note": "No workaround attempted. Old-host proxy403 or current-portal WAF202 prevented detail verification."
+    },
+    {
+      "url": "https://dc.jpx-jquants.com/ja/product/stock_tick_YYYYMM",
+      "headers_file": "datacube-stock-tick.headers",
+      "final_recorded_http_status": 202,
+      "headers_sha256": "d178286d8ae5daeae93e29d5d12fb78e5f04c734b14687acfb7ec9a82db9b96d",
+      "note": "No workaround attempted. Old-host proxy403 or current-portal WAF202 prevented detail verification."
+    }
+  ],
+  "decision": "No current, legally verified entitlement for a drop-in source was established. Do not auto-connect, create an account, buy data, change the fixed protocol, or publish third-party raw prices."
+}

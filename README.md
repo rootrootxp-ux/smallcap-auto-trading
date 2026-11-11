@@ -179,3 +179,8 @@ Actionsの `simulation_model=portfolio` で、現物買い専用の共有口座�
 開始前・途中は原則カバレッジ監査のみで、既存の研究価格や共有資金処理には混ぜません。
 [取得・監査・評価と定期実行の有効化](docs/forward_study.md)、
 [8月28日〜9月7日の事後的参考検証](docs/forward_posthoc_reference.md) を参照してください。
+
+11月9日のHTTP 429を受け、旧自動取得workflowは一時停止中です。
+[原因・取得方式v2・再開条件](docs/yahoo_429_incident.md)、
+[代替データ源の仕様と利用条件](docs/market_data_sources.md) を参照してください。
+研究条件と初回欠測は保持し、429後の連続要求や自動的なデータ源切替は行いません。

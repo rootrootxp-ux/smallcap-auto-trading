@@ -1,0 +1,116 @@
+{
+  "schema_version": 1,
+  "scope": "Sanitized summary of already saved capture artifacts; no new Yahoo request was made for this forensic document.",
+  "source_forensics_sha256": "b3787cc4546a28cfe283274032ed2a003cea8cf6a04158c3bd00ecae08b03045",
+  "source_basename": "run-42593406361/forensics.json",
+  "run_url": "https://github.com/rootrootxp-ux/smallcap-auto-trading/actions/runs/42593406361",
+  "measurements": {
+    "symbols": 50,
+    "request_count": 100,
+    "http_status_counts": {
+      "429": 100
+    },
+    "record_status_counts": {
+      "failed": 50
+    },
+    "batch_requested_to_last_received_seconds": 3.964825,
+    "capture_start_to_complete_seconds": 3.97745,
+    "request_durations_seconds": {
+      "n": 100,
+      "min": 0.028314,
+      "median": 0.0346835,
+      "p95_linear": 0.0452219,
+      "max": 0.393164
+    },
+    "retry_wait_after_first_response_seconds": {
+      "n": 50,
+      "min": 9.2e-05,
+      "median": 0.000102,
+      "p95_linear": 0.00014925,
+      "max": 0.000169
+    },
+    "retry_start_spacing_seconds": {
+      "n": 50,
+      "min": 0.028406,
+      "median": 0.033293500000000004,
+      "p95_linear": 0.05317315000000001,
+      "max": 0.393288
+    },
+    "consecutive_request_start_spacing_seconds": {
+      "n": 99,
+      "min": 0.028406,
+      "median": 0.034774,
+      "p95_linear": 0.0454348,
+      "max": 0.393288
+    },
+    "body_hash_counts": {
+      "1edef4f5a4b8726780da570619a5ffe0dd284a0096ea601b01bb8727f3f45757": 100
+    },
+    "body_snippets": [
+      "Too Many Requests\r\n"
+    ],
+    "saved_header_names": [
+      "cache-control",
+      "content-length",
+      "content-type",
+      "date",
+      "server"
+    ],
+    "retry_after_present_count": 0,
+    "rate_related_saved_headers": [],
+    "request_origins_paths": [
+      "https://query1.finance.yahoo.com/v8/finance/chart/<symbol>"
+    ],
+    "request_parameter_sets": [
+      "{\"includeAdjustedClose\": \"false\", \"includePrePost\": \"false\", \"interval\": \"5m\", \"period1\": 1794150000, \"period2\": 1794236400}"
+    ],
+    "response_url_matches_request_parameters": true,
+    "derived_csv_paths": 0,
+    "code_pin": "1fea66f15d3f91b934b49151ee3315c0c38972c6",
+    "run_id": 42593406361,
+    "workflow_main_commit": "8d8bd785a51d3ca48a1fd3873db808a103c46956",
+    "run_created_at": "2026-11-09T09:26:12Z",
+    "scheduled_utc": "2026-11-09T08:15:00Z",
+    "schedule_to_run_created_seconds": 4272,
+    "verified_capture_files": 200,
+    "manifest_sha256": "31e97358821430827a052ae05524be9a08f0a341f962df213f6adedce03cc3bc",
+    "publication_commit": "7627e409b515df3f064124b9803019b026f00141",
+    "receipt_commit_and_confirmed_remote_head": "dd817dafe2c539b1f9b43cf85831182986585712",
+    "published_at": "2026-11-09T09:26:40.890428+00:00",
+    "primary_records": 0,
+    "nov9_missing_symbol_days": 50,
+    "limit_expiry": "unknown: no saved Retry-After/Expires; Date is not an expiry",
+    "unproven_cause": "No evidence establishes IP-based blocking or the cause of the first 429",
+    "header_capture_limitations": "Original allowlist includes retry-after and expires but excludes x-ratelimit fields; their upstream absence cannot be inferred",
+    "additional_yahoo_requests_in_forensics": 0
+  },
+  "first_request": {
+    "symbol": "3905.T",
+    "attempt": 1,
+    "http_status": 429,
+    "requested_at": "2026-11-09T09:26:34.797068+00:00",
+    "received_at": "2026-11-09T09:26:35.190232+00:00",
+    "status": "failed",
+    "reason": "http_error"
+  },
+  "last_request": {
+    "attempt": 2,
+    "http_status": 429,
+    "requested_at": "2026-11-09T09:26:38.721930+00:00",
+    "received_at": "2026-11-09T09:26:38.761893+00:00",
+    "status": "failed",
+    "reason": "http_error"
+  },
+  "interpretation_limits": [
+    "The first request was already HTTP429, so this batch alone does not establish why the first429 occurred.",
+    "The near-immediate retries and later requests amplified traffic after an explicit rate-limit response.",
+    "No evidence identifies an IP-specific restriction or a provider release time. The HTTP Date header is not an expiry.",
+    "Retry-After/Expires were in the old allowlist but have no saved values. x-ratelimit fields were outside the allowlist, so upstream absence is unknown."
+  ],
+  "redaction": "No credentials, cookies, authorization headers, runner addresses or absolute workspace paths are included. Public request origins and date-window parameters are retained.",
+  "new_probe": {
+    "status": "not_run",
+    "result": null,
+    "note": "A separately authorized GitHub-hosted single diagnostic request may be run only after persistent cooldown. This document does not claim an outcome."
+  }
+}
