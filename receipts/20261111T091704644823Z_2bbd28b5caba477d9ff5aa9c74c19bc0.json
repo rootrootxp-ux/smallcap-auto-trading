@@ -1,0 +1,25 @@
+{
+  "capture_ids": [
+    "20261111T091701123739Z-c40d0e67"
+  ],
+  "captures": [
+    {
+      "capture_id": "20261111T091701123739Z-c40d0e67",
+      "manifest_sha256": "b3b24d2dad6df231b803f8637079c5ad39352e9e5f8f7b9fce46587f21c90ef6"
+    }
+  ],
+  "experiment_id": "forward-short-events-20261109-v1",
+  "protocol_sha256": "fe3df5c0fc5d8beb336bcfe20d0c64b7fd3be010eacb5bf8c27735208fd45b89",
+  "publication_commit": "8d5f90f0ca77ed06da87ed090945c2d2492cd351",
+  "published_at": "2026-11-11T09:17:04.644823+00:00",
+  "receipt_payload_sha256": "556d33b98f0f20fc1a65670a90488d7bbcf9dd172ccb6c8012dd4d691a901838",
+  "schema_version": 1,
+  "workflow_context": {
+    "GITHUB_EVENT_NAME": "workflow_dispatch",
+    "GITHUB_REPOSITORY": "rootrootxp-ux/smallcap-auto-trading",
+    "GITHUB_RUN_ATTEMPT": "1",
+    "GITHUB_RUN_ID": "42993814252",
+    "GITHUB_SHA": "3f6aabd3c5711eb69e6b01a0d1aabac354c5b7a4",
+    "GITHUB_WORKFLOW": "Forward Event Study (frozen protocol)"
+  }
+}
