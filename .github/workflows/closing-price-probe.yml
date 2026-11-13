@@ -1,0 +1,45 @@
+name: Close price probe (Yahoo Finance)
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'tools/closing_prices/**'
+      - '.github/workflows/closing-price-probe.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  price-probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      TZ: Asia/Tokyo
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - name: Install existing project requirements
+        run: python -m pip install -r requirements.txt
+      - name: Check extraction logic without network
+        run: python -m unittest discover -s tools/closing_prices -p 'test_*.py' -v
+      - name: Retrieve 15 stocks and two indices from yfinance
+        run: python tools/closing_prices/collect.py --output-dir results/closing_price_probe
+      - name: Show probe summary
+        if: always()
+        shell: bash
+        run: |
+          if test -f results/closing_price_probe/report.md; then
+            cat results/closing_price_probe/report.md >> "$GITHUB_STEP_SUMMARY"
+          fi
+      - name: Upload diagnostic CSV and status
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: closing-price-probe
+          path: results/closing_price_probe/
+          if-no-files-found: warn
+          retention-days: 14
